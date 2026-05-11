@@ -102,9 +102,9 @@
         "title": "Expected Goals xG - StatsBomb",
         "description": "Master-level notebook to build an Expected Goals model with StatsBomb Open Data, storytelling and advanced evaluation."
       },
-      "tfg-agentes-conversacionales-iatech": {
-        "title": "Conversational Agents Final Project - IATech",
-        "description": "Scalable and configurable architecture for conversational agents with generative AI for incident management."
+      "tfg-modulo-chatbots": {
+        "title": "Final Degree Project - Chatbots Module",
+        "description": "Final Degree Project focused on designing and developing a conversational agents/chatbots module."
       },
       "find-it": {
         "title": "FindIt",

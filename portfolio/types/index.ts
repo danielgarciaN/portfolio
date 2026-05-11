@@ -93,14 +93,14 @@ export interface ProjectResource {
   title: string;
   type: ProjectResourceType;
   description?: string;
-  url: string;
+  url?: string;
   action: ProjectResourceAction;
   available?: boolean;
 }
 
 export interface ProjectVideo {
   title: string;
-  type: 'local' | 'youtube' | 'external';
+  type: 'video' | 'youtube' | 'demo' | 'external';
   url: string;
   description?: string;
   poster?: string;

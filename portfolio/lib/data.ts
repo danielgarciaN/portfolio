@@ -24,10 +24,10 @@ export const fallbackProjects: Project[] = [
   },
   {
     id: '2',
-    title: 'TFG - Agentes Conversacionales IATech',
-    slug: 'tfg-agentes-conversacionales-iatech',
+    title: 'TFG - Modulo de Chatbots',
+    slug: 'tfg-modulo-chatbots',
     description:
-      'Arquitectura escalable y parametrizable de agentes conversacionales con IA generativa para la gestión de incidencias.',
+      'Proyecto de Trabajo Final de Grado centrado en el diseno y desarrollo de un modulo de agentes conversacionales/chatbots.',
     long_description:
       'Trabajo de Fin de Grado desarrollado en colaboración con Catalana Occident. El proyecto diseña una arquitectura de agentes conversacionales configurables, con flujos gestionados mediante estructuras clave-valor, validación mediante Proof of Concept e integración con IA generativa para asistir procesos de soporte e incidencias.',
     category: 'universidad',

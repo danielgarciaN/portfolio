@@ -1,9 +1,10 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowUpRight, ExternalLink, Github, ImageIcon } from 'lucide-react';
+import { ArrowUpRight, ExternalLink, FileText, Github, ImageIcon } from 'lucide-react';
 import { useI18n } from '@/lib/i18n';
 import type { Project, ProjectCategory } from '@/types';
 
@@ -41,8 +42,14 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
       initial={{ opacity: 0, y: 24 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, delay: index * 0.08 }}
-      className="card card-hover group flex flex-col"
+      className="card card-hover group relative flex flex-col"
     >
+      <Link
+        href={`/projects/${project.slug}`}
+        className="absolute inset-0 z-10 rounded-2xl"
+        aria-label={`Abrir dossier del proyecto: ${title}`}
+      />
+
       <div className="relative mb-4 aspect-video overflow-hidden rounded-lg border border-surface-200/70 bg-surface-100 dark:border-surface-800/70 dark:bg-surface-900">
         {showImage ? (
           <Image
@@ -74,12 +81,19 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
         </div>
 
         <div className="absolute inset-0 flex items-center justify-center gap-3 bg-surface-950/0 opacity-0 transition-all duration-300 group-hover:bg-surface-950/55 group-hover:opacity-100">
+          <Link
+            href={`/projects/${project.slug}`}
+            className="relative z-20 rounded-full bg-white p-2.5 text-surface-800 shadow-lg transition-transform hover:scale-110"
+            aria-label={`Abrir dossier: ${title}`}
+          >
+            <FileText className="h-4 w-4" />
+          </Link>
           {project.github_url && (
             <a
               href={project.github_url}
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-full bg-white p-2.5 text-surface-800 shadow-lg transition-transform hover:scale-110"
+              className="relative z-20 rounded-full bg-white p-2.5 text-surface-800 shadow-lg transition-transform hover:scale-110"
               aria-label={`${messages.projects.actions.github}: ${title}`}
             >
               <Github className="h-4 w-4" />
@@ -90,7 +104,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
               href={project.demo_url}
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-full bg-accent p-2.5 text-white shadow-lg transition-transform hover:scale-110 dark:text-surface-950"
+              className="relative z-20 rounded-full bg-accent p-2.5 text-white shadow-lg transition-transform hover:scale-110 dark:text-surface-950"
               aria-label={`${messages.projects.actions.demo}: ${title}`}
             >
               <ExternalLink className="h-4 w-4" />
@@ -104,17 +118,13 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
           <h3 className="text-base font-bold text-surface-800 dark:text-surface-100">
             {title}
           </h3>
-          {project.github_url && (
-            <a
-              href={project.github_url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="shrink-0 text-surface-400 transition-colors hover:text-accent"
-              aria-label={`${messages.projects.actions.openGithub}: ${title}`}
-            >
-              <ArrowUpRight className="h-4 w-4" />
-            </a>
-          )}
+          <Link
+            href={`/projects/${project.slug}`}
+            className="relative z-20 shrink-0 text-surface-400 transition-colors hover:text-accent"
+            aria-label={`Abrir dossier del proyecto: ${title}`}
+          >
+            <ArrowUpRight className="h-4 w-4" />
+          </Link>
         </div>
 
         <p className="mb-4 flex-1 text-sm leading-relaxed text-surface-500 dark:text-surface-400">
