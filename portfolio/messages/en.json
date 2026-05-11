@@ -1,0 +1,234 @@
+{
+  "metadata": {
+    "title": "Daniel García Nilo - Computer Engineering, Software & Data Science",
+    "description": "Professional portfolio of Daniel García Nilo, focused on software development, Data Science, artificial intelligence, backend and cloud."
+  },
+  "nav": {
+    "about": "About",
+    "skills": "Skills",
+    "projects": "Projects",
+    "experience": "Experience",
+    "contact": "Contact",
+    "theme": "Toggle theme",
+    "menu": "Menu",
+    "language": "Language",
+    "spanish": "Español",
+    "english": "English"
+  },
+  "hero": {
+    "badge": "Open to opportunities",
+    "name": "Daniel García Nilo",
+    "title": "Computer Engineering - Software, Data Science & AI",
+    "bio": "Computer Engineering student in continuous development, with experience in corporate solutions and a clear focus on software, data, AI and cloud. I enjoy building reliable, scalable and useful products.",
+    "projectsCta": "View projects",
+    "cvCta": "Download CV",
+    "contactCta": "Contact",
+    "imageAlt": "Photo of Daniel García Nilo",
+    "scroll": "scroll"
+  },
+  "about": {
+    "eyebrow": "About",
+    "title": "Software, data and AI with a product mindset",
+    "paragraphs": [
+      "I am Daniel García Nilo, a Computer Engineering student with a software engineering focus. From October 2024 to May 2026 I worked in the Architecture Department at Grupo Catalana Occident, contributing to corporate solutions related to processes, data and artificial intelligence.",
+      "My profile combines software development with a clear orientation toward Data Science, AI and cloud. During that experience I worked with C#/.NET, SQL, JavaScript, GAAN and JIRA, and since March 2026 I have been studying the Evolve Master's in Data Science / Artificial Intelligence.",
+      "I want to grow in demanding projects where code, architecture and data create real impact. My goal is to contribute from a solid foundation, learn quickly and build with technical judgment, communication and continuous improvement."
+    ],
+    "focusAreas": [
+      "Business-oriented Data Science",
+      "Scalable and configurable architectures",
+      "Generative AI for real processes"
+    ],
+    "cards": [
+      {
+        "title": "Software Engineering",
+        "desc": "Maintainable solutions with focus on quality, business logic and product evolution."
+      },
+      {
+        "title": "Backend & Data",
+        "desc": "Work with C#/.NET, SQL, validations, corporate processes and well-modeled data structures."
+      },
+      {
+        "title": "Data Science & AI",
+        "desc": "Current training in Python, SQL, Power BI, advanced analytics, automation and applied AI."
+      },
+      {
+        "title": "Cloud & Product",
+        "desc": "Interest in Firebase, Google Cloud, deployment, scalability and solutions with real impact."
+      }
+    ]
+  },
+  "skills": {
+    "eyebrow": "Skills",
+    "title": "Technology stack",
+    "intro": "Technologies and tools I use in professional, academic and personal projects, focused on software, data, AI and cloud.",
+    "categories": [
+      { "name": "Programming languages", "icon": "code", "skills": ["Python", "C#", "Java", "JavaScript", "TypeScript", "SQL"] },
+      { "name": "Backend & Software", "icon": "server", "skills": [".NET", "REST APIs", "Business logic", "Software architecture", "JavaScript validations", "GAAN"] },
+      { "name": "Data Science & AI", "icon": "bar-chart", "skills": ["Pandas", "NumPy", "scikit-learn", "XGBoost", "Power BI", "Generative AI"] },
+      { "name": "Frontend & Cloud", "icon": "globe", "skills": ["React", "Next.js", "Tailwind CSS", "Firebase", "Google Cloud", "Supabase"] },
+      { "name": "Tools", "icon": "wrench", "skills": ["Git", "GitHub", "Docker", "JIRA", "Scrum", "Kanban"] },
+      { "name": "Spoken languages", "icon": "languages", "skills": ["Native Spanish", "Native Catalan", "Intermediate English"] }
+    ]
+  },
+  "projects": {
+    "eyebrow": "Featured projects",
+    "title": "What I have built",
+    "intro": "Software, data and AI projects that show my technical progression: from data analysis and machine learning to backend, cloud and conversational agents.",
+    "search": "Search project...",
+    "noResults": "No projects found with those filters.",
+    "clearFilters": "Clear filters",
+    "categories": {
+      "all": "All",
+      "data-science": "Data Science",
+      "web-app": "Web/App",
+      "backend": "Backend",
+      "universidad": "Academic",
+      "master": "Master",
+      "personal": "Personal"
+    },
+    "statuses": {
+      "terminado": "Completed",
+      "en_proceso": "In progress",
+      "futuro": "Future"
+    },
+    "actions": {
+      "github": "View code on GitHub",
+      "demo": "View demo",
+      "openGithub": "Open on GitHub"
+    },
+    "items": {
+      "expected-goals-xg-statsbomb": {
+        "title": "Expected Goals xG - StatsBomb",
+        "description": "Master-level notebook to build an Expected Goals model with StatsBomb Open Data, storytelling and advanced evaluation."
+      },
+      "tfg-agentes-conversacionales-iatech": {
+        "title": "Conversational Agents Final Project - IATech",
+        "description": "Scalable and configurable architecture for conversational agents with generative AI for incident management."
+      },
+      "find-it": {
+        "title": "FindIt",
+        "description": "Serverless backend for a visual challenge game, validating object photos with Google Cloud Vision and Firebase."
+      },
+      "lol-win-prediction": {
+        "title": "LoL Win Prediction",
+        "description": "Machine learning model to predict the winning team in League of Legends matches using real data."
+      },
+      "futbol-data": {
+        "title": "FutbolData",
+        "description": "Football data analysis and visualization scripts: heatmaps, passing networks, possession and player ratings."
+      },
+      "tofu-awards": {
+        "title": "Tofu Awards",
+        "description": "Web application to manage and vote awards, deployed with Firebase Hosting and CI/CD using GitHub Actions."
+      },
+      "unimate": {
+        "title": "UNImate",
+        "description": "Collaborative academic project to help students organize work and connect with each other."
+      }
+    }
+  },
+  "timeline": {
+    "eyebrow": "Experience & Education",
+    "title": "Professional and academic path",
+    "intro": "A clear line between real corporate experience, technical education and current specialization in Data Science and artificial intelligence.",
+    "present": "Present",
+    "items": [
+      {
+        "id": "t1",
+        "title": "Software Developer - Architecture Department",
+        "organization": "Grupo Catalana Occident / Occident",
+        "description": "Development and improvement of the corporate IATeach module, a solution focused on AI for document and process management. Work on business logic with C#/.NET, SQL integration, GAAN interfaces and JavaScript validations in an agile environment with JIRA."
+      },
+      {
+        "id": "t2",
+        "title": "Evolve Master's - Data Science / Artificial Intelligence",
+        "organization": "Evolve",
+        "description": "Evolve Master's program oriented to real professional environments. Specialization in Python, SQL, Power BI, advanced data analysis, automation and data-driven decision making."
+      },
+      {
+        "id": "t3",
+        "title": "Computer Engineering - Software Engineering focus",
+        "organization": "Higher education",
+        "description": "Comprehensive training in software engineering, databases, algorithms, systems, web development and team projects. Final project focused on conversational agents and generative AI."
+      },
+      {
+        "id": "t4",
+        "title": "Personal and academic projects",
+        "organization": "Personal GitHub",
+        "description": "Development of personal projects in Python, data analysis, web applications and cloud. Practical focus on continuous learning, documentation and useful solutions."
+      }
+    ]
+  },
+  "github": {
+    "eyebrow": "Open Source",
+    "title": "Featured repositories",
+    "intro": "These are some of my public repositories. You can explore all my work on GitHub.",
+    "more": "See more on GitHub",
+    "repos": {
+      "lol-win-prediction": "LoL winning team prediction using ML",
+      "futbol-data": "Football data analysis and visualization",
+      "find-it": "Serverless backend with Firebase and Cloud Vision",
+      "tofu-awards": "Awards app with Firebase and CI/CD"
+    }
+  },
+  "contact": {
+    "eyebrow": "Contact",
+    "title": "Let's talk",
+    "intro": "I am open to opportunities, technology projects and conversations about software, data, AI and cloud.",
+    "successTitle": "Message sent",
+    "successBody": "Thanks for reaching out. I will reply as soon as possible.",
+    "sendAnother": "Send another message",
+    "name": "Name",
+    "namePlaceholder": "Your name",
+    "email": "Email",
+    "emailPlaceholder": "you@email.com",
+    "subject": "Subject",
+    "subjectPlaceholder": "What would you like to discuss?",
+    "message": "Message",
+    "messagePlaceholder": "Your message...",
+    "error": "Error sending the message. Try again or email me directly.",
+    "sending": "Sending...",
+    "send": "Send message",
+    "also": "You can also find me on",
+    "location": "Currently in",
+    "locationSuffix": "interested in opportunities that combine software, data and AI.",
+    "validation": {
+      "name": "Name must be at least 2 characters.",
+      "email": "Enter a valid email address.",
+      "subject": "Subject must be at least 3 characters.",
+      "message": "Message must be at least 10 characters."
+    }
+  },
+  "footer": {
+    "madeWith": "Built with Next.js, Tailwind and coffee"
+  },
+  "blog": {
+    "eyebrow": "Blog",
+    "title": "Technical notes",
+    "intro": "Articles about learning, projects and technical decisions. This section is ready to grow once I publish content.",
+    "comingSoon": "Coming soon",
+    "posts": [
+      {
+        "title": "What I am learning about Data Science & AI",
+        "excerpt": "Notes on Python, SQL, Power BI, automation and advanced analysis applied to business cases.",
+        "tags": ["Data Science", "AI"]
+      },
+      {
+        "title": "Conversational agent architecture",
+        "excerpt": "Technical reflections on configurable agents, generative AI and validation through Proof of Concept.",
+        "tags": ["Generative AI", "Architecture"]
+      },
+      {
+        "title": "My roadmap across software, data and cloud",
+        "excerpt": "A practical look at the technologies and projects I want to keep consolidating as an engineer.",
+        "tags": ["Roadmap", "Cloud"]
+      }
+    ]
+  },
+  "notFound": {
+    "title": "Page not found",
+    "body": "The route you are looking for does not exist or has been moved. There may be an error in the URL.",
+    "back": "Back home"
+  }
+}
