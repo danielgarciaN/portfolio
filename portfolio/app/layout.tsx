@@ -62,7 +62,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={`${manrope.variable} ${jetbrains.variable} font-sans antialiased`}>
         <I18nProvider>
           <Navbar />
-          <main className="min-h-screen">{children}</main>
+          <main className="min-h-screen bg-[rgb(var(--color-page))]">{children}</main>
           <Footer />
         </I18nProvider>
       </body>

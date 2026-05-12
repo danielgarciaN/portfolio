@@ -29,7 +29,7 @@ export default function About() {
               return (
               <div
                 key={label}
-                className="flex items-start gap-2 rounded-lg border border-surface-200/70 bg-white/60 p-3 text-sm text-surface-600 dark:border-surface-800/70 dark:bg-surface-900/50 dark:text-surface-400"
+                className="flex items-start gap-2 rounded-lg border border-surface-200/70 bg-[rgb(var(--color-card)/0.62)] p-3 text-sm text-surface-600 dark:border-surface-800/70 dark:bg-surface-900/50 dark:text-surface-400"
               >
                 <Icon className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
                 <span>{label}</span>

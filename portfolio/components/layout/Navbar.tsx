@@ -47,7 +47,7 @@ export default function Navbar() {
   };
 
   const languageSelector = (
-    <div className="flex items-center gap-1 rounded-lg border border-surface-200 bg-white/70 p-1 shadow-sm backdrop-blur transition-colors dark:border-surface-800 dark:bg-surface-900/70">
+    <div className="flex items-center gap-1 rounded-lg border border-surface-200 bg-[rgb(var(--color-card)/0.78)] p-1 shadow-sm backdrop-blur transition-colors dark:border-surface-800 dark:bg-surface-900/70">
       {languages.map((language) => (
         <button
           key={language.locale}
@@ -70,7 +70,7 @@ export default function Navbar() {
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'border-b border-surface-200/50 bg-white/80 shadow-sm backdrop-blur-xl dark:border-surface-800/50 dark:bg-surface-950/80'
+          ? 'border-b border-surface-200/60 bg-[rgb(var(--color-card)/0.82)] shadow-sm backdrop-blur-xl dark:border-surface-800/50 dark:bg-surface-950/80'
           : 'bg-transparent'
       }`}
     >
@@ -127,7 +127,7 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="overflow-hidden border-t border-surface-200/50 bg-white/95 backdrop-blur-xl dark:border-surface-800/50 dark:bg-surface-950/95 md:hidden"
+            className="overflow-hidden border-t border-surface-200/60 bg-[rgb(var(--color-card)/0.96)] backdrop-blur-xl dark:border-surface-800/50 dark:bg-surface-950/95 md:hidden"
           >
             <div className="section-container flex flex-col gap-1 py-4">
               {navLinks.map((link) => (

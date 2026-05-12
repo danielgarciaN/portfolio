@@ -26,7 +26,7 @@ export default function ProjectVideoSection({ videos }: ProjectVideoSectionProps
         {videos.map((video) => (
           <article
             key={`${video.type}-${video.url}`}
-            className="overflow-hidden rounded-xl border border-surface-200 bg-white shadow-sm dark:border-surface-800 dark:bg-surface-900"
+            className="overflow-hidden rounded-xl border border-surface-200 bg-[rgb(var(--color-card)/0.9)] shadow-sm dark:border-surface-800 dark:bg-surface-900"
           >
             <div className="aspect-video bg-surface-100 dark:bg-surface-950">
               {video.type === 'video' && (

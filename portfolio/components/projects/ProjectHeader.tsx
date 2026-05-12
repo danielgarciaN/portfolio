@@ -39,7 +39,7 @@ export default function ProjectHeader({ project }: ProjectHeaderProps) {
   const showLogo = Boolean(project.logo) && !logoFailed;
 
   return (
-    <header className="overflow-hidden rounded-2xl border border-surface-200 bg-white shadow-sm dark:border-surface-800 dark:bg-surface-900">
+    <header className="overflow-hidden rounded-2xl border border-surface-200 bg-[rgb(var(--color-card)/0.92)] shadow-[0_18px_55px_rgba(35,78,112,0.1)] dark:border-surface-800 dark:bg-surface-900">
       {showCover && (
         <div className="relative aspect-[16/7] min-h-56 overflow-hidden border-b border-surface-200 bg-surface-100 dark:border-surface-800 dark:bg-surface-950">
           <Image
@@ -90,7 +90,7 @@ export default function ProjectHeader({ project }: ProjectHeaderProps) {
 
           <div className="flex shrink-0 items-center justify-center">
             {showLogo ? (
-              <div className="relative h-20 w-32 overflow-hidden rounded-xl border border-surface-200 bg-white p-3 dark:border-surface-800 dark:bg-surface-950">
+              <div className="relative h-20 w-32 overflow-hidden rounded-xl border border-surface-200 bg-[rgb(var(--color-card))] p-3 dark:border-surface-800 dark:bg-surface-950">
                 <Image
                   src={project.logo as string}
                   alt={`${project.title} logo`}

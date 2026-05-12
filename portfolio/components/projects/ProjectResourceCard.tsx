@@ -52,7 +52,7 @@ export default function ProjectResourceCard({ resource }: ProjectResourceCardPro
     resource.action === 'download' ? 'Descargar' : resource.action === 'external' ? 'Abrir' : 'Ver';
 
   return (
-    <article className="flex h-full flex-col rounded-xl border border-surface-200 bg-white p-5 shadow-sm transition-all duration-200 hover:border-[var(--project-primary)]/45 hover:shadow-md dark:border-surface-800 dark:bg-surface-900">
+    <article className="flex h-full flex-col rounded-xl border border-surface-200 bg-[rgb(var(--color-card)/0.9)] p-5 shadow-sm transition-all duration-200 hover:border-[var(--project-primary)]/45 hover:shadow-md dark:border-surface-800 dark:bg-surface-900">
       <div className="flex items-start gap-4">
         <div className="rounded-xl bg-[var(--project-soft)] p-3 text-[var(--project-primary)]">
           <Icon className="h-5 w-5" />

@@ -10,7 +10,7 @@ export default function ProjectNote({ notes }: ProjectNoteProps) {
   return (
     <section className="rounded-2xl border border-[var(--project-primary)]/25 bg-[var(--project-soft)] p-5">
       <div className="flex gap-3">
-        <div className="mt-0.5 rounded-lg bg-white/75 p-2 text-[var(--project-primary)] shadow-sm dark:bg-surface-950/40">
+        <div className="mt-0.5 rounded-lg bg-[rgb(var(--color-card)/0.78)] p-2 text-[var(--project-primary)] shadow-sm dark:bg-surface-950/40">
           <Info className="h-4 w-4" />
         </div>
         <div>

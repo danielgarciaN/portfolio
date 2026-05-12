@@ -21,7 +21,7 @@ export default function ProjectDetailPage({ project }: ProjectDetailPageProps) {
   } as CSSProperties;
 
   return (
-    <main style={projectTheme} className="pt-24">
+    <main style={projectTheme} className="bg-[rgb(var(--color-page))] pt-24">
       <motion.div
         initial={{ opacity: 0, y: 24 }}
         animate={{ opacity: 1, y: 0 }}
@@ -35,7 +35,7 @@ export default function ProjectDetailPage({ project }: ProjectDetailPageProps) {
         <div className="mx-auto max-w-5xl">
           <ProjectHeader project={project} />
 
-          <div className="mt-8 rounded-2xl border border-surface-200 bg-white p-6 shadow-sm dark:border-surface-800 dark:bg-surface-900 sm:p-8">
+          <div className="mt-8 rounded-2xl border border-surface-200 bg-[rgb(var(--color-card)/0.9)] p-6 shadow-[0_16px_45px_rgba(35,78,112,0.08)] dark:border-surface-800 dark:bg-surface-900 sm:p-8">
             <span className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--project-primary)]">
               Descripcion
             </span>

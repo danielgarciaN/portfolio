@@ -26,7 +26,7 @@ export default function Timeline() {
   const inView = useInView(ref, { once: true, margin: '-50px' });
 
   return (
-    <Section id="experiencia" className="bg-surface-100/50 dark:bg-surface-900/30">
+    <Section id="experiencia" className="bg-[rgb(var(--color-page-soft)/0.72)] dark:bg-surface-900/30">
       <span className="heading-section">{messages.timeline.eyebrow}</span>
       <h2 className="heading-lg mt-3 mb-4">{messages.timeline.title}</h2>
       <p className="mb-10 max-w-2xl text-sm leading-relaxed text-surface-500 dark:text-surface-400">
@@ -53,7 +53,7 @@ export default function Timeline() {
                 }`}
               >
                 <div className="absolute left-[11px] top-1 z-10 sm:left-1/2 sm:-translate-x-1/2">
-                  <div className="flex h-[18px] w-[18px] items-center justify-center rounded-full border-2 border-accent bg-white dark:bg-surface-950">
+                  <div className="flex h-[18px] w-[18px] items-center justify-center rounded-full border-2 border-accent bg-[rgb(var(--color-card))] dark:bg-surface-950">
                     <div className="h-2 w-2 rounded-full bg-accent" />
                   </div>
                 </div>

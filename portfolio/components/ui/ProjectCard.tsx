@@ -61,8 +61,8 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
             onError={() => setImageFailed(true)}
           />
         ) : (
-          <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-gradient-to-br from-surface-50 via-white to-accent/10 text-center dark:from-surface-900 dark:via-surface-900 dark:to-accent/10">
-            <div className="rounded-full border border-accent/20 bg-white/70 p-3 text-accent shadow-sm dark:bg-surface-900/70">
+          <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-gradient-to-br from-surface-50 via-[rgb(var(--color-card))] to-accent/10 text-center dark:from-surface-900 dark:via-surface-900 dark:to-accent/10">
+            <div className="rounded-full border border-accent/20 bg-[rgb(var(--color-card)/0.72)] p-3 text-accent shadow-sm dark:bg-surface-900/70">
               <ImageIcon className="h-5 w-5" />
             </div>
             <span className="px-6 font-mono text-xs text-surface-400">
@@ -72,7 +72,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
         )}
 
         <div className="absolute left-3 top-3">
-          <span className="status-badge bg-white/90 text-surface-600 shadow-sm backdrop-blur dark:bg-surface-950/80 dark:text-surface-300">
+          <span className="status-badge bg-[rgb(var(--color-card)/0.9)] text-surface-600 shadow-sm backdrop-blur dark:bg-surface-950/80 dark:text-surface-300">
             {messages.projects.categories[project.category as ProjectCategory]}
           </span>
         </div>
@@ -83,7 +83,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
         <div className="absolute inset-0 flex items-center justify-center gap-3 bg-surface-950/0 opacity-0 transition-all duration-300 group-hover:bg-surface-950/55 group-hover:opacity-100">
           <Link
             href={`/projects/${project.slug}`}
-            className="relative z-20 rounded-full bg-white p-2.5 text-surface-800 shadow-lg transition-transform hover:scale-110"
+            className="relative z-20 rounded-full bg-[rgb(var(--color-card))] p-2.5 text-surface-800 shadow-lg transition-transform hover:scale-110"
             aria-label={`Abrir dossier: ${title}`}
           >
             <FileText className="h-4 w-4" />
@@ -93,7 +93,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
               href={project.github_url}
               target="_blank"
               rel="noopener noreferrer"
-              className="relative z-20 rounded-full bg-white p-2.5 text-surface-800 shadow-lg transition-transform hover:scale-110"
+              className="relative z-20 rounded-full bg-[rgb(var(--color-card))] p-2.5 text-surface-800 shadow-lg transition-transform hover:scale-110"
               aria-label={`${messages.projects.actions.github}: ${title}`}
             >
               <Github className="h-4 w-4" />

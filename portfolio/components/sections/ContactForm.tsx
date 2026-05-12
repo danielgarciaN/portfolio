@@ -54,7 +54,7 @@ export default function ContactForm() {
   };
 
   const inputClasses = (field: string) =>
-    `w-full rounded-xl border bg-white px-4 py-2.5 text-sm text-surface-700 placeholder:text-surface-400 transition-all focus:outline-none focus:ring-2 dark:bg-surface-900 dark:text-surface-200 dark:placeholder:text-surface-500 ${
+    `w-full rounded-xl border bg-[rgb(var(--color-card)/0.92)] px-4 py-2.5 text-sm text-surface-700 placeholder:text-surface-400 transition-all focus:outline-none focus:ring-2 dark:bg-surface-900 dark:text-surface-200 dark:placeholder:text-surface-500 ${
       fieldError(field)
         ? 'border-red-300 focus:border-red-400 focus:ring-red-200 dark:border-red-800 dark:focus:ring-red-900/40'
         : 'border-surface-200 focus:border-accent/50 focus:ring-accent/20 dark:border-surface-700'

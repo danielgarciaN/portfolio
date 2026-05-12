@@ -13,7 +13,7 @@ function GalleryItem({ image }: { image: ProjectGalleryImage }) {
   const [failed, setFailed] = useState(false);
 
   return (
-    <article className="overflow-hidden rounded-xl border border-surface-200 bg-white shadow-sm dark:border-surface-800 dark:bg-surface-900">
+    <article className="overflow-hidden rounded-xl border border-surface-200 bg-[rgb(var(--color-card)/0.9)] shadow-sm dark:border-surface-800 dark:bg-surface-900">
       <div className="relative aspect-video bg-surface-100 dark:bg-surface-950">
         {!failed ? (
           <Image

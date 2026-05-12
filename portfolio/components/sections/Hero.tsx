@@ -12,7 +12,7 @@ export default function Hero() {
   const [profileImageFailed, setProfileImageFailed] = useState(false);
 
   return (
-    <section className="relative flex min-h-[100dvh] items-center overflow-hidden">
+    <section className="relative flex min-h-[100dvh] items-center overflow-hidden bg-[rgb(var(--color-page))]">
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.035] dark:opacity-[0.06]"
         style={{
@@ -30,7 +30,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="mb-6 inline-flex items-center gap-2 rounded-full border border-accent/20 bg-white/70 px-4 py-1.5 text-xs font-semibold text-accent shadow-sm backdrop-blur dark:border-accent/15 dark:bg-surface-900/60"
+              className="mb-6 inline-flex items-center gap-2 rounded-full border border-accent/20 bg-[rgb(var(--color-card)/0.78)] px-4 py-1.5 text-xs font-semibold text-accent shadow-sm backdrop-blur dark:border-accent/15 dark:bg-surface-900/60"
             >
               <span className="relative flex h-2 w-2">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-40" />
@@ -121,7 +121,7 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.35 }}
             className="order-first flex justify-center lg:order-last lg:justify-end"
           >
-            <div className="relative h-40 w-40 overflow-hidden rounded-[2rem] border border-white/70 bg-surface-100 shadow-xl shadow-surface-900/10 ring-1 ring-surface-200/70 dark:border-surface-800 dark:bg-surface-900 dark:shadow-black/20 dark:ring-surface-800 sm:h-52 sm:w-52 lg:h-64 lg:w-64">
+            <div className="relative h-40 w-40 overflow-hidden rounded-[2rem] border border-[rgb(var(--color-card)/0.9)] bg-surface-100 shadow-xl shadow-accent/10 ring-1 ring-surface-200/70 dark:border-surface-800 dark:bg-surface-900 dark:shadow-black/20 dark:ring-surface-800 sm:h-52 sm:w-52 lg:h-64 lg:w-64">
               {!profileImageFailed && (
                 <Image
                   src={personalInfo.profileImage}

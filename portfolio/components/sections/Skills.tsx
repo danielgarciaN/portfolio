@@ -22,7 +22,7 @@ export default function Skills() {
   const inView = useInView(ref, { once: true, margin: '-50px' });
 
   return (
-    <Section id="skills" className="bg-surface-100/50 dark:bg-surface-900/30">
+    <Section id="skills" className="bg-[rgb(var(--color-page-soft)/0.72)] dark:bg-surface-900/30">
       <span className="heading-section">{messages.skills.eyebrow}</span>
       <h2 className="heading-lg mt-3 mb-4">{messages.skills.title}</h2>
       <p className="mb-10 max-w-2xl text-sm leading-relaxed text-surface-500 dark:text-surface-400">

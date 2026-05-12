@@ -4,10 +4,14 @@
 
 @layer base {
   :root {
-    --color-accent: 16 33 58;
-    --color-accent-dark: 15 23 42;
-    --color-accent-light: 20 33 61;
-    --color-accent-muted: 16 33 58;
+    --color-accent: 43 93 126;
+    --color-accent-dark: 35 78 112;
+    --color-accent-light: 58 106 140;
+    --color-accent-muted: 49 95 125;
+    --color-page: 244 239 232;
+    --color-page-soft: 236 226 214;
+    --color-card: 255 253 252;
+    --color-card-muted: 250 247 242;
   }
 
   .dark {
@@ -15,16 +19,26 @@
     --color-accent-dark: 6 182 212;
     --color-accent-light: 103 232 249;
     --color-accent-muted: 34 211 238;
+    --color-page: 9 9 11;
+    --color-page-soft: 24 24 27;
+    --color-card: 24 24 27;
+    --color-card-muted: 24 24 27;
   }
 
   html {
+    background-color: rgb(var(--color-page));
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
   body {
-    @apply bg-surface-50 text-surface-800 transition-colors duration-300 dark:bg-surface-950 dark:text-surface-100;
+    background-color: rgb(var(--color-page));
+    @apply text-surface-800 transition-colors duration-300 dark:text-surface-100;
+  }
+
+  main {
+    background-color: rgb(var(--color-page));
   }
 
   ::selection {
@@ -54,13 +68,13 @@
   }
 
   .card {
-    @apply rounded-2xl border border-surface-200/60 bg-white/70 p-6
-           shadow-sm backdrop-blur-sm transition-all duration-300
+    @apply rounded-2xl border border-surface-200/70 bg-[rgb(var(--color-card)/0.86)] p-6
+           shadow-[0_16px_45px_rgba(35,78,112,0.08)] backdrop-blur-sm transition-all duration-300
            dark:border-surface-800/60 dark:bg-surface-900/70;
   }
 
   .card-hover {
-    @apply hover:border-accent/40 hover:shadow-md hover:shadow-accent/10
+    @apply hover:-translate-y-0.5 hover:border-accent/40 hover:shadow-[0_20px_60px_rgba(35,78,112,0.14)]
            dark:hover:border-accent/35 dark:hover:shadow-accent/10;
   }
 
@@ -75,7 +89,7 @@
 
   .btn-secondary {
     @apply inline-flex items-center gap-2 rounded-xl border border-surface-200
-           bg-white px-5 py-2.5 text-sm font-semibold text-surface-700
+           bg-[rgb(var(--color-card)/0.92)] px-5 py-2.5 text-sm font-semibold text-surface-700
            transition-all duration-200 hover:border-accent/30 hover:bg-accent/5
            hover:text-accent focus:outline-none focus:ring-2 focus:ring-accent/50
            dark:border-surface-700 dark:bg-surface-900 dark:text-surface-300
