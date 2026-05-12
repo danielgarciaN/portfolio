@@ -1,7 +1,62 @@
-import type { ProjectDossier } from '@/types';
+import { existsSync } from 'node:fs';
+import path from 'node:path';
+import type { ProjectDossier, ProjectGalleryImage, ProjectResource, ProjectVideo } from '@/types';
 
 const tfgBasePath = '/projects/tfg-modulo-chatbots';
 const projectBasePath = (slug: string) => `/projects/${slug}`;
+const publicRoot = getPublicRoot();
+
+function getPublicRoot() {
+  const candidates = [
+    path.join(process.cwd(), 'public'),
+    path.join(process.cwd(), 'portfolio', 'public'),
+  ];
+
+  return candidates.find((candidate) => existsSync(candidate)) ?? candidates[0];
+}
+
+function isExternalUrl(url?: string) {
+  return Boolean(url && /^(https?:|mailto:|tel:)/.test(url));
+}
+
+function publicAssetExists(url?: string) {
+  if (!url) return false;
+  if (isExternalUrl(url)) return true;
+
+  const cleanPath = url.split(/[?#]/)[0];
+  const assetPath = decodeURIComponent(cleanPath).replace(/^\/+/, '');
+
+  return existsSync(path.join(publicRoot, assetPath));
+}
+
+function visibleResource(resource: ProjectResource) {
+  if (resource.available === false || !resource.url) return false;
+  return isExternalUrl(resource.url) || publicAssetExists(resource.url);
+}
+
+function visibleVideo(video: ProjectVideo) {
+  return isExternalUrl(video.url) || publicAssetExists(video.url);
+}
+
+function visibleGalleryImage(image: ProjectGalleryImage) {
+  return publicAssetExists(image.src);
+}
+
+function normalizeDossier(project: ProjectDossier): ProjectDossier {
+  return {
+    ...project,
+    coverImage: publicAssetExists(project.coverImage) ? project.coverImage : undefined,
+    logo: publicAssetExists(project.logo) ? project.logo : undefined,
+    resources: project.resources.filter(visibleResource),
+    videos: project.videos
+      .filter(visibleVideo)
+      .map((video) => ({
+        ...video,
+        poster: publicAssetExists(video.poster) ? video.poster : undefined,
+      })),
+    gallery: project.gallery.filter(visibleGalleryImage),
+  };
+}
 
 function pendingResource(slug: string, title = 'Documentacion del proyecto') {
   return {
@@ -24,7 +79,7 @@ function githubResource(url: string) {
   };
 }
 
-export const projectDossiers: ProjectDossier[] = [
+const rawProjectDossiers: ProjectDossier[] = [
   {
     title: 'TFG - Modulo de Chatbots',
     slug: 'tfg-modulo-chatbots',
@@ -386,6 +441,8 @@ export const projectDossiers: ProjectDossier[] = [
     notes: ['Dossier preparado para documentar aportaciones, funcionalidades, capturas y presentacion del proyecto.'],
   },
 ];
+
+export const projectDossiers: ProjectDossier[] = rawProjectDossiers.map(normalizeDossier);
 
 export function getProjectDossierBySlug(slug: string) {
   return projectDossiers.find((project) => project.slug === slug) ?? null;

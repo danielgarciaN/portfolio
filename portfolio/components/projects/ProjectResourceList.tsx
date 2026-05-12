@@ -6,7 +6,11 @@ interface ProjectResourceListProps {
 }
 
 export default function ProjectResourceList({ resources }: ProjectResourceListProps) {
-  if (resources.length === 0) return null;
+  const visibleResources = resources.filter(
+    (resource) => resource.available !== false && Boolean(resource.url),
+  );
+
+  if (visibleResources.length === 0) return null;
 
   return (
     <section>
@@ -25,7 +29,7 @@ export default function ProjectResourceList({ resources }: ProjectResourceListPr
       </div>
 
       <div className="grid gap-4 md:grid-cols-2">
-        {resources.map((resource) => (
+        {visibleResources.map((resource) => (
           <ProjectResourceCard key={`${resource.type}-${resource.title}`} resource={resource} />
         ))}
       </div>

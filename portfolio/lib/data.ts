@@ -138,8 +138,8 @@ export const fallbackProjects: Project[] = [
       'Aplicación desarrollada en equipo, orientada a mejorar la experiencia académica mediante herramientas de organización, colaboración y gestión de tareas.',
     category: 'universidad',
     technologies: ['React', 'Node.js', 'Firebase', 'CSS', 'Trabajo en equipo'],
-    github_url: 'https://github.com/Carolbg28/UNImate',
-    image_url: '/images/projects/unimate.jpg',
+    github_url: 'https://github.com/danielgarciaN/Unimate',
+    image_url: '/images/projects/unimate.JPG',
     status: 'terminado',
     featured: false,
     learnings: [
