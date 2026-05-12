@@ -4,6 +4,8 @@ import { fallbackProjects } from '@/lib/data';
 
 export async function getProjects(category?: ProjectCategory): Promise<Project[]> {
   try {
+    if (!supabase) return fallbackProjects;
+
     let query = supabase
       .from('projects')
       .select('*')
@@ -24,6 +26,10 @@ export async function getProjects(category?: ProjectCategory): Promise<Project[]
 
 export async function getProjectBySlug(slug: string): Promise<Project | null> {
   try {
+    if (!supabase) {
+      return fallbackProjects.find((p) => p.slug === slug) ?? null;
+    }
+
     const { data, error } = await supabase
       .from('projects')
       .select('*')
@@ -39,6 +45,8 @@ export async function getProjectBySlug(slug: string): Promise<Project | null> {
 
 export async function getFeaturedProjects(): Promise<Project[]> {
   try {
+    if (!supabase) return fallbackProjects.filter((p) => p.featured);
+
     const { data, error } = await supabase
       .from('projects')
       .select('*')

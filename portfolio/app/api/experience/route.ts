@@ -4,6 +4,8 @@ import { timelineItems } from '@/lib/data';
 
 export async function GET() {
   try {
+    if (!supabase) return NextResponse.json(timelineItems);
+
     const { data, error } = await supabase
       .from('experiences')
       .select('*')

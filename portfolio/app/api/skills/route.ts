@@ -4,6 +4,8 @@ import { skillCategories } from '@/lib/data';
 
 export async function GET() {
   try {
+    if (!supabase) return NextResponse.json(skillCategories);
+
     const { data, error } = await supabase
       .from('skills')
       .select('*')
