@@ -19,18 +19,21 @@ const jetbrains = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: 'Daniel García Nilo - Ingeniero Informático, Software & Data Science',
+    default: 'Daniel García Nilo - AI Engineer & Data Science',
     template: '%s | Daniel García Nilo',
   },
   description:
-    'Portfolio profesional de Daniel García Nilo, ingeniero informático orientado a desarrollo software, Data Science, inteligencia artificial, backend y cloud.',
+    'Portfolio profesional de Daniel García Nilo, ingeniero informático graduado orientado a AI Engineering, Data Science, automatización, backend y cloud.',
   keywords: [
     'Daniel García Nilo',
+    'AI Engineer',
+    'AI Engineering',
     'Ingeniero Informático',
-    'Software Developer',
     'Data Science',
     'Inteligencia Artificial',
     'Machine Learning',
+    'RAG',
+    'LangGraph',
     'Backend',
     'Cloud',
     'C#',
@@ -42,16 +45,16 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'es_ES',
-    title: 'Daniel García Nilo - Ingeniero Informático, Software & Data Science',
+    title: 'Daniel García Nilo - AI Engineer & Data Science',
     description:
-      'Portfolio profesional de Daniel García Nilo. Software, Data Science, IA, backend y cloud.',
+      'Portfolio profesional de Daniel García Nilo. AI Engineering, Data Science, IA aplicada, backend y cloud.',
     siteName: 'Daniel García Nilo Portfolio',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Daniel García Nilo - Software & Data Science',
+    title: 'Daniel García Nilo - AI Engineer & Data Science',
     description:
-      'Ingeniero informático orientado a desarrollo software, Data Science, IA y cloud.',
+      'Ingeniero informático graduado orientado a AI Engineering, Data Science, IA aplicada y cloud.',
   },
   robots: { index: true, follow: true },
 };

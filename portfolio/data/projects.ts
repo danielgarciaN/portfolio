@@ -81,6 +81,59 @@ function githubResource(url: string) {
 
 const rawProjectDossiers: ProjectDossier[] = [
   {
+    title: 'AI Marketing Intelligence Platform',
+    slug: 'marketing-ia',
+    subtitle: 'Plataforma enterprise de inteligencia de marketing multiagente',
+    author: 'Daniel Garcia Nilo',
+    description:
+      'Plataforma personal en progreso que transforma datos transaccionales de ecommerce en estrategia de marketing accionable mediante LangGraph, RAG, ML clasico y un dashboard Next.js.',
+    longDescription:
+      'Sistema de analitica de marketing con scoring RFM, clustering KMeans, segmentacion de clientes, prediccion de churn, simulacion de campanas y una capa multiagente de IA. El backend FastAPI orquesta agentes especializados con LangGraph, consulta conocimiento documental mediante RAG sobre Qdrant y puede funcionar gratis con modelos locales de Ollama, ademas de soportar OpenAI o modo mock para desarrollo.',
+    category: 'personal',
+    status: 'en_proceso',
+    technologies: [
+      'LangGraph',
+      'FastAPI',
+      'Ollama',
+      'Qdrant',
+      'RAG',
+      'Next.js',
+      'TypeScript',
+      'Pandas',
+      'scikit-learn',
+      'Docker',
+    ],
+    colorTheme: {
+      primary: '#0F766E',
+      soft: 'rgba(15, 118, 110, 0.11)',
+    },
+    coverImage: '/images/projects/marketing-ia.jpg',
+    githubUrl: 'https://github.com/danielgarciaN/marketing-ia',
+    resources: [
+      githubResource('https://github.com/danielgarciaN/marketing-ia'),
+      pendingResource('marketing-ia', 'Documentacion tecnica / README extendido'),
+    ],
+    videos: [],
+    gallery: [
+      {
+        title: 'Dashboard y simulador de campanas',
+        src: `${projectBasePath('marketing-ia')}/images/captura-1.png`,
+        alt: 'Dashboard de AI Marketing Intelligence Platform',
+        description: 'Espacio preparado para capturas del dashboard, KPIs, segmentos y simulador de campanas.',
+      },
+      {
+        title: 'Arquitectura multiagente',
+        src: `${projectBasePath('marketing-ia')}/images/captura-2.png`,
+        alt: 'Arquitectura LangGraph y RAG del proyecto marketing-ia',
+        description: 'Espacio para diagramas del flujo supervisor, agentes, RAG, FastAPI y Qdrant.',
+      },
+    ],
+    notes: [
+      'Proyecto personal en progreso orientado a demostrar AI Engineering aplicado a negocio: orquestacion multiagente, RAG, analitica ML, API REST y dashboard interactivo.',
+      'La arquitectura soporta Ollama local, OpenAI y modo mock para facilitar pruebas sin costes ni dependencias externas obligatorias.',
+    ],
+  },
+  {
     title: 'TFG - Modulo de Chatbots',
     slug: 'tfg-modulo-chatbots',
     subtitle: 'Dossier documental del Trabajo Final de Grado',
@@ -386,9 +439,9 @@ const rawProjectDossiers: ProjectDossier[] = [
     subtitle: 'Dossier de proyecto academico colaborativo',
     author: 'Daniel Garcia Nilo',
     description:
-      'Proyecto academico colaborativo para facilitar la organizacion universitaria y la conexion entre estudiantes.',
+      'Proyecto academico colaborativo para facilitar la organizacion y conexion dentro de la comunidad universitaria.',
     longDescription:
-      'Aplicacion desarrollada en equipo con enfoque en organizacion, colaboracion y experiencia de usuario para estudiantes. La pagina queda preparada para recoger memoria, roles, capturas, presentacion, decisiones de diseno y recursos del proyecto.',
+      'Aplicacion desarrollada en equipo con enfoque en organizacion, colaboracion y experiencia de usuario universitaria. La pagina queda preparada para recoger memoria, roles, capturas, presentacion, decisiones de diseno y recursos del proyecto.',
     category: 'universidad',
     status: 'terminado',
     technologies: ['React', 'Node.js', 'Firebase', 'CSS', 'Trabajo en equipo'],

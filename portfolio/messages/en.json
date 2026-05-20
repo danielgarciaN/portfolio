@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "title": "Daniel García Nilo - Computer Engineering, Software & Data Science",
-    "description": "Professional portfolio of Daniel García Nilo, focused on software development, Data Science, artificial intelligence, backend and cloud."
+    "title": "Daniel García Nilo - AI Engineer & Data Science",
+    "description": "Professional portfolio of Daniel García Nilo, Computer Engineering graduate focused on AI Engineering, Data Science, automation, backend and cloud."
   },
   "nav": {
     "about": "About",
@@ -18,8 +18,8 @@
   "hero": {
     "badge": "Open to opportunities",
     "name": "Daniel García Nilo",
-    "title": "Computer Engineering - Software, Data Science & AI",
-    "bio": "Computer Engineering student in continuous development, with experience in corporate solutions and a clear focus on software, data, AI and cloud. I enjoy building reliable, scalable and useful products.",
+    "title": "AI Engineer & Data Science - Computer Engineering",
+    "bio": "Computer Engineering graduate with experience at Occident building corporate solutions linked to AI, processes, data and architecture. I focus my profile on AI Engineering and Data Science to build useful, reliable systems with real impact.",
     "projectsCta": "View projects",
     "cvCta": "Download CV",
     "contactCta": "Contact",
@@ -28,53 +28,55 @@
   },
   "about": {
     "eyebrow": "About",
-    "title": "Software, data and AI with a product mindset",
+    "title": "AI Engineering, data and product with a software foundation",
     "paragraphs": [
-      "I am Daniel García Nilo, a Computer Engineering student with a software engineering focus. From October 2024 to May 2026 I worked in the Architecture Department at Grupo Catalana Occident, contributing to corporate solutions related to processes, data and artificial intelligence.",
-      "My profile combines software development with a clear orientation toward Data Science, AI and cloud. During that experience I worked with C#/.NET, SQL, JavaScript, GAAN and JIRA, and since March 2026 I have been studying the Evolve Master's in Data Science / Artificial Intelligence.",
-      "I want to grow in demanding projects where code, architecture and data create real impact. My goal is to contribute from a solid foundation, learn quickly and build with technical judgment, communication and continuous improvement."
+      "I am Daniel García Nilo, a Computer Engineering graduate with a software engineering foundation and a growing specialization in AI Engineering and Data Science. From October 2024 to May 2026 I worked in the Architecture Department at Grupo Catalana Occident / Occident, contributing to corporate solutions where AI, data and processes had direct business impact.",
+      "At Occident I worked on the evolution of the corporate IATeach module, an AI-oriented solution for document management and internal processes. That experience gave me real context in architecture, integration with corporate systems, business logic with C#/.NET, SQL, GAAN interfaces, JavaScript validations, agile work with JIRA and collaboration in environments where quality and traceability matter.",
+      "My current focus is building applied AI systems: agents, RAG, APIs, automation, analytics and data products. I combine software engineering discipline with Data Science to turn information into decisions, prototypes into maintainable solutions and models into useful tools."
     ],
     "focusAreas": [
+      "AI Engineering applied to real processes",
       "Business-oriented Data Science",
-      "Scalable and configurable architectures",
-      "Generative AI for real processes"
+      "Maintainable architectures for AI products"
     ],
     "cards": [
       {
         "title": "Software Engineering",
-        "desc": "Maintainable solutions with focus on quality, business logic and product evolution."
+        "desc": "Solid foundation in maintainable solutions, architecture, business logic and product evolution."
       },
       {
         "title": "Backend & Data",
-        "desc": "Work with C#/.NET, SQL, validations, corporate processes and well-modeled data structures."
+        "desc": "Corporate experience with C#/.NET, SQL, validations, integrations, internal processes and well-modeled data structures."
       },
       {
-        "title": "Data Science & AI",
-        "desc": "Current training in Python, SQL, Power BI, advanced analytics, automation and applied AI."
+        "title": "AI Engineering & Data Science",
+        "desc": "Practical work with Python, SQL, advanced analytics, automation, ML models, agents and RAG systems."
       },
       {
         "title": "Cloud & Product",
-        "desc": "Interest in Firebase, Google Cloud, deployment, scalability and solutions with real impact."
+        "desc": "Interest in deployment, scalability, observability and AI solutions that can be integrated into real products."
       }
     ]
   },
   "skills": {
     "eyebrow": "Skills",
     "title": "Technology stack",
-    "intro": "Technologies and tools I use in professional, academic and personal projects, focused on software, data, AI and cloud.",
+    "intro": "Technologies, practices and human skills I use to build AI Engineering and Data Science solutions with technical judgment, clear communication and a team mindset.",
     "categories": [
       { "name": "Programming languages", "icon": "code", "skills": ["Python", "C#", "Java", "JavaScript", "TypeScript", "SQL"] },
-      { "name": "Backend & Software", "icon": "server", "skills": [".NET", "REST APIs", "Business logic", "Software architecture", "JavaScript validations", "GAAN"] },
-      { "name": "Data Science & AI", "icon": "bar-chart", "skills": ["Pandas", "NumPy", "scikit-learn", "XGBoost", "Power BI", "Generative AI"] },
-      { "name": "Frontend & Cloud", "icon": "globe", "skills": ["React", "Next.js", "Tailwind CSS", "Firebase", "Google Cloud", "Supabase"] },
-      { "name": "Tools", "icon": "wrench", "skills": ["Git", "GitHub", "Docker", "JIRA", "Scrum", "Kanban"] },
+      { "name": "AI Engineering", "icon": "brain", "skills": ["AI agents", "LangGraph", "LangChain", "RAG", "Prompt engineering", "Ollama", "OpenAI API", "Qdrant"] },
+      { "name": "Data Science & ML", "icon": "bar-chart", "skills": ["Pandas", "NumPy", "scikit-learn", "XGBoost", "Power BI", "Feature engineering", "Clustering", "Model evaluation"] },
+      { "name": "Backend & Software", "icon": "server", "skills": [".NET", "FastAPI", "REST APIs", "Business logic", "Software architecture", "JavaScript validations", "GAAN", "SQL"] },
+      { "name": "Frontend & Cloud", "icon": "globe", "skills": ["React", "Next.js", "Tailwind CSS", "Firebase", "Google Cloud", "Supabase", "Docker"] },
+      { "name": "Tools & Methodologies", "icon": "wrench", "skills": ["Git", "GitHub", "JIRA", "Scrum", "Kanban", "Technical documentation", "Testing", "Debugging"] },
+      { "name": "Human skills", "icon": "users", "skills": ["Teamwork", "Clear communication", "Adaptability", "Problem solving", "Leadership", "Critical thinking", "Proactivity", "Fast learning"] },
       { "name": "Spoken languages", "icon": "languages", "skills": ["Native Spanish", "Native Catalan", "Intermediate English"] }
     ]
   },
   "projects": {
     "eyebrow": "Featured projects",
     "title": "What I have built",
-    "intro": "Software, data and AI projects that show my technical progression: from data analysis and machine learning to backend, cloud and conversational agents.",
+    "intro": "Software, data and AI projects that show my technical progression toward AI Engineering and Data Science: analytics, machine learning, backend, cloud, RAG and agents.",
     "search": "Search project...",
     "noResults": "No projects found with those filters.",
     "clearFilters": "Clear filters",
@@ -98,6 +100,10 @@
       "openGithub": "Open on GitHub"
     },
     "items": {
+      "marketing-ia": {
+        "title": "AI Marketing Intelligence Platform",
+        "description": "Personal project in progress: marketing intelligence with LangGraph, RAG, Ollama, FastAPI, classic ML and a Next.js dashboard."
+      },
       "expected-goals-xg-statsbomb": {
         "title": "Expected Goals xG - StatsBomb",
         "description": "Master-level notebook to build an Expected Goals model with StatsBomb Open Data, storytelling and advanced evaluation."
@@ -124,39 +130,39 @@
       },
       "unimate": {
         "title": "UNImate",
-        "description": "Collaborative academic project to help students organize work and connect with each other."
+        "description": "Collaborative academic project to support organization and connection within the university community."
       }
     }
   },
   "timeline": {
     "eyebrow": "Experience & Education",
     "title": "Professional and academic path",
-    "intro": "A clear line between real corporate experience, technical education and current specialization in Data Science and artificial intelligence.",
+    "intro": "A clear line between real corporate experience, an engineering foundation and current specialization in AI Engineering and Data Science.",
     "present": "Present",
     "items": [
       {
         "id": "t1",
-        "title": "Software Developer - Architecture Department",
+        "title": "Software Developer - Architecture, AI and processes",
         "organization": "Grupo Catalana Occident / Occident",
-        "description": "Development and improvement of the corporate IATeach module, a solution focused on AI for document and process management. Work on business logic with C#/.NET, SQL integration, GAAN interfaces and JavaScript validations in an agile environment with JIRA."
+        "description": "Development and improvement of the corporate IATeach module, an AI-oriented solution for document management and internal processes. Experience in corporate architecture, business logic with C#/.NET, SQL integration, GAAN interfaces, JavaScript validations and agile work with JIRA, contributing technical judgment in a real product, data and automation environment."
       },
       {
         "id": "t2",
         "title": "Evolve Master's - Data Science / Artificial Intelligence",
         "organization": "Evolve",
-        "description": "Evolve Master's program oriented to real professional environments. Specialization in Python, SQL, Power BI, advanced data analysis, automation and data-driven decision making."
+        "description": "Evolve Master's program oriented to real professional environments. Specialization in Python, SQL, Power BI, advanced data analysis, automation, machine learning and data-driven decision making."
       },
       {
         "id": "t3",
         "title": "Computer Engineering - Software Engineering focus",
         "organization": "Higher education",
-        "description": "Comprehensive training in software engineering, databases, algorithms, systems, web development and team projects. Final project focused on conversational agents and generative AI."
+        "description": "Computer Engineering degree with comprehensive training in software engineering, databases, algorithms, systems, web development and team projects. Final project focused on conversational agents and generative AI applied to a corporate context."
       },
       {
         "id": "t4",
-        "title": "Personal and academic projects",
+        "title": "AI Engineering and Data Science projects",
         "organization": "Personal GitHub",
-        "description": "Development of personal projects in Python, data analysis, web applications and cloud. Practical focus on continuous learning, documentation and useful solutions."
+        "description": "Development of personal projects in Python, data analysis, ML, RAG, agents, web applications and cloud. Practical focus on documentation, clean architecture and useful solutions."
       }
     ]
   },
@@ -175,7 +181,7 @@
   "contact": {
     "eyebrow": "Contact",
     "title": "Let's talk",
-    "intro": "I am open to opportunities, technology projects and conversations about software, data, AI and cloud.",
+    "intro": "I am open to opportunities and projects where I can contribute as an AI Engineer or Data Science profile, combining software, data, automation, AI and cloud.",
     "successTitle": "Message sent",
     "successBody": "Thanks for reaching out. I will reply as soon as possible.",
     "sendAnother": "Send another message",
@@ -192,7 +198,7 @@
     "send": "Send message",
     "also": "You can also find me on",
     "location": "Currently in",
-    "locationSuffix": "interested in opportunities that combine software, data and AI.",
+    "locationSuffix": "interested in opportunities to build AI Engineering and Data Science solutions with real impact.",
     "validation": {
       "name": "Name must be at least 2 characters.",
       "email": "Enter a valid email address.",
@@ -210,8 +216,8 @@
     "comingSoon": "Coming soon",
     "posts": [
       {
-        "title": "What I am learning about Data Science & AI",
-        "excerpt": "Notes on Python, SQL, Power BI, automation and advanced analysis applied to business cases.",
+        "title": "How I am consolidating AI Engineering and Data Science",
+        "excerpt": "Notes on Python, SQL, Power BI, automation, advanced analytics, agents and AI systems applied to business.",
         "tags": ["Data Science", "AI"]
       },
       {
@@ -220,8 +226,8 @@
         "tags": ["Generative AI", "Architecture"]
       },
       {
-        "title": "My roadmap across software, data and cloud",
-        "excerpt": "A practical look at the technologies and projects I want to keep consolidating as an engineer.",
+        "title": "My roadmap toward AI Engineering",
+        "excerpt": "A practical look at the technologies and projects I want to keep consolidating in applied AI, data, backend and cloud.",
         "tags": ["Roadmap", "Cloud"]
       }
     ]
