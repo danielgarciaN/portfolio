@@ -34,7 +34,8 @@ export const fallbackProjects: Project[] = [
     category: 'master',
     technologies: ['Python', 'StatsBomb', 'Pandas', 'scikit-learn', 'XGBoost', 'Matplotlib', 'Seaborn'],
     image_url: '/images/projects/expected-goals-xg-statsbomb.jpg',
-    status: 'en_proceso',
+    github_url: 'https://github.com/danielgarciaN/xG-statsbomb-master',
+    status: 'terminado',
     featured: true,
     learnings: [
       'Modelado de Expected Goals',

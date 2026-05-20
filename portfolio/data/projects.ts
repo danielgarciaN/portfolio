@@ -90,7 +90,7 @@ const rawProjectDossiers: ProjectDossier[] = [
     longDescription:
       'Sistema de analitica de marketing con scoring RFM, clustering KMeans, segmentacion de clientes, prediccion de churn, simulacion de campanas y una capa multiagente de IA. El backend FastAPI orquesta agentes especializados con LangGraph, consulta conocimiento documental mediante RAG sobre Qdrant y puede funcionar gratis con modelos locales de Ollama, ademas de soportar OpenAI o modo mock para desarrollo.',
     category: 'personal',
-    status: 'en_proceso',
+    status: 'terminado',
     technologies: [
       'LangGraph',
       'FastAPI',
@@ -275,7 +275,9 @@ const rawProjectDossiers: ProjectDossier[] = [
       soft: 'rgba(43, 127, 255, 0.1)',
     },
     coverImage: '/images/projects/expected-goals-xg-statsbomb.jpg',
+    githubUrl: 'https://github.com/danielgarciaN/xG-statsbomb-master',
     resources: [
+      githubResource('https://github.com/danielgarciaN/xG-statsbomb-master'),
       pendingResource('expected-goals-xg-statsbomb', 'Memoria / Notebook del proyecto'),
     ],
     videos: [],
