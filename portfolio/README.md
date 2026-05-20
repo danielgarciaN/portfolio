@@ -1,6 +1,6 @@
 # Daniel García Nilo - Portfolio Personal
 
-Portfolio profesional construido con Next.js 14, TypeScript, Tailwind CSS, Framer Motion y Supabase. Está diseñado para presentar un perfil de Ingeniería Informática con foco en desarrollo software, Data Science, inteligencia artificial, backend y cloud.
+Portfolio profesional construido con Next.js 14, TypeScript, Tailwind CSS, Framer Motion y Supabase. Está diseñado para presentar un perfil de Ingeniero Informático graduado con foco en AI Engineering, Data Science, automatización, backend y cloud, aprovechando experiencia corporativa en Occident.
 
 ## Características
 

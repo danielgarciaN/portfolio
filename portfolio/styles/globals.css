@@ -121,3 +121,22 @@
 *:focus-visible {
   @apply outline-2 outline-offset-2 outline-accent;
 }
+
+/* Brighter text in dark mode */
+.dark .dark\:text-surface-500 {
+  color: rgb(161 161 170) !important;
+}
+
+.dark .dark\:text-surface-400 {
+  color: rgb(212 212 216) !important;
+}
+
+.dark .dark\:text-surface-300 {
+  color: rgb(228 228 231) !important;
+}
+
+.dark .dark\:text-surface-200,
+.dark .dark\:text-surface-100,
+.dark .dark\:text-surface-50 {
+  color: rgb(250 250 250) !important;
+}

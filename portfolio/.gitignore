@@ -9,7 +9,11 @@ out/
 .env.local
 .env.*.local
 
+# local contact fallback
+.contact-messages/
+
 # misc
+dev-server*.log
 *.tsbuildinfo
 next-env.d.ts
 .DS_Store

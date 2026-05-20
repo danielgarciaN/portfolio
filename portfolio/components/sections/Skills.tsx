@@ -4,14 +4,16 @@ import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import Section from '@/components/ui/Section';
 import { useI18n } from '@/lib/i18n';
-import { BarChart3, Cloud, Code2, Globe, Languages, Server, Wrench } from 'lucide-react';
+import { BarChart3, BrainCircuit, Cloud, Code2, Globe, Languages, Server, Users, Wrench } from 'lucide-react';
 
 const iconMap: Record<string, React.ElementType> = {
   code: Code2,
+  brain: BrainCircuit,
   'bar-chart': BarChart3,
   globe: Globe,
   cloud: Cloud,
   server: Server,
+  users: Users,
   wrench: Wrench,
   languages: Languages,
 };

@@ -1,7 +1,33 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { mkdir, readFile, writeFile } from 'node:fs/promises';
+import path from 'node:path';
 import { supabase } from '@/lib/supabase';
 import { validateContactForm } from '@/lib/validations';
 import type { ContactMessage } from '@/types';
+
+export const runtime = 'nodejs';
+
+interface StoredContactMessage extends ContactMessage {
+  created_at: string;
+}
+
+async function saveMessageLocally(message: StoredContactMessage) {
+  const storageDir = path.join(process.cwd(), '.contact-messages');
+  const storagePath = path.join(storageDir, 'messages.json');
+
+  await mkdir(storageDir, { recursive: true });
+
+  let messages: StoredContactMessage[] = [];
+  try {
+    const file = await readFile(storagePath, 'utf8');
+    messages = JSON.parse(file) as StoredContactMessage[];
+  } catch {
+    messages = [];
+  }
+
+  messages.push(message);
+  await writeFile(storagePath, `${JSON.stringify(messages, null, 2)}\n`, 'utf8');
+}
 
 export async function POST(request: NextRequest) {
   try {
@@ -13,13 +39,20 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ errors }, { status: 400 });
     }
 
-    // Insert into Supabase
-    const { error } = await supabase.from('contact_messages').insert({
+    const message = {
       name: body.name.trim(),
       email: body.email.trim().toLowerCase(),
       subject: body.subject.trim(),
       message: body.message.trim(),
-    });
+      created_at: new Date().toISOString(),
+    };
+
+    if (!supabase) {
+      await saveMessageLocally(message);
+      return NextResponse.json({ success: true, storage: 'local' });
+    }
+
+    const { error } = await supabase.from('contact_messages').insert(message);
 
     if (error) {
       console.error('Supabase error:', error);
