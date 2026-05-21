@@ -268,7 +268,7 @@ const rawProjectDossiers: ProjectDossier[] = [
     longDescription:
       'Proyecto centrado en modelar la probabilidad de gol de cada tiro mediante feature engineering futbolistico, modelos supervisados, evaluacion, calibracion y visualizacion de resultados. La pagina queda preparada para incorporar notebook, memoria, graficas, pruebas y entregables del proyecto.',
     category: 'master',
-    status: 'en_proceso',
+    status: 'terminado',
     technologies: ['Python', 'StatsBomb', 'Pandas', 'scikit-learn', 'XGBoost', 'Matplotlib', 'Seaborn'],
     colorTheme: {
       primary: '#2B7FFF',
@@ -278,13 +278,20 @@ const rawProjectDossiers: ProjectDossier[] = [
     githubUrl: 'https://github.com/danielgarciaN/xG-statsbomb-master',
     resources: [
       githubResource('https://github.com/danielgarciaN/xG-statsbomb-master'),
+      {
+        title: 'Presentacion del proyecto',
+        type: 'presentation',
+        description: 'Presentacion del proyecto de master Expected Goals xG con StatsBomb.',
+        url: `${projectBasePath('expected-goals-xg-statsbomb')}/docs/xG-statsbomb.pptx`,
+        action: 'download',
+      },
       pendingResource('expected-goals-xg-statsbomb', 'Memoria / Notebook del proyecto'),
     ],
     videos: [],
     gallery: [
       {
         title: 'Visualizacion principal',
-        src: `${projectBasePath('expected-goals-xg-statsbomb')}/images/captura-1.png`,
+        src: '/images/projects/expected-goals-xg-statsbomb.jpg',
         alt: 'Visualizacion del modelo Expected Goals',
         description: 'Espacio para graficas, metricas o resultados del modelo.',
       },
