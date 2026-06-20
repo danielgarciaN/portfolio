@@ -2,6 +2,28 @@ import type { Project, SkillCategory, TimelineItem } from '@/types';
 
 export const fallbackProjects: Project[] = [
   {
+    id: '9',
+    title: 'StatsBomb SQL Analytics',
+    slug: 'statsbomb-sql-analytics',
+    description:
+      'Base de datos relacional en MySQL para analizar jugadores, equipos y competiciones con datos abiertos de StatsBomb.',
+    long_description:
+      'Proyecto de master orientado al diseno conceptual y logico de una base de datos relacional, carga y limpieza de datos, definicion de restricciones e integridad referencial, consultas analiticas e insights de negocio sobre rendimiento futbolistico.',
+    category: 'master',
+    technologies: ['SQL', 'MySQL', 'Data Modeling', 'Data Analysis', 'Business Intelligence'],
+    github_url: 'https://github.com/danielgarciaN/player-match-stats-sql',
+    image_url: '/images/projects/model.jpg',
+    status: 'terminado',
+    featured: true,
+    learnings: [
+      'Modelado relacional y normalizacion',
+      'SQL avanzado con CTEs, vistas y funciones ventana',
+      'Analisis de datos deportivos con enfoque de negocio',
+      'Validacion, limpieza e integridad referencial',
+    ],
+    created_at: '2026-06-20',
+  },
+  {
     id: '8',
     title: 'AI Marketing Intelligence Platform',
     slug: 'marketing-ia',

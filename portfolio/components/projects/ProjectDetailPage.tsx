@@ -51,6 +51,24 @@ export default function ProjectDetailPage({ project }: ProjectDetailPageProps) {
           </div>
 
           <div className="mt-10 space-y-12">
+            {project.detailSections?.map((section) => (
+              <section
+                key={`${section.eyebrow}-${section.title}`}
+                className="rounded-2xl border border-surface-200 bg-[rgb(var(--color-card)/0.9)] p-6 shadow-[0_16px_45px_rgba(35,78,112,0.08)] dark:border-surface-800 dark:bg-surface-900 sm:p-8"
+              >
+                <span className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--project-primary)]">
+                  {section.eyebrow}
+                </span>
+                <h2 className="mt-2 text-2xl font-semibold tracking-tight text-surface-900 dark:text-surface-50">
+                  {section.title}
+                </h2>
+                <div className="mt-4 space-y-3 text-sm leading-relaxed text-surface-600 dark:text-surface-300 sm:text-base">
+                  {section.body.map((paragraph) => (
+                    <p key={paragraph}>{paragraph}</p>
+                  ))}
+                </div>
+              </section>
+            ))}
             <ProjectResourceList resources={project.resources} />
             <ProjectVideoSection videos={project.videos} />
             <ProjectGallery images={project.gallery} />

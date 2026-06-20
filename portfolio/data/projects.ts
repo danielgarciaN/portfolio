@@ -81,6 +81,130 @@ function githubResource(url: string) {
 
 const rawProjectDossiers: ProjectDossier[] = [
   {
+    title: 'StatsBomb SQL Analytics',
+    slug: 'statsbomb-sql-analytics',
+    subtitle: 'Base de datos relacional y analisis de negocio aplicado al futbol',
+    author: 'Daniel Garcia Nilo',
+    description:
+      'Proyecto de master centrado en disenar una base de datos relacional en MySQL a partir de datos abiertos de StatsBomb para obtener valor de negocio mediante SQL.',
+    longDescription:
+      'El proyecto transforma datos futbolisticos de StatsBomb en un modelo relacional preparado para analisis exploratorio. Incluye diseno conceptual y logico, definicion de tablas, claves primarias y foraneas, restricciones, limpieza, validacion e insights sobre jugadores, equipos y competiciones.',
+    category: 'master',
+    status: 'terminado',
+    technologies: ['SQL', 'MySQL', 'Data Modeling', 'Data Analysis', 'Business Intelligence', 'StatsBomb'],
+    colorTheme: {
+      primary: '#256B4E',
+      soft: 'rgba(37, 107, 78, 0.11)',
+    },
+    coverImage: '/images/projects/model.jpg',
+    resources: [
+      {
+        title: 'Repositorio GitHub',
+        type: 'code',
+        description: 'Codigo fuente del proyecto SQL, documentacion, scripts y estructura de datos.',
+        url: 'https://github.com/danielgarciaN/player-match-stats-sql',
+        action: 'external',
+      },
+      {
+        title: 'Video de presentacion',
+        type: 'video',
+        description: 'Presentacion del proyecto y explicacion del enfoque de analisis con SQL.',
+        url: 'https://www.loom.com/share/2bcabd1eb1344d5cb5fde0393808aa6b',
+        action: 'external',
+      },
+      {
+        title: 'Scripts SQL',
+        type: 'code',
+        description: 'Espacio preparado para anadir schema, carga, limpieza y consultas analiticas.',
+        url: `${projectBasePath('statsbomb-sql-analytics')}/docs/scripts-sql.zip`,
+        action: 'download',
+        available: false,
+      },
+      {
+        title: 'Memoria / PDF tecnico',
+        type: 'pdf',
+        description: 'Placeholder para memoria, informe o documentacion academica del proyecto.',
+        url: `${projectBasePath('statsbomb-sql-analytics')}/docs/memoria.pdf`,
+        action: 'download',
+        available: false,
+      },
+      {
+        title: 'Diagramas del modelo',
+        type: 'diagram',
+        description: 'Espacio preparado para diagramas entidad-relacion, capturas o anexos del modelo relacional.',
+        url: `${projectBasePath('statsbomb-sql-analytics')}/docs/diagramas.pdf`,
+        action: 'view',
+        available: false,
+      },
+    ],
+    videos: [],
+    gallery: [
+      {
+        title: 'Modelo relacional',
+        src: '/images/projects/model.jpg',
+        alt: 'Modelo relacional del proyecto StatsBomb SQL Analytics',
+        description: 'Diagrama principal del modelo de datos utilizado para organizar jugadores, equipos, competiciones, partidos y estadisticas.',
+      },
+      {
+        title: 'Espacio para capturas SQL',
+        src: `${projectBasePath('statsbomb-sql-analytics')}/images/model.jpg`,
+        alt: 'Captura o diagrama adicional del proyecto SQL',
+        description: 'Espacio preparado para incorporar capturas de consultas, resultados, vistas de negocio o diagramas adicionales.',
+      },
+    ],
+    detailSections: [
+      {
+        eyebrow: 'Contexto',
+        title: 'Datos abiertos de futbol orientados a decision',
+        body: [
+          'El proyecto nace dentro del Master en Data Science como ejercicio completo de modelado, limpieza y analisis con SQL sobre un dominio deportivo real.',
+          'StatsBomb proporciona datos abiertos de competiciones, partidos, equipos y jugadores. El reto consiste en convertir esa informacion en una estructura relacional consultable, consistente y util para responder preguntas de negocio deportivo.',
+          'El enfoque no se limita a almacenar datos: el modelo se plantea para facilitar lectura analitica, comparacion entre competiciones y evaluacion del rendimiento individual y colectivo.',
+        ],
+      },
+      {
+        eyebrow: 'Arquitectura de datos',
+        title: 'Modelo relacional normalizado',
+        body: [
+          'La arquitectura separa una tabla principal de hechos, player_match_stats, de las dimensiones player, team, competition y football_match. Esta granularidad permite representar una fila por jugador y partido.',
+          'Las claves primarias identifican de forma unica cada entidad y las claves foraneas conectan estadisticas con jugadores, equipos, partidos y competiciones, manteniendo integridad referencial.',
+          'El diseno evita duplicidades, facilita consultas agregadas y deja el modelo preparado para vistas de negocio, indices y funciones SQL personalizadas.',
+        ],
+      },
+      {
+        eyebrow: 'Modelo relacional',
+        title: 'Entidades, relaciones y evidencia visual',
+        body: [
+          'El dossier deja preparada una zona de evidencias para diagramas entidad-relacion, capturas del modelo, resultados de consultas y anexos visuales.',
+          'El modelo principal organiza equipos, competiciones, partidos, jugadores y estadisticas de rendimiento para permitir analisis por competicion, localia, eficiencia ofensiva, dependencia de jugadores y evolucion temporal.',
+          'La imagen principal del proyecto funciona como primera evidencia visual y puede complementarse con nuevas capturas dentro de public/projects/statsbomb-sql-analytics/images.',
+        ],
+      },
+      {
+        eyebrow: 'Resultados',
+        title: 'Consultas analiticas e insights de negocio',
+        body: [
+          'Las consultas responden preguntas como que competiciones tienen mayor promedio de goles, donde pesa mas jugar como local, que equipos son mas eficientes de cara a gol y que jugadores destacan por posicion o rendimiento por minuto.',
+          'Tambien se analiza la dependencia ofensiva de los equipos respecto a jugadores concretos, la evolucion anual del promedio de goles y la relacion entre eficiencia ofensiva y rating medio.',
+          'El valor principal esta en transformar un dataset deportivo en informacion accionable para comparar rendimiento, detectar perfiles infravalorados y explicar patrones competitivos.',
+        ],
+      },
+      {
+        eyebrow: 'Aprendizajes',
+        title: 'SQL avanzado aplicado a valor de negocio',
+        body: [
+          'El proyecto consolida competencias de modelado relacional, normalizacion, integridad referencial, validacion de datos y diseno de estructuras consultables.',
+          'A nivel analitico se trabajan agregaciones, joins, subconsultas, CTEs, funciones ventana, vistas, indices, transacciones y funciones SQL personalizadas.',
+          'El aprendizaje transversal es conectar tecnica y negocio: partir de datos reales, limpiarlos, estructurarlos y convertirlos en conclusiones interpretables.',
+        ],
+      },
+    ],
+    notes: [
+      'La estructura de recursos queda preparada para anadir README, PDF, scripts SQL, diagramas, capturas y entregables adicionales sin cambiar la arquitectura del dossier.',
+      'Proyecto finalizado dentro del Master en Data Science, con foco en modelado de datos, analisis SQL y extraccion de valor de negocio a partir de datos deportivos.',
+    ],
+  },
+  {
     title: 'AI Marketing Intelligence Platform',
     slug: 'marketing-ia',
     subtitle: 'Plataforma enterprise de inteligencia de marketing multiagente',

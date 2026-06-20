@@ -113,6 +113,12 @@ export interface ProjectGalleryImage {
   description?: string;
 }
 
+export interface ProjectDetailSection {
+  eyebrow: string;
+  title: string;
+  body: string[];
+}
+
 export interface ProjectDossier {
   title: string;
   slug: string;
@@ -134,5 +140,6 @@ export interface ProjectDossier {
   resources: ProjectResource[];
   videos: ProjectVideo[];
   gallery: ProjectGalleryImage[];
+  detailSections?: ProjectDetailSection[];
   notes: string[];
 }
