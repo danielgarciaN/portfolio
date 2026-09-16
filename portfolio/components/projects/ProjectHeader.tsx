@@ -4,22 +4,8 @@ import Image from 'next/image';
 import type { ComponentType } from 'react';
 import { useState } from 'react';
 import { Bot, CheckCircle2, Clock3, Layers3, User2 } from 'lucide-react';
-import type { ProjectCategory, ProjectDossier, ProjectStatus } from '@/types';
-
-const categoryLabels: Record<ProjectCategory, string> = {
-  personal: 'Personal',
-  universidad: 'Universidad',
-  master: 'Master',
-  'data-science': 'Data Science',
-  backend: 'Backend',
-  'web-app': 'Web/App',
-};
-
-const statusLabels: Record<ProjectStatus, string> = {
-  terminado: 'Finalizado',
-  en_proceso: 'En proceso',
-  futuro: 'Futuro',
-};
+import { useI18n } from '@/lib/i18n';
+import type { ProjectDossier, ProjectStatus } from '@/types';
 
 const statusIcons: Record<ProjectStatus, ComponentType<{ className?: string }>> = {
   terminado: CheckCircle2,
@@ -27,21 +13,32 @@ const statusIcons: Record<ProjectStatus, ComponentType<{ className?: string }>> 
   futuro: Layers3,
 };
 
+const statusStyles: Record<ProjectStatus, string> = {
+  terminado:
+    'border-emerald-700 bg-emerald-700 text-white shadow-sm shadow-emerald-700/20 dark:border-emerald-300/45 dark:bg-emerald-500/25 dark:text-emerald-50',
+  en_proceso:
+    'border-cyan-700 bg-cyan-700 text-white shadow-sm shadow-cyan-700/20 dark:border-accent/60 dark:bg-accent/25 dark:text-cyan-50',
+  futuro:
+    'border-surface-200 bg-surface-100 text-surface-600 dark:border-white/20 dark:bg-white/10 dark:text-slate-100',
+};
+
 interface ProjectHeaderProps {
   project: ProjectDossier;
 }
 
 export default function ProjectHeader({ project }: ProjectHeaderProps) {
+  const { messages } = useI18n();
   const [coverFailed, setCoverFailed] = useState(false);
   const [logoFailed, setLogoFailed] = useState(false);
   const StatusIcon = statusIcons[project.status];
   const showCover = Boolean(project.coverImage) && !coverFailed;
   const showLogo = Boolean(project.logo) && !logoFailed;
+  const categories = project.categories ?? (project.category ? [project.category] : []);
 
   return (
-    <header className="overflow-hidden rounded-2xl border border-surface-200 bg-[rgb(var(--color-card)/0.92)] shadow-[0_18px_55px_rgba(35,78,112,0.1)] dark:border-surface-800 dark:bg-surface-900">
+    <header className="overflow-hidden rounded-2xl border border-surface-200 bg-[rgb(var(--color-card)/0.92)] shadow-[0_18px_55px_rgba(0,124,145,0.1)] dark:border-white/15 dark:bg-surface-900">
       {showCover && (
-        <div className="relative aspect-[16/7] min-h-56 overflow-hidden border-b border-surface-200 bg-surface-100 dark:border-surface-800 dark:bg-surface-950">
+        <div className="relative aspect-[16/7] min-h-56 overflow-hidden border-b border-surface-200 bg-surface-100 dark:border-white/15 dark:bg-surface-950">
           <Image
             src={project.coverImage as string}
             alt={project.title}
@@ -59,13 +56,18 @@ export default function ProjectHeader({ project }: ProjectHeaderProps) {
         <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
           <div className="max-w-3xl">
             <div className="mb-5 flex flex-wrap gap-2">
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-[var(--project-primary)]/25 bg-[var(--project-soft)] px-3 py-1 text-xs font-bold text-[var(--project-primary)]">
-                <Layers3 className="h-3.5 w-3.5" />
-                {categoryLabels[project.category]}
-              </span>
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-surface-200 bg-surface-50 px-3 py-1 text-xs font-bold text-surface-600 dark:border-surface-700 dark:bg-surface-800 dark:text-surface-300">
+              {categories.map((category) => (
+                <span
+                  key={category}
+                  className="inline-flex items-center gap-1.5 rounded-full border border-accent/35 bg-accent/10 px-3 py-1 text-xs font-bold text-accent-dark dark:border-accent/45 dark:bg-accent/15 dark:text-cyan-50"
+                >
+                  <Layers3 className="h-3.5 w-3.5" />
+                  {messages.projects.categories[category] ?? category}
+                </span>
+              ))}
+              <span className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-xs font-bold ${statusStyles[project.status]}`}>
                 <StatusIcon className="h-3.5 w-3.5 text-[var(--project-primary)]" />
-                {statusLabels[project.status]}
+                {messages.projects.statuses[project.status]}
               </span>
             </div>
 
@@ -83,14 +85,14 @@ export default function ProjectHeader({ project }: ProjectHeaderProps) {
               </span>
               <span className="inline-flex items-center gap-2">
                 <Bot className="h-4 w-4 text-[var(--project-primary)]" />
-                Dossier del proyecto
+                {messages.projectDossier.headerLabel}
               </span>
             </div>
           </div>
 
           <div className="flex shrink-0 items-center justify-center">
             {showLogo ? (
-              <div className="relative h-20 w-32 overflow-hidden rounded-xl border border-surface-200 bg-[rgb(var(--color-card))] p-3 dark:border-surface-800 dark:bg-surface-950">
+              <div className="relative h-20 w-32 overflow-hidden rounded-xl border border-surface-200 bg-[rgb(var(--color-card))] p-3 dark:border-white/15 dark:bg-surface-950">
                 <Image
                   src={project.logo as string}
                   alt={`${project.title} logo`}
@@ -110,7 +112,7 @@ export default function ProjectHeader({ project }: ProjectHeaderProps) {
 
         <div className="mt-8 flex flex-wrap gap-2">
           {project.technologies.map((technology) => (
-            <span key={technology} className="rounded-lg bg-surface-100 px-2.5 py-1 text-xs font-semibold text-surface-600 dark:bg-surface-800 dark:text-surface-300">
+            <span key={technology} className="rounded-lg bg-surface-100 px-2.5 py-1 text-xs font-semibold text-surface-600 dark:bg-white/10 dark:text-slate-200">
               {technology}
             </span>
           ))}

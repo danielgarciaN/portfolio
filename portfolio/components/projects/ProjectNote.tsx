@@ -1,10 +1,13 @@
 import { Info } from 'lucide-react';
+import { useI18n } from '@/lib/i18n';
 
 interface ProjectNoteProps {
   notes: string[];
 }
 
 export default function ProjectNote({ notes }: ProjectNoteProps) {
+  const { messages } = useI18n();
+
   if (notes.length === 0) return null;
 
   return (
@@ -15,7 +18,7 @@ export default function ProjectNote({ notes }: ProjectNoteProps) {
         </div>
         <div>
           <h2 className="text-sm font-bold uppercase tracking-[0.18em] text-[var(--project-primary)]">
-            Nota
+            {messages.projectDossier.noteTitle}
           </h2>
           <div className="mt-2 space-y-2 text-sm leading-relaxed text-surface-600 dark:text-surface-300">
             {notes.map((note) => (

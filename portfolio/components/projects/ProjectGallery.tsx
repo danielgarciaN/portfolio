@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import { useState } from 'react';
+import { useI18n } from '@/lib/i18n';
 import type { ProjectGalleryImage } from '@/types';
 
 interface ProjectGalleryProps {
@@ -40,6 +41,7 @@ function GalleryItem({
 }
 
 export default function ProjectGallery({ images }: ProjectGalleryProps) {
+  const { messages } = useI18n();
   const [failedImages, setFailedImages] = useState<string[]>([]);
   const visibleImages = images.filter((image) => !failedImages.includes(image.src));
 
@@ -52,10 +54,10 @@ export default function ProjectGallery({ images }: ProjectGalleryProps) {
   return (
     <section>
       <span className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--project-primary)]">
-        Evidencias
+        {messages.projectDossier.galleryEyebrow}
       </span>
       <h2 className="mt-2 text-2xl font-semibold tracking-tight text-surface-900 dark:text-surface-50">
-        Capturas y pruebas
+        {messages.projectDossier.galleryTitle}
       </h2>
       <div className="mt-5 grid gap-4 md:grid-cols-2">
         {visibleImages.map((image) => (

@@ -1,4 +1,5 @@
 import { ExternalLink, MonitorPlay } from 'lucide-react';
+import { useI18n } from '@/lib/i18n';
 import type { ProjectVideo } from '@/types';
 
 interface ProjectVideoSectionProps {
@@ -11,15 +12,17 @@ function getYoutubeEmbedUrl(url: string) {
 }
 
 export default function ProjectVideoSection({ videos }: ProjectVideoSectionProps) {
+  const { messages } = useI18n();
+
   if (videos.length === 0) return null;
 
   return (
     <section>
       <span className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--project-primary)]">
-        Demos
+        {messages.projectDossier.videosEyebrow}
       </span>
       <h2 className="mt-2 text-2xl font-semibold tracking-tight text-surface-900 dark:text-surface-50">
-        Videos y demostraciones
+        {messages.projectDossier.videosTitle}
       </h2>
 
       <div className="mt-5 grid gap-5">
@@ -68,7 +71,7 @@ export default function ProjectVideoSection({ videos }: ProjectVideoSectionProps
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 rounded-lg bg-[var(--project-primary)] px-4 py-2 text-sm font-bold text-white"
                   >
-                    Abrir recurso
+                    {messages.projectDossier.actions.open}
                     <ExternalLink className="h-4 w-4" />
                   </a>
                 </div>

@@ -19,42 +19,45 @@ const jetbrains = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: 'Daniel García Nilo - AI Engineer & Data Science',
+    default: 'Daniel García Nilo - Data Analyst & Computer Engineer',
     template: '%s | Daniel García Nilo',
   },
   description:
-    'Portfolio profesional de Daniel García Nilo, ingeniero informático graduado orientado a AI Engineering, Data Science, automatización, backend y cloud.',
+    'Portfolio profesional de Daniel García Nilo, Data Analyst e ingeniero informático con experiencia en Data Analytics, Power BI, SQL, Python, Snowflake, Data Science, IA y Software Engineering.',
   keywords: [
     'Daniel García Nilo',
-    'AI Engineer',
-    'AI Engineering',
+    'Data Analyst',
+    'Data Analytics',
+    'Business Intelligence',
+    'Power BI',
+    'SQL',
+    'Python',
+    'Snowflake',
     'Ingeniero Informático',
     'Data Science',
     'Inteligencia Artificial',
+    'AI Engineering',
     'Machine Learning',
-    'RAG',
-    'LangGraph',
+    'Data Visualization',
     'Backend',
-    'Cloud',
     'C#',
     '.NET',
-    'Python',
     'Portfolio',
   ],
   authors: [{ name: 'Daniel García Nilo' }],
   openGraph: {
     type: 'website',
     locale: 'es_ES',
-    title: 'Daniel García Nilo - AI Engineer & Data Science',
+    title: 'Daniel García Nilo - Data Analyst & Computer Engineer',
     description:
-      'Portfolio profesional de Daniel García Nilo. AI Engineering, Data Science, IA aplicada, backend y cloud.',
+      'Portfolio profesional de Daniel García Nilo. Data Analytics, Business Intelligence, Power BI, SQL, Python, Data Science, IA y Software Engineering.',
     siteName: 'Daniel García Nilo Portfolio',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Daniel García Nilo - AI Engineer & Data Science',
+    title: 'Daniel García Nilo - Data Analyst & Computer Engineer',
     description:
-      'Ingeniero informático graduado orientado a AI Engineering, Data Science, IA aplicada y cloud.',
+      'Data Analyst e ingeniero informático con background en Data Science, IA y Software Engineering.',
   },
   robots: { index: true, follow: true },
 };

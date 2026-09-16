@@ -47,7 +47,7 @@ export default function Navbar() {
   };
 
   const languageSelector = (
-    <div className="flex items-center gap-1 rounded-lg border border-surface-200 bg-[rgb(var(--color-card)/0.78)] p-1 shadow-sm backdrop-blur transition-colors dark:border-surface-800 dark:bg-surface-900/70">
+    <div className="flex items-center gap-1 rounded-lg border border-surface-200 bg-[rgb(var(--color-card)/0.78)] p-1 shadow-sm backdrop-blur transition-colors dark:border-white/15 dark:bg-[rgb(var(--color-card)/0.78)]">
       {languages.map((language) => (
         <button
           key={language.locale}
@@ -70,15 +70,14 @@ export default function Navbar() {
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'border-b border-surface-200/60 bg-[rgb(var(--color-card)/0.82)] shadow-sm backdrop-blur-xl dark:border-surface-800/50 dark:bg-surface-950/80'
+          ? 'border-b border-surface-200/60 bg-[rgb(var(--color-card)/0.82)] shadow-sm backdrop-blur-xl dark:border-white/15 dark:bg-[rgb(var(--color-page)/0.82)]'
           : 'bg-transparent'
       }`}
     >
       <nav className="section-container flex h-16 items-center justify-between">
         <Link href="/" className="flex items-center gap-2 font-mono text-sm font-semibold tracking-tight">
           <Terminal className="h-4 w-4 text-accent" />
-          <span className="text-surface-800 dark:text-surface-100">dgarcia-nilo</span>
-          <span className="text-accent">_</span>
+          <span className="text-surface-800 dark:text-white">Daniel García Nilo</span>
         </Link>
 
         <div className="hidden items-center gap-1 md:flex">
@@ -91,11 +90,11 @@ export default function Navbar() {
               {messages.nav[link.key as keyof typeof messages.nav]}
             </Link>
           ))}
-          <div className="ml-2 h-5 w-px bg-surface-200 dark:bg-surface-700" />
+          <div className="ml-2 h-5 w-px bg-surface-200 dark:bg-white/15" />
           {languageSelector}
           <button
             onClick={toggleTheme}
-            className="ml-1 rounded-lg p-2 text-surface-500 transition-colors hover:bg-surface-100 hover:text-accent dark:hover:bg-surface-800 dark:hover:text-accent"
+            className="ml-1 rounded-lg p-2 text-surface-500 transition-colors hover:bg-surface-100 hover:text-accent dark:text-slate-200 dark:hover:bg-white/10 dark:hover:text-accent"
             aria-label={messages.nav.theme}
           >
             {dark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
@@ -106,14 +105,14 @@ export default function Navbar() {
           {languageSelector}
           <button
             onClick={toggleTheme}
-            className="rounded-lg p-2 text-surface-500 transition-colors hover:bg-surface-100 hover:text-accent dark:hover:bg-surface-800 dark:hover:text-accent"
+            className="rounded-lg p-2 text-surface-500 transition-colors hover:bg-surface-100 hover:text-accent dark:text-slate-200 dark:hover:bg-white/10 dark:hover:text-accent"
             aria-label={messages.nav.theme}
           >
             {dark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
           </button>
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="rounded-lg p-2 text-surface-600 transition-colors hover:bg-surface-100 dark:text-surface-400 dark:hover:bg-surface-800"
+            className="rounded-lg p-2 text-surface-600 transition-colors hover:bg-surface-100 dark:text-slate-200 dark:hover:bg-white/10"
             aria-label={messages.nav.menu}
           >
             {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -127,7 +126,7 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="overflow-hidden border-t border-surface-200/60 bg-[rgb(var(--color-card)/0.96)] backdrop-blur-xl dark:border-surface-800/50 dark:bg-surface-950/95 md:hidden"
+            className="overflow-hidden border-t border-surface-200/60 bg-[rgb(var(--color-card)/0.96)] backdrop-blur-xl dark:border-white/15 dark:bg-[rgb(var(--color-page)/0.96)] md:hidden"
           >
             <div className="section-container flex flex-col gap-1 py-4">
               {navLinks.map((link) => (

@@ -14,12 +14,12 @@ interface ProjectsProps {
 
 const categories: (ProjectCategory | 'all')[] = [
   'all',
+  'data-analytics',
   'data-science',
+  'master',
   'web-app',
   'backend',
   'universidad',
-  'master',
-  'personal',
 ];
 
 export default function Projects({ projects }: ProjectsProps) {
@@ -30,7 +30,8 @@ export default function Projects({ projects }: ProjectsProps) {
 
   const filtered = useMemo(() => {
     return allProjects.filter((project) => {
-      const matchesCategory = activeCategory === 'all' || project.category === activeCategory;
+      const projectCategories = project.categories ?? (project.category ? [project.category] : []);
+      const matchesCategory = activeCategory === 'all' || projectCategories.includes(activeCategory);
       const query = search.toLowerCase();
       const translatedProject = messages.projects.items[project.slug as keyof typeof messages.projects.items];
       const matchesSearch =
@@ -46,7 +47,10 @@ export default function Projects({ projects }: ProjectsProps) {
   return (
     <Section id="proyectos">
       <span className="heading-section">{messages.projects.eyebrow}</span>
-      <h2 className="heading-lg mt-3 mb-4">{messages.projects.title}</h2>
+      <h2 className="heading-lg mt-3 mb-4">
+        {messages.projects.title}{' '}
+        <span className="text-accent">{messages.projects.titleAccent}</span>
+      </h2>
       <p className="mb-8 max-w-2xl text-sm leading-relaxed text-surface-500 dark:text-surface-400">
         {messages.projects.intro}
       </p>
@@ -59,8 +63,8 @@ export default function Projects({ projects }: ProjectsProps) {
               onClick={() => setActiveCategory(category)}
               className={`rounded-lg px-3.5 py-1.5 text-xs font-semibold transition-all duration-200 ${
                 activeCategory === category
-                  ? 'bg-accent text-white shadow-sm shadow-accent/25 dark:text-surface-950'
-                  : 'bg-surface-100 text-surface-600 hover:bg-surface-200 dark:bg-surface-800 dark:text-surface-400 dark:hover:bg-surface-700'
+                  ? 'border border-accent bg-accent text-white shadow-sm shadow-accent/25 dark:text-surface-950'
+                  : 'border border-surface-200 bg-[rgb(var(--color-card)/0.76)] text-surface-600 hover:-translate-y-0.5 hover:border-accent/35 hover:bg-accent/10 hover:text-accent dark:border-white/15 dark:bg-white/5 dark:text-slate-300 dark:hover:border-accent/45 dark:hover:bg-accent/10 dark:hover:text-accent'
               }`}
             >
               {messages.projects.categories[category]}

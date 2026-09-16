@@ -8,7 +8,7 @@ CREATE TABLE projects (
   slug TEXT NOT NULL UNIQUE,
   description TEXT NOT NULL,
   long_description TEXT,
-  category TEXT NOT NULL CHECK (category IN ('personal', 'universidad', 'master', 'data-science', 'backend', 'web-app')),
+  categories TEXT[] NOT NULL DEFAULT '{}' CHECK (categories <@ ARRAY['data-analytics', 'data-science', 'master', 'universidad', 'backend', 'web-app']),
   technologies TEXT[] NOT NULL DEFAULT '{}',
   github_url TEXT,
   demo_url TEXT,
@@ -19,7 +19,7 @@ CREATE TABLE projects (
   created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
 
-CREATE INDEX idx_projects_category ON projects(category);
+CREATE INDEX idx_projects_categories ON projects USING GIN(categories);
 CREATE INDEX idx_projects_featured ON projects(featured);
 CREATE INDEX idx_projects_slug ON projects(slug);
 
@@ -104,13 +104,13 @@ CREATE POLICY "Public read links" ON links FOR SELECT USING (true);
 ALTER TABLE blog_posts ENABLE ROW LEVEL SECURITY;
 CREATE POLICY "Public read published posts" ON blog_posts FOR SELECT USING (published = true);
 
-INSERT INTO projects (title, slug, description, long_description, category, technologies, github_url, image_url, status, featured, learnings) VALUES
+INSERT INTO projects (title, slug, description, long_description, categories, technologies, github_url, image_url, status, featured, learnings) VALUES
 (
   'AI Marketing Intelligence Platform',
   'marketing-ia',
   'Plataforma enterprise de inteligencia de marketing con sistema multiagente LangGraph, RAG, ML clasico, FastAPI y dashboard Next.js.',
-  'Proyecto personal en progreso que convierte datos transaccionales de ecommerce en recomendaciones de negocio. Combina scoring RFM, clustering KMeans, prediccion de churn, simulacion de campanas, recuperacion RAG con Qdrant y agentes especializados capaces de razonar sobre KPIs, segmentos, playbooks CRM y ROI estimado. Funciona con Ollama local, OpenAI o modo mock.',
-  'personal',
+  'Proyecto en progreso que convierte datos transaccionales de ecommerce en recomendaciones de negocio. Combina scoring RFM, clustering KMeans, prediccion de churn, simulacion de campanas, recuperacion RAG con Qdrant y agentes especializados capaces de razonar sobre KPIs, segmentos, playbooks CRM y ROI estimado. Funciona con Ollama local, OpenAI o modo mock.',
+  ARRAY['data-analytics', 'data-science'],
   ARRAY['LangGraph', 'FastAPI', 'Ollama', 'Qdrant', 'RAG', 'Next.js', 'TypeScript', 'scikit-learn'],
   'https://github.com/danielgarciaN/marketing-ia',
   '/images/projects/marketing-ia.jpg',
@@ -122,12 +122,12 @@ INSERT INTO projects (title, slug, description, long_description, category, tech
   'Expected Goals xG - StatsBomb',
   'expected-goals-xg-statsbomb',
   'Notebook de nivel master para construir un modelo de Expected Goals con datos de eventos de StatsBomb Open Data.',
-  'Proyecto en curso centrado en modelar la probabilidad de gol de cada tiro mediante Logistic Regression, Random Forest y XGBoost. Incluye feature engineering futbolistico, calibracion, comparacion con el xG de StatsBomb, visualizaciones e interpretacion de negocio deportivo.',
-  'master',
+  'Proyecto finalizado centrado en modelar la probabilidad de gol de cada tiro mediante Logistic Regression, Random Forest y XGBoost. Incluye feature engineering futbolistico, calibracion, comparacion con el xG de StatsBomb, visualizaciones e interpretacion de negocio deportivo.',
+  ARRAY['master', 'data-analytics'],
   ARRAY['Python', 'StatsBomb', 'Pandas', 'scikit-learn', 'XGBoost', 'Matplotlib', 'Seaborn'],
   NULL,
   '/images/projects/expected-goals-xg-statsbomb.jpg',
-  'en_proceso',
+  'terminado',
   true,
   ARRAY['Modelado xG', 'Calibracion probabilistica', 'Storytelling con datos', 'Visualizacion futbolistica']
 ),
@@ -136,7 +136,7 @@ INSERT INTO projects (title, slug, description, long_description, category, tech
   'tfg-agentes-conversacionales-iatech',
   'Trabajo de Fin de Grado sobre agentes conversacionales configurables para soporte interno, desarrollado en colaboracion con Catalana Occident.',
   'Arquitectura de agentes conversacionales configurables con flujos gestionados mediante estructuras clave-valor, validacion mediante Proof of Concept e integracion con IA generativa para asistir procesos de soporte e incidencias.',
-  'universidad',
+    ARRAY['universidad'],
   ARRAY['Python', 'IA generativa', 'Arquitectura software', 'Prompt engineering', 'JSON', 'APIs'],
   NULL,
   '/images/projects/tfg-agentes-conversacionales-iatech.jpg',
@@ -149,7 +149,7 @@ INSERT INTO projects (title, slug, description, long_description, category, tech
   'find-it',
   'Backend serverless para un juego de deteccion de objetos con Firebase y Google Cloud Vision API.',
   'Proyecto centrado en el backend de una experiencia gamificada donde los usuarios reciben retos, suben fotografias y el sistema valida los objetos mediante Cloud Vision API. Incluye Cloud Functions, Firebase y reglas de integracion.',
-  'backend',
+  ARRAY['universidad', 'backend'],
   ARRAY['TypeScript', 'Firebase', 'Cloud Functions', 'Google Cloud Vision API', 'Serverless'],
   'https://github.com/danielgarciaN/find-it',
   '/images/projects/find-it.jpg',
@@ -162,7 +162,7 @@ INSERT INTO projects (title, slug, description, long_description, category, tech
   'lol-win-prediction',
   'Modelo de machine learning para predecir el ganador de partidas de League of Legends usando datos reales.',
   'Proyecto de Data Science que construye un modelo predictivo con XGBoost para estimar el ganador de una partida. Incluye feature engineering, control de data leakage, entrenamiento con scikit-learn y analisis de resultados orientado a explicabilidad.',
-  'data-science',
+  ARRAY['universidad', 'data-science'],
   ARRAY['Python', 'Pandas', 'scikit-learn', 'XGBoost', 'Matplotlib', 'Jupyter'],
   'https://github.com/danielgarciaN/lol-win-prediction',
   '/images/projects/lol-win-prediction.jpg',
@@ -175,7 +175,7 @@ INSERT INTO projects (title, slug, description, long_description, category, tech
   'futbol-data',
   'Scripts de analisis y visualizacion de datos de futbol con Python.',
   'Repositorio de analisis de datos deportivos con scripts para mapas de calor, grafos de pases, posesion y rating de jugadores.',
-  'data-science',
+  ARRAY['data-analytics', 'data-science'],
   ARRAY['Python', 'Pandas', 'Matplotlib', 'Seaborn'],
   'https://github.com/danielgarciaN/futbol-data',
   '/images/projects/futbol-data.jpg',
@@ -188,7 +188,7 @@ INSERT INTO projects (title, slug, description, long_description, category, tech
   'tofu-awards',
   'Aplicacion web para gestionar y votar premios, desplegada con Firebase Hosting y CI/CD.',
   'Proyecto web completo con frontend en JavaScript, CSS y HTML, desplegado en Firebase Hosting con pipeline automatizado de GitHub Actions.',
-  'web-app',
+  ARRAY['web-app'],
   ARRAY['JavaScript', 'CSS', 'HTML', 'Firebase', 'GitHub Actions'],
   'https://github.com/danielgarciaN/tofu-awards',
   '/images/projects/tofu-awards.jpg',
@@ -201,7 +201,7 @@ INSERT INTO projects (title, slug, description, long_description, category, tech
   'unimate',
   'Proyecto colaborativo para facilitar la organizacion academica y la conexion dentro de la comunidad universitaria.',
   'Aplicacion desarrollada en equipo durante el grado, orientada a mejorar la experiencia academica mediante herramientas de organizacion y comunidad.',
-  'universidad',
+  ARRAY['universidad', 'web-app'],
   ARRAY['React', 'Node.js', 'Firebase', 'CSS'],
   'https://github.com/Carolbg28/UNImate',
   '/images/projects/unimate.jpg',

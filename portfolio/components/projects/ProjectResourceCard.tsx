@@ -3,6 +3,7 @@
 import type { ComponentType } from 'react';
 import {
   Code2,
+  Database,
   Download,
   ExternalLink,
   FileArchive,
@@ -14,10 +15,14 @@ import {
   Presentation,
   Workflow,
 } from 'lucide-react';
+import { useI18n } from '@/lib/i18n';
 import type { ProjectResource, ProjectResourceType } from '@/types';
 
 const resourceIcons: Record<ProjectResourceType, ComponentType<{ className?: string }>> = {
   pdf: FileText,
+  notebook: FileCode2,
+  powerbi: FileArchive,
+  data: Database,
   video: MonitorPlay,
   presentation: Presentation,
   excel: FileSpreadsheet,
@@ -28,28 +33,21 @@ const resourceIcons: Record<ProjectResourceType, ComponentType<{ className?: str
   external: LinkIcon,
 };
 
-const resourceLabels: Record<ProjectResourceType, string> = {
-  pdf: 'PDF',
-  video: 'Video',
-  presentation: 'Presentacion',
-  excel: 'Excel',
-  code: 'Codigo',
-  demo: 'Demo',
-  memory: 'Memoria',
-  diagram: 'Diagrama',
-  external: 'Enlace',
-};
-
 interface ProjectResourceCardProps {
   resource: ProjectResource;
 }
 
 export default function ProjectResourceCard({ resource }: ProjectResourceCardProps) {
+  const { messages } = useI18n();
   const Icon = resourceIcons[resource.type] ?? FileText;
   const isAvailable = resource.available !== false && Boolean(resource.url);
   const isExternal = resource.action === 'external' || resource.type === 'external' || resource.url?.startsWith('http');
   const actionLabel =
-    resource.action === 'download' ? 'Descargar' : resource.action === 'external' ? 'Abrir' : 'Ver';
+    resource.action === 'download'
+      ? messages.projectDossier.actions.download
+      : resource.action === 'external'
+        ? messages.projectDossier.actions.open
+        : messages.projectDossier.actions.view;
 
   return (
     <article className="flex h-full flex-col rounded-xl border border-surface-200 bg-[rgb(var(--color-card)/0.9)] p-5 shadow-sm transition-all duration-200 hover:border-[var(--project-primary)]/45 hover:shadow-md dark:border-surface-800 dark:bg-surface-900">
@@ -61,7 +59,7 @@ export default function ProjectResourceCard({ resource }: ProjectResourceCardPro
           <div className="flex flex-wrap items-center gap-2">
             <h3 className="text-sm font-bold text-surface-800 dark:text-surface-100">{resource.title}</h3>
             <span className="rounded-full border border-[var(--project-primary)]/25 px-2 py-0.5 text-[10px] font-bold uppercase tracking-[0.12em] text-[var(--project-primary)]">
-              {resourceLabels[resource.type]}
+              {messages.projectDossier.resourceTypes[resource.type]}
             </span>
           </div>
           {resource.description && (
@@ -87,7 +85,7 @@ export default function ProjectResourceCard({ resource }: ProjectResourceCardPro
         ) : (
           <span className="inline-flex items-center gap-2 rounded-lg border border-surface-200 px-3.5 py-2 text-xs font-bold text-surface-400 dark:border-surface-700 dark:text-surface-500">
             <Code2 className="h-3.5 w-3.5" />
-            No disponible
+            {messages.projectDossier.unavailable}
           </span>
         )}
       </div>
