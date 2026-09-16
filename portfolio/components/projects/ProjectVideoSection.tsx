@@ -1,4 +1,5 @@
 import { ExternalLink, MonitorPlay } from 'lucide-react';
+import { useI18n } from '@/lib/i18n';
 import type { ProjectVideo } from '@/types';
 
 interface ProjectVideoSectionProps {
@@ -11,24 +12,26 @@ function getYoutubeEmbedUrl(url: string) {
 }
 
 export default function ProjectVideoSection({ videos }: ProjectVideoSectionProps) {
+  const { messages } = useI18n();
+
   if (videos.length === 0) return null;
 
   return (
     <section>
       <span className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--project-primary)]">
-        Demos
+        {messages.projectDossier.videosEyebrow}
       </span>
-      <h2 className="mt-2 text-2xl font-semibold tracking-tight text-surface-900 dark:text-surface-50">
-        Videos y demostraciones
+      <h2 className="mt-2 text-2xl font-semibold tracking-tight text-ink">
+        {messages.projectDossier.videosTitle}
       </h2>
 
       <div className="mt-5 grid gap-5">
         {videos.map((video) => (
           <article
             key={`${video.type}-${video.url}`}
-            className="overflow-hidden rounded-xl border border-surface-200 bg-[rgb(var(--color-card)/0.9)] shadow-sm dark:border-surface-800 dark:bg-surface-900"
+            className="overflow-hidden rounded-xl border border-line/10 bg-[rgb(var(--color-card)/0.9)] shadow-sm"
           >
-            <div className="aspect-video bg-surface-100 dark:bg-surface-950">
+            <div className="aspect-video bg-surface-900">
               {video.type === 'video' && (
                 <video
                   controls
@@ -66,9 +69,9 @@ export default function ProjectVideoSection({ videos }: ProjectVideoSectionProps
                     href={video.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-lg bg-[var(--project-primary)] px-4 py-2 text-sm font-bold text-white"
+                    className="inline-flex items-center gap-2 rounded-lg bg-[var(--project-primary)] px-4 py-2 text-sm font-bold text-surface-950"
                   >
-                    Abrir recurso
+                    {messages.projectDossier.actions.open}
                     <ExternalLink className="h-4 w-4" />
                   </a>
                 </div>
@@ -76,9 +79,9 @@ export default function ProjectVideoSection({ videos }: ProjectVideoSectionProps
             </div>
 
             <div className="p-4">
-              <h3 className="text-sm font-bold text-surface-800 dark:text-surface-100">{video.title}</h3>
+              <h3 className="text-sm font-bold text-ink">{video.title}</h3>
               {video.description && (
-                <p className="mt-1 text-sm leading-relaxed text-surface-500 dark:text-surface-400">
+                <p className="mt-1 text-sm leading-relaxed text-muted">
                   {video.description}
                 </p>
               )}

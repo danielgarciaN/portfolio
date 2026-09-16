@@ -1,5 +1,11 @@
 export type ProjectStatus = 'terminado' | 'en_proceso' | 'futuro';
-export type ProjectCategory = 'personal' | 'universidad' | 'master' | 'data-science' | 'backend' | 'web-app';
+export type ProjectCategory =
+  | 'data-analytics'
+  | 'data-science'
+  | 'master'
+  | 'universidad'
+  | 'backend'
+  | 'web-app';
 
 export interface Project {
   id: string;
@@ -7,7 +13,8 @@ export interface Project {
   slug: string;
   description: string;
   long_description?: string;
-  category: ProjectCategory;
+  categories: ProjectCategory[];
+  category?: ProjectCategory;
   technologies: string[];
   github_url?: string;
   demo_url?: string;
@@ -78,6 +85,9 @@ export interface SocialLink {
 
 export type ProjectResourceType =
   | 'pdf'
+  | 'notebook'
+  | 'powerbi'
+  | 'data'
   | 'video'
   | 'presentation'
   | 'excel'
@@ -126,7 +136,8 @@ export interface ProjectDossier {
   author: string;
   description: string;
   longDescription: string;
-  category: ProjectCategory;
+  categories: ProjectCategory[];
+  category?: ProjectCategory;
   status: ProjectStatus;
   technologies: string[];
   colorTheme: {
@@ -142,4 +153,8 @@ export interface ProjectDossier {
   gallery: ProjectGalleryImage[];
   detailSections?: ProjectDetailSection[];
   notes: string[];
+  detailSections?: ProjectDetailSection[];
+  translations?: {
+    en?: ProjectDossierTranslation;
+  };
 }

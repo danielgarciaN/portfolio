@@ -4,22 +4,8 @@ import Image from 'next/image';
 import type { ComponentType } from 'react';
 import { useState } from 'react';
 import { Bot, CheckCircle2, Clock3, Layers3, User2 } from 'lucide-react';
-import type { ProjectCategory, ProjectDossier, ProjectStatus } from '@/types';
-
-const categoryLabels: Record<ProjectCategory, string> = {
-  personal: 'Personal',
-  universidad: 'Universidad',
-  master: 'Master',
-  'data-science': 'Data Science',
-  backend: 'Backend',
-  'web-app': 'Web/App',
-};
-
-const statusLabels: Record<ProjectStatus, string> = {
-  terminado: 'Finalizado',
-  en_proceso: 'En proceso',
-  futuro: 'Futuro',
-};
+import { useI18n } from '@/lib/i18n';
+import type { ProjectDossier, ProjectStatus } from '@/types';
 
 const statusIcons: Record<ProjectStatus, ComponentType<{ className?: string }>> = {
   terminado: CheckCircle2,
@@ -27,21 +13,29 @@ const statusIcons: Record<ProjectStatus, ComponentType<{ className?: string }>> 
   futuro: Layers3,
 };
 
+const statusStyles: Record<ProjectStatus, string> = {
+  terminado: 'badge-completed',
+  en_proceso: 'badge-progress',
+  futuro: 'badge-future',
+};
+
 interface ProjectHeaderProps {
   project: ProjectDossier;
 }
 
 export default function ProjectHeader({ project }: ProjectHeaderProps) {
+  const { messages } = useI18n();
   const [coverFailed, setCoverFailed] = useState(false);
   const [logoFailed, setLogoFailed] = useState(false);
   const StatusIcon = statusIcons[project.status];
   const showCover = Boolean(project.coverImage) && !coverFailed;
   const showLogo = Boolean(project.logo) && !logoFailed;
+  const categories = project.categories ?? (project.category ? [project.category] : []);
 
   return (
-    <header className="overflow-hidden rounded-2xl border border-surface-200 bg-[rgb(var(--color-card)/0.92)] shadow-[0_18px_55px_rgba(35,78,112,0.1)] dark:border-surface-800 dark:bg-surface-900">
+    <header className="overflow-hidden rounded-2xl border border-line/10 bg-[rgb(var(--color-card)/0.92)] shadow-[0_18px_55px_rgba(0,0,0,0.2)]">
       {showCover && (
-        <div className="relative aspect-[16/7] min-h-56 overflow-hidden border-b border-surface-200 bg-surface-100 dark:border-surface-800 dark:bg-surface-950">
+        <div className="relative aspect-[16/7] min-h-56 overflow-hidden border-b border-line/10 bg-surface-900">
           <Image
             src={project.coverImage as string}
             alt={project.title}
@@ -59,38 +53,43 @@ export default function ProjectHeader({ project }: ProjectHeaderProps) {
         <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
           <div className="max-w-3xl">
             <div className="mb-5 flex flex-wrap gap-2">
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-[var(--project-primary)]/25 bg-[var(--project-soft)] px-3 py-1 text-xs font-bold text-[var(--project-primary)]">
-                <Layers3 className="h-3.5 w-3.5" />
-                {categoryLabels[project.category]}
-              </span>
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-surface-200 bg-surface-50 px-3 py-1 text-xs font-bold text-surface-600 dark:border-surface-700 dark:bg-surface-800 dark:text-surface-300">
-                <StatusIcon className="h-3.5 w-3.5 text-[var(--project-primary)]" />
-                {statusLabels[project.status]}
+              {categories.map((category) => (
+                <span
+                  key={category}
+                  className="status-badge badge-category"
+                >
+                  <Layers3 className="h-3.5 w-3.5" />
+                  {messages.projects.categories[category] ?? category}
+                </span>
+              ))}
+              <span className={`status-badge ${statusStyles[project.status]}`}>
+                <StatusIcon className="h-3.5 w-3.5" />
+                {messages.projects.statuses[project.status]}
               </span>
             </div>
 
-            <h1 className="text-3xl font-semibold tracking-tight text-surface-950 dark:text-white sm:text-4xl">
+            <h1 className="text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
               {project.title}
             </h1>
-            <p className="mt-3 text-base leading-relaxed text-surface-500 dark:text-surface-400 sm:text-lg">
+            <p className="mt-3 text-base leading-relaxed text-muted sm:text-lg">
               {project.subtitle}
             </p>
 
-            <div className="mt-6 flex flex-wrap items-center gap-4 text-sm text-surface-500 dark:text-surface-400">
+            <div className="mt-6 flex flex-wrap items-center gap-4 text-sm text-muted">
               <span className="inline-flex items-center gap-2">
                 <User2 className="h-4 w-4 text-[var(--project-primary)]" />
                 {project.author}
               </span>
               <span className="inline-flex items-center gap-2">
                 <Bot className="h-4 w-4 text-[var(--project-primary)]" />
-                Dossier del proyecto
+                {messages.projectDossier.headerLabel}
               </span>
             </div>
           </div>
 
           <div className="flex shrink-0 items-center justify-center">
             {showLogo ? (
-              <div className="relative h-20 w-32 overflow-hidden rounded-xl border border-surface-200 bg-[rgb(var(--color-card))] p-3 dark:border-surface-800 dark:bg-surface-950">
+              <div className="relative h-20 w-32 overflow-hidden rounded-xl border border-line/10 bg-[rgb(var(--color-card))] p-3">
                 <Image
                   src={project.logo as string}
                   alt={`${project.title} logo`}
@@ -110,7 +109,7 @@ export default function ProjectHeader({ project }: ProjectHeaderProps) {
 
         <div className="mt-8 flex flex-wrap gap-2">
           {project.technologies.map((technology) => (
-            <span key={technology} className="rounded-lg bg-surface-100 px-2.5 py-1 text-xs font-semibold text-surface-600 dark:bg-surface-800 dark:text-surface-300">
+            <span key={technology} className="rounded-lg bg-surface-900 px-2.5 py-1 text-xs font-semibold text-muted">
               {technology}
             </span>
           ))}

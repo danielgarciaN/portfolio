@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Section from '@/components/ui/Section';
-import { AlertCircle, CheckCircle, Github, Linkedin, Loader2, Mail, Phone, Send } from 'lucide-react';
+import { AlertCircle, CheckCircle, Github, Linkedin, Loader2, Mail, Send } from 'lucide-react';
 import { validateContactForm, type ValidationError } from '@/lib/validations';
 import { personalInfo } from '@/lib/data';
 import { useI18n } from '@/lib/i18n';
@@ -54,17 +54,17 @@ export default function ContactForm() {
   };
 
   const inputClasses = (field: string) =>
-    `w-full rounded-xl border bg-[rgb(var(--color-card)/0.92)] px-4 py-2.5 text-sm text-surface-700 placeholder:text-surface-400 transition-all focus:outline-none focus:ring-2 dark:bg-surface-900 dark:text-surface-200 dark:placeholder:text-surface-500 ${
+    `w-full rounded-xl border bg-[rgb(var(--color-card)/0.92)] px-4 py-2.5 text-sm text-ink placeholder:text-subtle transition-all focus:outline-none focus:ring-2    ${
       fieldError(field)
-        ? 'border-red-300 focus:border-red-400 focus:ring-red-200 dark:border-red-800 dark:focus:ring-red-900/40'
-        : 'border-surface-200 focus:border-accent/50 focus:ring-accent/20 dark:border-surface-700'
+        ? 'border-red-300 focus:border-red-400 focus:ring-red-200  '
+        : 'border-line/10 focus:border-accent/50 focus:ring-accent/20 '
     }`;
 
   return (
-    <Section id="contacto">
+    <Section id="contacto" className="contact-closing">
       <span className="heading-section">{messages.contact.eyebrow}</span>
-      <h2 className="heading-lg mt-3 mb-4">{messages.contact.title}</h2>
-      <p className="mb-10 max-w-xl text-sm leading-relaxed text-surface-500 dark:text-surface-400">
+      <h2 className="mb-5 mt-4 text-5xl font-semibold tracking-tight sm:text-7xl">{messages.contact.title}</h2>
+      <p className="mb-10 max-w-xl text-sm leading-relaxed text-muted">
         {messages.contact.intro}
       </p>
 
@@ -72,11 +72,11 @@ export default function ContactForm() {
         <div className="lg:col-span-3">
           {status === 'success' ? (
             <div className="card flex flex-col items-center py-12 text-center">
-              <CheckCircle className="mb-4 h-10 w-10 text-emerald-500" />
-              <h3 className="mb-2 text-lg font-bold text-surface-800 dark:text-surface-100">
+              <CheckCircle className="mb-4 h-10 w-10 text-accent-ink" />
+              <h3 className="mb-2 text-lg font-bold text-ink">
                 {messages.contact.successTitle}
               </h3>
-              <p className="text-sm text-surface-500">
+              <p className="text-sm text-muted">
                 {messages.contact.successBody}
               </p>
               <button onClick={() => setStatus('idle')} className="btn-secondary mt-6">
@@ -84,10 +84,10 @@ export default function ContactForm() {
               </button>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="space-y-5" noValidate>
+            <form onSubmit={handleSubmit} className="space-y-5 rounded-2xl border border-line/10 bg-surface-900 p-5 sm:p-8" noValidate>
               <div className="grid gap-5 sm:grid-cols-2">
                 <div>
-                  <label htmlFor="name" className="mb-1.5 block text-xs font-semibold text-surface-600 dark:text-surface-400">
+                  <label htmlFor="name" className="mb-1.5 block text-xs font-semibold text-muted">
                     {messages.contact.name}
                   </label>
                   <input
@@ -100,11 +100,11 @@ export default function ContactForm() {
                     className={inputClasses('name')}
                   />
                   {fieldError('name') && (
-                    <p className="mt-1 text-xs text-red-500">{fieldError('name')}</p>
+                    <p className="mt-1 text-xs text-red-300">{fieldError('name')}</p>
                   )}
                 </div>
                 <div>
-                  <label htmlFor="email" className="mb-1.5 block text-xs font-semibold text-surface-600 dark:text-surface-400">
+                  <label htmlFor="email" className="mb-1.5 block text-xs font-semibold text-muted">
                     {messages.contact.email}
                   </label>
                   <input
@@ -117,13 +117,13 @@ export default function ContactForm() {
                     className={inputClasses('email')}
                   />
                   {fieldError('email') && (
-                    <p className="mt-1 text-xs text-red-500">{fieldError('email')}</p>
+                    <p className="mt-1 text-xs text-red-300">{fieldError('email')}</p>
                   )}
                 </div>
               </div>
 
               <div>
-                <label htmlFor="subject" className="mb-1.5 block text-xs font-semibold text-surface-600 dark:text-surface-400">
+                <label htmlFor="subject" className="mb-1.5 block text-xs font-semibold text-muted">
                   {messages.contact.subject}
                 </label>
                 <input
@@ -136,12 +136,12 @@ export default function ContactForm() {
                   className={inputClasses('subject')}
                 />
                 {fieldError('subject') && (
-                  <p className="mt-1 text-xs text-red-500">{fieldError('subject')}</p>
+                  <p className="mt-1 text-xs text-red-300">{fieldError('subject')}</p>
                 )}
               </div>
 
               <div>
-                <label htmlFor="message" className="mb-1.5 block text-xs font-semibold text-surface-600 dark:text-surface-400">
+                <label htmlFor="message" className="mb-1.5 block text-xs font-semibold text-muted">
                   {messages.contact.message}
                 </label>
                 <textarea
@@ -154,12 +154,12 @@ export default function ContactForm() {
                   className={`${inputClasses('message')} resize-none`}
                 />
                 {fieldError('message') && (
-                  <p className="mt-1 text-xs text-red-500">{fieldError('message')}</p>
+                  <p className="mt-1 text-xs text-red-300">{fieldError('message')}</p>
                 )}
               </div>
 
               {status === 'error' && (
-                <div className="flex items-center gap-2 rounded-lg bg-red-50 px-4 py-3 text-sm text-red-600 dark:bg-red-900/20 dark:text-red-400">
+                <div className="flex items-center gap-2 rounded-lg bg-red-950/40 px-4 py-3 text-sm text-red-300">
                   <AlertCircle className="h-4 w-4 shrink-0" />
                   {messages.contact.error}
                 </div>
@@ -188,29 +188,22 @@ export default function ContactForm() {
 
         <div className="space-y-4 lg:col-span-2">
           <div className="card">
-            <h3 className="mb-4 text-sm font-bold text-surface-800 dark:text-surface-100">
+            <h3 className="mb-4 text-sm font-bold text-ink">
               {messages.contact.also}
             </h3>
             <div className="space-y-3">
               <a
                 href={`mailto:${personalInfo.email}`}
-                className="flex items-center gap-3 rounded-lg p-2 text-sm text-surface-600 transition-colors hover:bg-surface-50 hover:text-accent dark:text-surface-400 dark:hover:bg-surface-800 dark:hover:text-accent-light"
+                className="flex items-center gap-3 rounded-lg p-2 text-sm break-all text-muted transition-colors hover:bg-surface-900 hover:text-accent-ink"
               >
-                <Mail className="h-4 w-4" />
+                <Mail className="h-4 w-4 shrink-0" />
                 {personalInfo.email}
-              </a>
-              <a
-                href={`tel:${personalInfo.phone.replace(/\s+/g, '')}`}
-                className="flex items-center gap-3 rounded-lg p-2 text-sm text-surface-600 transition-colors hover:bg-surface-50 hover:text-accent dark:text-surface-400 dark:hover:bg-surface-800 dark:hover:text-accent-light"
-              >
-                <Phone className="h-4 w-4" />
-                {personalInfo.phone}
               </a>
               <a
                 href={personalInfo.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 rounded-lg p-2 text-sm text-surface-600 transition-colors hover:bg-surface-50 hover:text-accent dark:text-surface-400 dark:hover:bg-surface-800 dark:hover:text-accent-light"
+                className="flex items-center gap-3 rounded-lg p-2 text-sm text-muted transition-colors hover:bg-surface-900 hover:text-accent-ink"
               >
                 <Github className="h-4 w-4" />
                 github.com/danielgarciaN
@@ -219,7 +212,7 @@ export default function ContactForm() {
                 href={personalInfo.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 rounded-lg p-2 text-sm text-surface-600 transition-colors hover:bg-surface-50 hover:text-accent dark:text-surface-400 dark:hover:bg-surface-800 dark:hover:text-accent-light"
+                className="flex items-center gap-3 rounded-lg p-2 text-sm text-muted transition-colors hover:bg-surface-900 hover:text-accent-ink"
               >
                 <Linkedin className="h-4 w-4" />
                 LinkedIn
@@ -227,9 +220,9 @@ export default function ContactForm() {
             </div>
           </div>
 
-          <div className="card bg-accent/5 dark:bg-accent/5">
-            <p className="text-sm leading-relaxed text-surface-600 dark:text-surface-400">
-              {messages.contact.location} <strong className="text-surface-800 dark:text-surface-200">{personalInfo.location}</strong>,
+          <div className="card bg-accent/5">
+            <p className="text-sm leading-relaxed text-muted">
+              {messages.contact.location} <strong className="text-ink">{personalInfo.location}</strong>,
               {' '}{messages.contact.locationSuffix}
             </p>
           </div>

@@ -1,19 +1,18 @@
 # Daniel García Nilo - Portfolio Personal
 
-Portfolio profesional construido con Next.js 14, TypeScript, Tailwind CSS, Framer Motion y Supabase. Está diseñado para presentar un perfil de Ingeniero Informático graduado con foco en AI Engineering, Data Science, automatización, backend y cloud, aprovechando experiencia corporativa en Occident.
+Portfolio profesional construido con Next.js 14, TypeScript, Tailwind CSS, Framer Motion y Supabase. Está diseñado para presentar un perfil de Data Analyst e ingeniero informático, con experiencia actual en SDG Group y trayectoria previa de software en Occident.
 
 ## Características
 
 - Diseño minimalista, profesional y responsive.
-- Modo claro y oscuro con paleta tecnológica:
-  - Claro: blanco roto + azul noche.
-  - Oscuro: fondo elegante + cian brillante.
+- Una única identidad visual: negro/charcoal, blanco, grises y dorado #B8966B, con fondos alternados por sección.
 - Multiidioma:
   - Español por defecto.
-  - Inglés desde selector de banderas en el navbar.
+  - Inglés desde selector ES/EN en el navbar.
 - Hero con foto personal y botón para descargar CV.
 - Proyectos con imagen, categoría, estado, tecnologías, GitHub y demo opcional.
-- Timeline de experiencia y formación.
+- Experiencia profesional con accents corporativos y formación en timeline compacto.
+- Resumen de seis categorías de skills en Home, índice `/skills` y detalle por categoría en `/skills/[slug]`, con contextos de uso y proyectos relacionados.
 - Formulario de contacto con validación.
 - Datos fallback sin Supabase y soporte opcional para Supabase.
 - Preparado para Vercel y Google Cloud Run.
@@ -37,6 +36,8 @@ Portfolio profesional construido con Next.js 14, TypeScript, Tailwind CSS, Frame
 app/
   layout.tsx              Layout raíz, metadata y fuentes
   page.tsx                Home
+  skills/page.tsx         Índice de categorías
+  skills/[slug]/page.tsx  Detalle de cada categoría
   projects/page.tsx       Página de proyectos
   contact/page.tsx        Página de contacto
   blog/page.tsx           Blog preparado
@@ -56,6 +57,7 @@ messages/
   en.json                 Textos en inglés
 public/
   cv/                     CV descargable
+  companies/              Logos corporativos proporcionados
   images/profile/         Foto personal
   images/projects/        Capturas de proyectos
 styles/
@@ -105,6 +107,14 @@ Guarda tu foto aquí:
 public/images/profile/daniel-garcia-nilo.jpg
 ```
 
+Para integrar el retrato PNG sin fondo, guarda el archivo en
+`public/images/profile/daniel-garcia-nilo.png` y asigna
+`profileCutoutImage: '/images/profile/daniel-garcia-nilo.png'` en `lib/data.ts`.
+El Hero usará la imagen completa, alineada abajo, sin recorte ni marco, con
+sombra suave sobre las capas del fondo. La fotografía JPG actual se mantiene
+como respaldo si el PNG no está configurado o no se puede cargar. Revisa el
+tamaño visual y el espacio transparente del PNG definitivo en móvil y escritorio.
+
 Ruta completa en este proyecto:
 
 ```txt
@@ -114,15 +124,45 @@ C:\Users\Daniel\Desktop\Proyectos\portfolio-daniel-garcia\portfolio\public\image
 Recomendaciones:
 
 - JPG o PNG.
-- Formato cuadrado.
-- Tamaño sugerido: 800x800 px.
-- Fondo limpio y buena iluminación.
+- Para el Hero, PNG vertical sin fondo y con poco margen transparente.
+- Resolución sugerida: al menos 1200 px de alto.
+- Buena iluminación; el PNG se integra directamente sobre el fondo, sin tarjeta.
 
 Si quieres usar PNG, cambia en `lib/data.ts`:
 
 ```ts
-profileImage: '/images/profile/daniel-garcia-nilo.png'
+profileCutoutImage: '/images/profile/daniel-garcia-nilo.png'
 ```
+
+### Logos corporativos
+
+Los archivos proporcionados ya están integrados sin alterar los originales:
+
+- SDG Group: `public/companies/sdg-group.png`.
+- Occident: `public/companies/occident.jpg`.
+
+Las rutas y colores corporativos se configuran en `lib/companies.ts`.
+SDG usa navy #0E2442 y Occident rojo #BB1736 en encabezados sólidos.
+Las tarjetas mantienen el cuerpo blanco. Si un logo no carga, aparece un icono genérico.
+
+### Skills, contextos y proyectos
+
+`/skills` es un índice de categorías con cuatro tecnologías destacadas.
+`/skills/[slug]` muestra las herramientas de una sola categoría, sus descripciones,
+experiencia y proyectos relacionados. Las seis áreas principales son
+Data Analytics, Data Engineering, Data Science, Programming, Software Engineering
+y Tools & Methodologies. Colaboración e Idiomas mantienen conocimientos previos
+en dos categorías complementarias.
+
+Los diccionarios ES/EN contienen categorías, descripciones y etiquetas.
+`lib/skill-profiles.ts` define contextos académicos y profesionales, sin
+clasificaciones de nivel. Las tarjetas usan iconos centrados en círculos del accent.
+`lib/skill-projects.ts` relaciona herramientas con los diez dossiers existentes
+mediante coincidencias y equivalencias documentadas; no genera proyectos nuevos.
+Databricks aparece en aprendizaje, sin proyectos asociados.
+
+Consulta `ITERACION.md` para la paleta completa, ajustes visuales, relaciones
+por proyecto y empresa y el inventario de archivos de esta iteración.
 
 ## CV descargable
 
@@ -163,7 +203,7 @@ Recomendaciones:
 
 ## Notebook xG
 
-El nuevo proyecto en curso `Expected Goals xG - StatsBomb` tiene su notebook aquí:
+El proyecto finalizado `Expected Goals xG - StatsBomb` tiene su notebook aquí:
 
 ```txt
 notebooks/expected-goals-xg-statsbomb.ipynb

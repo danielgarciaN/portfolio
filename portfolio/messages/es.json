@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "title": "Daniel García Nilo - AI Engineer & Data Science",
-    "description": "Portfolio profesional de Daniel García Nilo, ingeniero informático orientado a AI Engineering, Data Science, automatización, backend y cloud."
+    "title": "Daniel García Nilo - Data Analyst & Computer Engineer",
+    "description": "Portfolio profesional de Daniel García Nilo, Data Analyst e ingeniero informático con experiencia en Data Analytics, Power BI, SQL, Python, Data Science, IA y Software Engineering."
   },
   "nav": {
     "about": "Sobre mí",
@@ -9,17 +9,17 @@
     "projects": "Proyectos",
     "experience": "Experiencia",
     "contact": "Contacto",
-    "theme": "Cambiar tema",
     "menu": "Menú",
     "language": "Idioma",
     "spanish": "Español",
-    "english": "English"
+    "english": "English",
+    "education": "Formación"
   },
   "hero": {
-    "badge": "Abierto a oportunidades",
+    "badge": "Data Analyst en SDG Group",
     "name": "Daniel García Nilo",
-    "title": "AI Engineer & Data Science - Ingeniero Informático",
-    "bio": "Ingeniero informático graduado, con experiencia en Occident desarrollando soluciones corporativas vinculadas a IA, procesos, datos y arquitectura. Enfoco mi perfil hacia AI Engineering y Data Science para construir sistemas útiles, fiables y orientados a impacto real.",
+    "title": "Data Analyst",
+    "bio": "Data Analyst e ingeniero informático con base en software e IA. Transformo datos en información útil mediante análisis, transformación y visualización.",
     "projectsCta": "Ver proyectos",
     "cvCta": "Descargar CV",
     "contactCta": "Contactar",
@@ -28,81 +28,390 @@
   },
   "about": {
     "eyebrow": "Sobre mí",
-    "title": "AI Engineering, datos y producto con base de software",
+    "title": "Perfil técnico, datos",
+    "titleAccent": "y negocio",
     "paragraphs": [
-      "Soy Daniel García Nilo, ingeniero informático graduado con base en ingeniería del software y especialización creciente en AI Engineering y Data Science. Entre octubre de 2024 y mayo de 2026 trabajé en el Departamento de Arquitectura de Grupo Catalana Occident / Occident, participando en soluciones corporativas donde la IA, los datos y los procesos tenían impacto directo en negocio.",
-      "En Occident trabajé en la evolución del módulo corporativo IATeach, una solución orientada a IA para gestión documental y procesos internos. Esa experiencia me dio contexto real de arquitectura, integración con sistemas corporativos, lógica de negocio con C#/.NET, SQL, interfaces GAAN, validaciones JavaScript, trabajo ágil con JIRA y colaboración en entornos donde la calidad y la trazabilidad importan.",
-      "Mi foco actual es construir sistemas de IA aplicados: agentes, RAG, APIs, automatización, analítica y productos de datos. Combino la disciplina del desarrollo software con Data Science para convertir información en decisiones, prototipos en soluciones mantenibles y modelos en herramientas útiles."
+      "Soy ingeniero informático y Data Analyst en SDG Group, donde trabajo con transformación, calidad de datos y procesos analíticos.",
+      "Mi base en Software Engineering viene de Occident: aplicaciones corporativas, backend y procesos vinculados a IA.",
+      "Combino esa base técnica con Data Science e IA para conectar datos fiables con preguntas de negocio."
     ],
     "focusAreas": [
-      "AI Engineering aplicado a procesos reales",
-      "Data Science orientado a decisión de negocio",
-      "Arquitecturas mantenibles para productos de IA"
+      "Data Analytics y visualización orientadas a negocio",
+      "Data Science e IA con criterio estadístico",
+      "Base de Software Engineering para soluciones mantenibles"
+    ],
+    "interests": [
+      {
+        "title": "Marvel",
+        "desc": "Historias, universos conectados y cultura pop como forma de desconectar y pensar en narrativa."
+      },
+      {
+        "title": "Gym",
+        "desc": "Disciplina, constancia y bienestar como parte de una rutina equilibrada."
+      },
+      {
+        "title": "Cine",
+        "desc": "Narrativa visual, creatividad y entretenimiento con atención al detalle."
+      },
+      {
+        "title": "Campamentos",
+        "desc": "Comunidad, crecimiento personal y experiencias compartidas fuera de la pantalla."
+      }
     ],
     "cards": [
       {
+        "title": "Data Analytics",
+        "desc": "Análisis exploratorio, KPIs, SQL, Power BI, visualización y comunicación de insights orientados a negocio."
+      },
+      {
+        "title": "Business Intelligence",
+        "desc": "Modelado de datos, Power Query, DAX, dashboards e informes diseñados para exploración y toma de decisiones."
+      },
+      {
+        "title": "Data Science & AI",
+        "desc": "Trabajo práctico con Python, estadística, Machine Learning, análisis avanzado, automatización y sistemas de IA."
+      },
+      {
         "title": "Software Engineering",
-        "desc": "Base sólida en desarrollo de soluciones mantenibles, arquitectura, lógica de negocio y evolución de producto."
-      },
-      {
-        "title": "Backend & Datos",
-        "desc": "Experiencia corporativa con C#/.NET, SQL, validaciones, integraciones, procesos internos y estructuras de datos bien modeladas."
-      },
-      {
-        "title": "AI Engineering & Data Science",
-        "desc": "Trabajo práctico con Python, SQL, análisis avanzado, automatización, modelos ML, agentes y sistemas RAG."
-      },
-      {
-        "title": "Cloud & Producto",
-        "desc": "Interés por despliegue, escalabilidad, observabilidad y soluciones de IA que puedan integrarse en productos reales."
+        "desc": "Background en backend, APIs, bases de datos, arquitectura, procesos empresariales y soluciones mantenibles."
       }
     ]
   },
   "skills": {
     "eyebrow": "Skills",
-    "title": "Stack tecnológico",
-    "intro": "Tecnologías, prácticas y habilidades que uso para construir soluciones de AI Engineering y Data Science con criterio técnico, comunicación clara y mentalidad de equipo.",
+    "title": "Conocimiento",
+    "titleAccent": "técnico",
+    "intro": "Herramientas y prácticas que uso para trabajar con datos: analítica, visualización, BI, estadística, Data Science, IA y desarrollo software.",
     "categories": [
-      { "name": "Lenguajes de programación", "icon": "code", "skills": ["Python", "C#", "Java", "JavaScript", "TypeScript", "SQL"] },
-      { "name": "AI Engineering", "icon": "brain", "skills": ["Agentes de IA", "LangGraph", "LangChain", "RAG", "Prompt engineering", "Ollama", "OpenAI API", "Qdrant"] },
-      { "name": "Data Science & ML", "icon": "bar-chart", "skills": ["Pandas", "NumPy", "scikit-learn", "XGBoost", "Power BI", "Feature engineering", "Clustering", "Model evaluation"] },
-      { "name": "Backend & Software", "icon": "server", "skills": [".NET", "FastAPI", "APIs REST", "Lógica de negocio", "Arquitectura software", "Validaciones JavaScript", "GAAN", "SQL"] },
-      { "name": "Frontend & Cloud", "icon": "globe", "skills": ["React", "Next.js", "Tailwind CSS", "Firebase", "Google Cloud", "Supabase", "Docker"] },
-      { "name": "Herramientas & Metodologías", "icon": "wrench", "skills": ["Git", "GitHub", "JIRA", "Scrum", "Kanban", "Documentación técnica", "Testing", "Debugging"] },
-      { "name": "Habilidades humanas", "icon": "users", "skills": ["Trabajo en equipo", "Comunicación clara", "Adaptabilidad", "Resolución de problemas", "Liderazgo", "Pensamiento crítico", "Proactividad", "Aprendizaje rápido"] },
-      { "name": "Idiomas", "icon": "languages", "skills": ["Español nativo", "Catalán nativo", "Inglés medio"] }
-    ]
+      {
+        "name": "Data Analytics",
+        "icon": "bar-chart",
+        "featured": true,
+        "desc": "Análisis, KPIs, reporting y comunicación de insights orientados a negocio.",
+        "skills": [
+          "SQL",
+          "Power BI",
+          "Power Query",
+          "DAX",
+          "Data Visualization",
+          "KPI Analysis",
+          "Business Intelligence",
+          "Statistics",
+          "Exploratory Data Analysis"
+        ],
+        "id": "data-analytics",
+        "featuredSkills": [
+          "SQL",
+          "Power BI",
+          "Power Query",
+          "DAX"
+        ]
+      },
+      {
+        "name": "Data Engineering",
+        "icon": "database",
+        "featured": true,
+        "desc": "Modelado, transformación y preparación de datos para análisis fiable.",
+        "skills": [
+          "Snowflake",
+          "ETL / ELT",
+          "Data Modeling",
+          "Data Warehousing",
+          "Data Transformation",
+          "Relational Databases",
+          "Informatica",
+          "Firebase",
+          "Google Cloud",
+          "Supabase",
+          "Docker",
+          "Databricks"
+        ],
+        "id": "data-engineering",
+        "featuredSkills": [
+          "Snowflake",
+          "Informatica",
+          "ETL / ELT",
+          "Data Modeling"
+        ]
+      },
+      {
+        "name": "Data Science",
+        "icon": "brain",
+        "desc": "Python, estadística aplicada, machine learning y evaluación de modelos.",
+        "skills": [
+          "Python",
+          "Pandas",
+          "NumPy",
+          "scikit-learn",
+          "Statistical Analysis",
+          "Machine Learning",
+          "XGBoost",
+          "Statsmodels",
+          "Artificial Intelligence",
+          "Statistics"
+        ],
+        "id": "data-science",
+        "featuredSkills": [
+          "Python",
+          "Pandas",
+          "scikit-learn",
+          "Statistics"
+        ]
+      },
+      {
+        "name": "Programming",
+        "icon": "code",
+        "desc": "Lenguajes usados para análisis, automatización y desarrollo de soluciones.",
+        "skills": [
+          "Python",
+          "SQL",
+          "C#",
+          "Java",
+          "JavaScript",
+          "TypeScript"
+        ],
+        "id": "programming",
+        "featuredSkills": [
+          "Python",
+          "SQL",
+          "C#",
+          "TypeScript"
+        ]
+      },
+      {
+        "name": "Software Engineering",
+        "icon": "server",
+        "desc": "Base técnica para construir soluciones mantenibles e integradas.",
+        "skills": [
+          "APIs",
+          "Backend Development",
+          ".NET",
+          "Architecture",
+          "Automation",
+          "Testing",
+          "APIs REST",
+          "Software Architecture",
+          "React",
+          "Next.js",
+          "Tailwind CSS",
+          "Database Integration"
+        ],
+        "id": "software-engineering",
+        "featuredSkills": [
+          ".NET",
+          "APIs",
+          "Backend Development",
+          "Architecture"
+        ]
+      },
+      {
+        "name": "Tools & Methodologies",
+        "icon": "wrench",
+        "desc": "Herramientas y formas de trabajo para proyectos colaborativos y bien documentados.",
+        "skills": [
+          "Git",
+          "GitHub",
+          "Power BI",
+          "Jupyter",
+          "Agile",
+          "Documentation",
+          "Problem Solving",
+          "Business-oriented thinking",
+          "JIRA",
+          "Scrum",
+          "Kanban",
+          "Documentación técnica",
+          "Debugging"
+        ],
+        "id": "tools-methodologies",
+        "featuredSkills": [
+          "Git",
+          "GitHub",
+          "JIRA",
+          "Jupyter"
+        ]
+      },
+      {
+        "id": "collaboration",
+        "name": "Colaboración",
+        "icon": "users",
+        "desc": "Trabajo con personas y comunicación de ideas técnicas.",
+        "featuredSkills": [],
+        "skills": [
+          "Trabajo en equipo",
+          "Comunicación clara",
+          "Adaptabilidad",
+          "Resolución de problemas",
+          "Liderazgo",
+          "Pensamiento crítico",
+          "Proactividad",
+          "Aprendizaje rápido"
+        ]
+      },
+      {
+        "id": "languages",
+        "name": "Idiomas",
+        "icon": "languages",
+        "desc": "Idiomas para comunicar y aprender.",
+        "featuredSkills": [],
+        "skills": [
+          "Español nativo",
+          "Catalán nativo",
+          "Inglés medio"
+        ]
+      }
+    ],
+    "descriptions": {
+      "SQL": "Consultas relacionales, transformación y preparación de conjuntos de datos para análisis.",
+      "Power BI": "Modelado, medidas DAX, dashboards interactivos y reporting orientado a negocio.",
+      "Power Query": "Limpieza, combinación y transformación de datos antes de construir informes.",
+      "DAX": "Medidas, contexto de filtro, CALCULATE, KPIs e inteligencia temporal en Power BI.",
+      "Snowflake": "Consulta y transformación de datos en entornos empresariales de datos en la nube.",
+      "Informatica": "Apoyo a procesos de integración, transformación y validación de datos.",
+      "ETL / ELT": "Extracción, transformación y carga de datos para su uso analítico.",
+      "Data Modeling": "Organización de entidades y relaciones para preparar modelos analíticos.",
+      "Python": "Análisis exploratorio, preparación de datos, modelos y automatización en notebooks.",
+      "Pandas": "Limpieza, agrupación y exploración de datos tabulares con Python.",
+      "NumPy": "Operaciones con arrays y cálculo numérico para análisis de datos.",
+      "scikit-learn": "Preparación de variables, entrenamiento y evaluación de modelos predictivos.",
+      "Statistics": "Interpretación de distribuciones, asociaciones y resultados de modelos estadísticos.",
+      "Statistical Analysis": "Análisis de asociaciones y diagnóstico de modelos con criterio estadístico.",
+      "Machine Learning": "Modelos supervisados, comparación de métricas y evaluación de predicciones.",
+      "Statsmodels": "Regresión, inferencia y diagnóstico de residuos en análisis estadístico.",
+      "Artificial Intelligence": "Proyectos de IA generativa, agentes y soluciones con contexto de negocio.",
+      "Exploratory Data Analysis": "Exploración de patrones, distribuciones y calidad de los datos.",
+      "Data Visualization": "Gráficos e informes para comunicar resultados de forma clara.",
+      "Business Intelligence": "Organización de datos e indicadores para apoyar decisiones de negocio.",
+      "KPI Analysis": "Lectura de indicadores para comprender la evolución del negocio.",
+      "Data Warehousing": "Organización de información en entornos de almacenamiento analítico.",
+      "Data Transformation": "Limpieza, normalización y preparación de información para análisis.",
+      "Relational Databases": "Consulta y trabajo con tablas, claves y relaciones entre datos.",
+      "XGBoost": "Modelos basados en árboles para tareas predictivas y comparación de resultados.",
+      "C#": "Lógica de negocio y aplicaciones corporativas junto con .NET.",
+      ".NET": "Desarrollo de servicios y procesos internos en aplicaciones empresariales.",
+      "Java": "Desarrollo de software y aplicación de conceptos de programación orientada a objetos.",
+      "JavaScript": "Interfaces web, comportamiento de aplicaciones y validaciones.",
+      "TypeScript": "Desarrollo web con tipos explícitos para organizar y mantener el código.",
+      "APIs": "Integración de servicios y comunicación entre aplicaciones.",
+      "APIs REST": "Integración de aplicaciones mediante interfaces HTTP estructuradas.",
+      "Backend Development": "Lógica del servidor e integración de datos y servicios.",
+      "Architecture": "Organización de componentes y responsabilidades en soluciones de software.",
+      "Software Architecture": "Diseño y documentación de la estructura de aplicaciones.",
+      "Automation": "Automatización de tareas y procesos repetitivos con software.",
+      "Testing": "Validación del comportamiento esperado de componentes y aplicaciones.",
+      "React": "Interfaces por componentes en proyectos web colaborativos.",
+      "Next.js": "Desarrollo de aplicaciones web con React y organización por rutas.",
+      "Tailwind CSS": "Diseño responsive y estilos reutilizables en interfaces web.",
+      "Firebase": "Servicios cloud y despliegue de aplicaciones web.",
+      "Google Cloud": "Servicios cloud e integración de funcionalidades en aplicaciones.",
+      "Supabase": "Datos y servicios de backend para aplicaciones web.",
+      "Docker": "Entornos reproducibles para desarrollar y ejecutar aplicaciones.",
+      "Git": "Control de versiones y trabajo con cambios de código.",
+      "GitHub": "Repositorios, colaboración y documentación de proyectos.",
+      "JIRA": "Seguimiento de tareas y organización del trabajo técnico en equipo.",
+      "Jupyter": "Notebooks que combinan código, análisis y explicación de resultados.",
+      "Agile": "Trabajo iterativo y colaboración para avanzar en proyectos.",
+      "Scrum": "Organización del trabajo en equipo mediante iteraciones.",
+      "Kanban": "Seguimiento visual de tareas y flujo de trabajo.",
+      "Documentation": "Documentación de procesos, decisiones y funcionamiento de soluciones.",
+      "Documentación técnica": "Descripción de arquitectura, procesos y decisiones técnicas.",
+      "Debugging": "Investigación de errores y revisión del comportamiento del código.",
+      "Problem Solving": "Descomposición de problemas y evaluación de alternativas técnicas.",
+      "Business-oriented thinking": "Análisis de requisitos y resultados dentro del contexto de negocio.",
+      "Trabajo en equipo": "Colaboración en proyectos académicos y entornos profesionales.",
+      "Comunicación clara": "Explicación de decisiones técnicas y resultados de análisis.",
+      "Adaptabilidad": "Adaptación a herramientas, equipos y contextos de proyecto.",
+      "Resolución de problemas": "Análisis de dificultades y búsqueda de soluciones prácticas.",
+      "Liderazgo": "Iniciativa y coordinación en actividades colaborativas.",
+      "Pensamiento crítico": "Revisión de supuestos e interpretación cuidadosa de resultados.",
+      "Proactividad": "Iniciativa para aprender, documentar y proponer mejoras.",
+      "Aprendizaje rápido": "Incorporación de nuevos conceptos y herramientas al trabajo.",
+      "Español nativo": "Comunicación oral y escrita en español.",
+      "Catalán nativo": "Comunicación oral y escrita en catalán.",
+      "Inglés medio": "Inglés de nivel intermedio, también para documentación técnica.",
+      "Databricks": "Aprendizaje de los fundamentos de procesamiento y análisis de datos en Databricks.",
+      "Database Integration": "Conexión de aplicaciones corporativas con bases de datos e integración de información de negocio."
+    },
+    "explore": "Explorar skills",
+    "viewAll": "Ver todas las skills",
+    "back": "Volver al portfolio",
+    "detailTitle": "Skills, con contexto.",
+    "detailIntro": "Las herramientas y prácticas detrás de mi trabajo, conectadas con los proyectos donde las he utilizado.",
+    "usedIn": "Utilizada en",
+    "additional": "Colaboración e idiomas",
+    "labels": {
+      "Trabajo en equipo": "Trabajo en equipo",
+      "Comunicación clara": "Comunicación clara",
+      "Adaptabilidad": "Adaptabilidad",
+      "Resolución de problemas": "Resolución de problemas",
+      "Liderazgo": "Liderazgo",
+      "Pensamiento crítico": "Pensamiento crítico",
+      "Proactividad": "Proactividad",
+      "Aprendizaje rápido": "Aprendizaje rápido",
+      "Español nativo": "Español nativo",
+      "Catalán nativo": "Catalán nativo",
+      "Inglés medio": "Inglés medio",
+      "Documentación técnica": "Documentación técnica"
+    },
+    "indexTitle": "Explora mis skills.",
+    "indexIntro": "Una visión por áreas: herramientas, experiencia y proyectos reales. Elige una categoría para explorarla.",
+    "categoryCta": "Explorar",
+    "backToIndex": "Todas las categorías",
+    "tools": "Herramientas y tecnologías",
+    "experienceHeading": "Experiencia y contexto de uso",
+    "experienceIntro": "Aplicación de estas herramientas en proyectos, formación y entornos profesionales.",
+    "relatedHeading": "Proyectos con estas tecnologías",
+    "professional": "Experiencia profesional",
+    "education": "Formación",
+    "experienceTexts": {
+      "continuousSql": "Varios años de uso académico y profesional continuado, desde segundo curso de Ingeniería Informática.",
+      "pythonProjects": "Uso habitual en proyectos de Data Science, estadística y Machine Learning desde los últimos cursos de la carrera.",
+      "currentData": "Uso profesional en SDG Group para trabajar con datos y procesos analíticos.",
+      "biProjects": "Aplicación en el Máster de Data Science y en el proyecto Global Electronics.",
+      "modeling": "Experiencia académica y en proyectos de bases de datos, modelado relacional y Power BI.",
+      "learning": "Formación en Databricks y su entorno de trabajo con datos."
+    }
   },
   "projects": {
     "eyebrow": "Proyectos destacados",
-    "title": "Lo que he construido",
-    "intro": "Proyectos de software, datos e IA que muestran mi evolución técnica hacia AI Engineering y Data Science: analítica, machine learning, backend, cloud, RAG y agentes.",
+    "title": "Lo que he",
+    "titleAccent": "construido",
+    "intro": "Proyectos de Data Analytics, Business Intelligence, estadística, Data Science, IA y software que muestran mi evolución hacia un perfil centrado en datos.",
     "search": "Buscar proyecto...",
     "noResults": "No se encontraron proyectos con esos filtros.",
     "clearFilters": "Limpiar filtros",
     "categories": {
       "all": "Todos",
+      "data-analytics": "Data Analytics",
       "data-science": "Data Science",
       "web-app": "Web/App",
       "backend": "Backend",
       "universidad": "Académico",
-      "master": "Máster",
-      "personal": "Personal"
+      "master": "Máster"
     },
     "statuses": {
-      "terminado": "Terminado",
+      "terminado": "Finalizado",
       "en_proceso": "En proceso",
       "futuro": "Futuro"
     },
     "actions": {
       "github": "Ver código en GitHub",
       "demo": "Ver demo",
-      "openGithub": "Abrir en GitHub"
+      "openGithub": "Abrir en GitHub",
+      "details": "Explorar proyecto"
     },
     "items": {
+      "statistical-sales-analysis": {
+        "title": "Statistical Sales Analysis",
+        "description": "Análisis estadístico de factores asociados a ingresos por ventas con Python, regresión lineal múltiple, métricas de evaluación y diagnóstico estadístico."
+      },
+      "global-electronics-powerbi": {
+        "title": "Global Electronics Retail Analytics",
+        "description": "Dashboard completo de Business Intelligence en Power BI con Power Query, modelo estrella, DAX, KPIs, navegación, filtros y storytelling visual."
+      },
       "marketing-ia": {
         "title": "AI Marketing Intelligence Platform",
-        "description": "Plataforma personal en progreso de inteligencia de marketing con LangGraph, RAG, Ollama, FastAPI, ML clasico y dashboard Next.js."
+        "description": "Plataforma en progreso de inteligencia de marketing con LangGraph, RAG, Ollama, FastAPI, ML clasico y dashboard Next.js."
       },
       "expected-goals-xg-statsbomb": {
         "title": "Expected Goals xG - StatsBomb",
@@ -137,51 +446,163 @@
   "timeline": {
     "eyebrow": "Experiencia & Formación",
     "title": "Trayectoria profesional y académica",
-    "intro": "Una línea clara entre experiencia real en entorno corporativo, base técnica de ingeniería y especialización actual en AI Engineering y Data Science.",
+    "intro": "Una trayectoria que combina trabajo actual en Data Analytics, especialización en Data Science e IA y una base previa sólida en Software Engineering.",
+    "educationEyebrow": "Formación",
+    "educationTitle": "Ruta",
+    "educationTitleAccent": "formativa",
+    "educationIntro": "Formación universitaria, máster y aprendizaje aplicado que sostienen mi perfil técnico y analítico.",
+    "experienceEyebrow": "Experiencia laboral",
+    "experienceTitle": "Experiencia",
+    "experienceTitleAccent": "profesional",
+    "experienceIntro": "Experiencia profesional real en consultoría de datos, arquitectura, IA, software y procesos corporativos.",
     "present": "Actualidad",
     "items": [
+      {
+        "id": "t0",
+        "title": "Data Analyst",
+        "organization": "SDG Group",
+        "description": "Analista de Datos en SDG Group, consultora especializada en Data, Analytics e Inteligencia Artificial. Participo en proyectos de consultoría relacionados con análisis, transformación y visualización de datos y soluciones orientadas a negocio. Proyecto actual: Fundación \"la Caixa\".",
+        "highlights": [
+          "SQL",
+          "Snowflake",
+          "Informatica",
+          "ETL / ELT",
+          "Data Analytics"
+        ]
+      },
       {
         "id": "t1",
         "title": "Software Developer - Arquitectura, IA y procesos",
         "organization": "Grupo Catalana Occident / Occident",
-        "description": "Desarrollo y mejora del módulo corporativo IATeach, una solución orientada a IA para gestión documental y procesos internos. Experiencia en arquitectura corporativa, lógica de negocio con C#/.NET, integración SQL, interfaces GAAN, validaciones JavaScript y trabajo ágil con JIRA, aportando criterio técnico en un entorno real de producto, datos y automatización."
+        "description": "Desarrollo y mejora del módulo corporativo IATeach, una solución orientada a IA para gestión documental y procesos internos. Experiencia en arquitectura corporativa, lógica de negocio con C#/.NET, integración SQL, interfaces GAAN, validaciones JavaScript y trabajo ágil con JIRA, aportando criterio técnico en un entorno real de producto, datos y automatización.",
+        "highlights": [
+          "AI Engineering",
+          "C#",
+          ".NET",
+          "SQL",
+          "JavaScript",
+          "GAAN",
+          "JIRA",
+          "Arquitectura"
+        ]
       },
       {
         "id": "t2",
         "title": "Máster Evolve - Data Science / Inteligencia Artificial",
         "organization": "Evolve",
-        "description": "Máster de Evolve orientado a entorno profesional real. Especialización en Python, SQL, Power BI, análisis avanzado de datos, automatización, machine learning y toma de decisiones basada en datos."
+        "description": "Máster de Evolve orientado a entorno profesional real. Especialización en Python, SQL, Power BI, análisis avanzado de datos, automatización, machine learning y toma de decisiones basada en datos.",
+        "highlights": [
+          "Python",
+          "SQL",
+          "Power BI",
+          "Data Science",
+          "Machine Learning",
+          "AI"
+        ]
       },
       {
         "id": "t3",
         "title": "Ingeniería Informática - Mención en Ingeniería del Software",
         "organization": "Formación universitaria",
-        "description": "Grado en Ingeniería Informática con formación integral en ingeniería del software, bases de datos, algoritmos, sistemas, desarrollo web y proyectos en equipo. Trabajo final centrado en agentes conversacionales e IA generativa aplicado a un contexto corporativo."
+        "description": "Grado en Ingeniería Informática con formación integral en ingeniería del software, bases de datos, algoritmos, sistemas, desarrollo web y proyectos en equipo. Trabajo final centrado en agentes conversacionales e IA generativa aplicado a un contexto corporativo.",
+        "highlights": [
+          "Ingeniería del Software",
+          "Bases de datos",
+          "Algoritmos",
+          "TFG IA",
+          "Trabajo en equipo"
+        ]
       },
       {
         "id": "t4",
         "title": "Proyectos de AI Engineering y Data Science",
         "organization": "GitHub personal",
-        "description": "Desarrollo de proyectos propios en Python, análisis de datos, ML, RAG, agentes, aplicaciones web y cloud. Enfoque práctico en documentación, arquitectura limpia y construcción de soluciones con utilidad real."
+        "description": "Desarrollo de proyectos propios en Python, análisis de datos, ML, RAG, agentes, aplicaciones web y cloud. Enfoque práctico en documentación, arquitectura limpia y construcción de soluciones con utilidad real.",
+        "highlights": [
+          "AI Engineering",
+          "Data Science",
+          "RAG",
+          "Agentes",
+          "Machine Learning",
+          "Cloud"
+        ]
+      },
+      {
+        "id": "t5",
+        "title": "Bachillerato Tecnológico",
+        "organization": "Institut Joan Oliver",
+        "description": "Formación científica y técnica, desarrollando una base sólida en matemáticas, física, tecnología y electrotecnia.",
+        "highlights": [
+          "Matemáticas",
+          "Física",
+          "Tecnología",
+          "Electrotecnia"
+        ]
       }
-    ]
+    ],
+    "responsibilities": "Responsabilidades",
+    "areas": "Áreas y tecnologías",
+    "workDetails": {
+      "t0": {
+        "responsibilities": [
+          "Extraer, transformar y validar datos; comprobar su calidad y conciliar conjuntos de datos.",
+          "Preparar consultas SQL y conjuntos de datos relacionales para análisis y reporting.",
+          "Dar soporte a procesos ETL / ELT, integración de datos y tareas de pipelines.",
+          "Analizar información de negocio y apoyar soluciones analíticas y de reporting.",
+          "Documentar procesos de datos y colaborar con consultores y equipos técnicos."
+        ],
+        "summary": "Consultoría de Data, Analytics & AI. Actualmente colaborando en un proyecto para Fundación \"la Caixa\".",
+        "focus": "Desarrollando experiencia en entornos de datos empresariales y en transformar información en datos estructurados y fiables para análisis.",
+        "technologies": [
+          "SQL",
+          "Snowflake",
+          "Informatica",
+          "ETL / ELT",
+          "Data Analytics"
+        ]
+      },
+      "t1": {
+        "responsibilities": [
+          "Desarrollo y mejora de IATeach, una solución vinculada a IA para gestión documental y procesos internos.",
+          "Lógica de negocio con C#/.NET, integración SQL y APIs para aplicaciones internas.",
+          "Interfaces GAAN, validaciones JavaScript y automatización de procesos.",
+          "Documentación técnica y colaboración mediante JIRA."
+        ],
+        "summary": "Arquitectura corporativa y aplicaciones empresariales internas en Grupo Catalana Occident / Occident.",
+        "focus": "Una base de Software Engineering para entender sistemas, datos y procesos de negocio.",
+        "technologies": [
+          "C#",
+          ".NET",
+          "SQL",
+          "APIs",
+          "JavaScript",
+          "GAAN",
+          "JIRA"
+        ]
+      }
+    },
+    "context": "Contexto del proyecto",
+    "focus": "Enfoque",
+    "technologies": "Tecnologías",
+    "employment": "Jornada completa · Contrato indefinido"
   },
   "github": {
-    "eyebrow": "Open Source",
-    "title": "Repositorios destacados",
-    "intro": "Estos son algunos de mis repositorios públicos. Puedes explorar todo mi trabajo en GitHub.",
+    "eyebrow": "Data portfolio",
+    "title": "Proyectos",
+    "titleAccent": "destacados",
+    "intro": "Una selección de proyectos que representan mejor mi perfil actual en Data Analytics, Power BI, estadística, Data Science e IA aplicada.",
     "more": "Ver más en GitHub",
     "repos": {
-      "lol-win-prediction": "Predicción del equipo ganador en LoL usando ML",
-      "futbol-data": "Análisis y visualización de datos de fútbol",
-      "find-it": "Backend serverless con Firebase y Cloud Vision",
-      "tofu-awards": "App de premios con Firebase y CI/CD"
+      "global-electronics-powerbi": "Dashboard completo de retail en Power BI con Power Query, modelo estrella, DAX, KPIs, navegación y storytelling visual.",
+      "statistical-sales-analysis": "Análisis estadístico de factores asociados a ingresos por ventas con Python, regresión lineal múltiple y diagnóstico estadístico.",
+      "expected-goals-xg-statsbomb": "Notebook de fútbol analytics para modelar Expected Goals con ingeniería de variables, evaluación y lectura analítica.",
+      "marketing-ia": "Plataforma de inteligencia de marketing con RAG, agentes, FastAPI, dashboard y enfoque analítico aplicado a negocio."
     }
   },
   "contact": {
     "eyebrow": "Contacto",
     "title": "Hablemos",
-    "intro": "Estoy abierto a oportunidades y proyectos donde aportar como AI Engineer o perfil Data Science, combinando software, datos, automatización, IA y cloud.",
+    "intro": "¿Tienes un proyecto o una idea en mente? Hablemos de datos, software y de cómo puedo aportar.",
     "successTitle": "Mensaje enviado",
     "successBody": "Gracias por escribirme. Te responderé lo antes posible.",
     "sendAnother": "Enviar otro mensaje",
@@ -198,7 +619,7 @@
     "send": "Enviar mensaje",
     "also": "También puedes encontrarme en",
     "location": "Actualmente en",
-    "locationSuffix": "con interés en oportunidades donde construir soluciones de AI Engineering y Data Science con impacto real.",
+    "locationSuffix": "con interés en oportunidades donde convertir datos en insights y soluciones analíticas útiles para negocio.",
     "validation": {
       "name": "El nombre debe tener al menos 2 caracteres.",
       "email": "Introduce un email válido.",
@@ -216,25 +637,72 @@
     "comingSoon": "Próximamente",
     "posts": [
       {
-        "title": "Cómo estoy consolidando AI Engineering y Data Science",
-        "excerpt": "Notas sobre Python, SQL, Power BI, automatización, análisis avanzado, agentes y sistemas de IA aplicados a negocio.",
-        "tags": ["Data Science", "AI"]
+        "title": "Cómo estoy consolidando Data Analytics, BI e IA",
+        "excerpt": "Notas sobre SQL, Power BI, Python, estadística, análisis avanzado, automatización y sistemas de IA aplicados a negocio.",
+        "tags": [
+          "Data Science",
+          "AI"
+        ]
       },
       {
         "title": "Arquitectura de agentes conversacionales",
         "excerpt": "Reflexiones técnicas sobre agentes configurables, IA generativa y validación mediante Proof of Concept.",
-        "tags": ["IA generativa", "Arquitectura"]
+        "tags": [
+          "IA generativa",
+          "Arquitectura"
+        ]
       },
       {
-        "title": "Mi roadmap hacia AI Engineering",
-        "excerpt": "Una mirada práctica a las tecnologías y proyectos que quiero seguir consolidando en IA aplicada, datos, backend y cloud.",
-        "tags": ["Roadmap", "Cloud"]
+        "title": "Mi roadmap como Data Analyst",
+        "excerpt": "Una mirada práctica a las tecnologías y proyectos que quiero seguir consolidando en analítica, BI, Data Science, IA y software.",
+        "tags": [
+          "Roadmap",
+          "Data Analytics"
+        ]
       }
     ]
+  },
+  "projectDossier": {
+    "backToProjects": "Volver a proyectos",
+    "headerLabel": "Dossier del proyecto",
+    "overviewEyebrow": "Descripción",
+    "overviewTitle": "Qué es y qué resuelve",
+    "resourcesEyebrow": "Recursos",
+    "resourcesTitle": "Archivos del proyecto",
+    "resourcesIntro": "Documentación, notebooks, entregables y archivos organizados como dossier consultable.",
+    "galleryEyebrow": "Evidencias",
+    "galleryTitle": "Capturas y visuales",
+    "videosEyebrow": "Demos",
+    "videosTitle": "Vídeos y demostraciones",
+    "noteTitle": "Nota",
+    "unavailable": "No disponible",
+    "actions": {
+      "download": "Descargar",
+      "open": "Abrir",
+      "view": "Ver"
+    },
+    "resourceTypes": {
+      "pdf": "PDF",
+      "notebook": "Notebook",
+      "powerbi": "Power BI",
+      "data": "Datos",
+      "video": "Vídeo",
+      "presentation": "Presentación",
+      "excel": "Excel",
+      "code": "Código",
+      "demo": "Demo",
+      "memory": "Memoria",
+      "diagram": "Diagrama",
+      "external": "Enlace"
+    }
   },
   "notFound": {
     "title": "Página no encontrada",
     "body": "La ruta que buscas no existe o ha sido movida. Puede que haya un error en la URL.",
     "back": "Volver al inicio"
+  },
+  "passions": {
+    "eyebrow": "Fuera de la pantalla",
+    "title": "Lo que me apasiona"
   }
 }

@@ -12,13 +12,13 @@ export default function NotFound() {
       <div className="mb-6 rounded-2xl bg-accent/10 p-4 text-accent">
         <Terminal className="h-8 w-8" />
       </div>
-      <h1 className="mb-2 font-mono text-6xl font-bold tracking-tighter text-surface-800 dark:text-white">
+      <h1 className="mb-2 font-mono text-6xl font-bold tracking-tighter text-surface-50">
         404
       </h1>
-      <p className="mb-1 text-lg font-semibold text-surface-700 dark:text-surface-200">
+      <p className="mb-1 text-lg font-semibold text-surface-100">
         {messages.notFound.title}
       </p>
-      <p className="mb-8 max-w-md text-sm text-surface-500 dark:text-surface-400">
+      <p className="mb-8 max-w-md text-sm text-surface-300">
         {messages.notFound.body}
       </p>
       <Link href="/" className="btn-primary">

@@ -4,6 +4,8 @@ import type { ProjectDossier, ProjectGalleryImage, ProjectResource, ProjectVideo
 
 const tfgBasePath = '/projects/tfg-modulo-chatbots';
 const projectBasePath = (slug: string) => `/projects/${slug}`;
+const statisticalSalesBasePath = projectBasePath('statistical-sales-analysis');
+const globalElectronicsBasePath = projectBasePath('global-electronics-powerbi');
 const publicRoot = getPublicRoot();
 
 function getPublicRoot() {
@@ -210,7 +212,7 @@ const rawProjectDossiers: ProjectDossier[] = [
     subtitle: 'Plataforma enterprise de inteligencia de marketing multiagente',
     author: 'Daniel Garcia Nilo',
     description:
-      'Plataforma personal en progreso que transforma datos transaccionales de ecommerce en estrategia de marketing accionable mediante LangGraph, RAG, ML clasico y un dashboard Next.js.',
+      'Plataforma en progreso que transforma datos transaccionales de ecommerce en estrategia de marketing accionable mediante LangGraph, RAG, ML clasico y un dashboard Next.js.',
     longDescription:
       'Sistema de analitica de marketing con scoring RFM, clustering KMeans, segmentacion de clientes, prediccion de churn, simulacion de campanas y una capa multiagente de IA. El backend FastAPI orquesta agentes especializados con LangGraph, consulta conocimiento documental mediante RAG sobre Qdrant y puede funcionar gratis con modelos locales de Ollama, ademas de soportar OpenAI o modo mock para desarrollo.',
     category: 'personal',
@@ -252,10 +254,91 @@ const rawProjectDossiers: ProjectDossier[] = [
         description: 'Espacio para diagramas del flujo supervisor, agentes, RAG, FastAPI y Qdrant.',
       },
     ],
+    detailSections: [
+      {
+        eyebrow: 'Contexto',
+        title: 'Analitica de marketing con capa multiagente',
+        body: [
+          'Proyecto en progreso orientado a transformar datos transaccionales de ecommerce en recomendaciones accionables para marketing y negocio.',
+          'La propuesta combina analitica de clientes, modelos de Machine Learning y una capa de agentes que razonan sobre KPIs, segmentos, playbooks y simulacion de campanas.',
+        ],
+      },
+      {
+        eyebrow: 'Workflow',
+        title: 'De datos transaccionales a decisiones',
+        steps: ['Ecommerce Data', 'RFM Scoring', 'Clustering', 'Churn Prediction', 'Campaign Simulation', 'RAG', 'Agents', 'Dashboard'],
+      },
+      {
+        eyebrow: 'Arquitectura',
+        title: 'Backend de analitica e IA',
+        items: [
+          'FastAPI como capa backend',
+          'LangGraph para orquestacion multiagente',
+          'Qdrant como vector store para RAG',
+          'Ollama local, OpenAI o modo mock para desarrollo',
+          'Dashboard Next.js y TypeScript',
+          'Pandas y scikit-learn para analitica y modelos clasicos',
+        ],
+      },
+      {
+        eyebrow: 'Estado',
+        title: 'Proyecto en progreso',
+        body: [
+          'El dossier mantiene el proyecto como en proceso. No se muestran metricas finales porque todavia no hay resultados cerrados documentados en los recursos locales.',
+        ],
+      },
+    ],
     notes: [
-      'Proyecto personal en progreso orientado a demostrar AI Engineering aplicado a negocio: orquestacion multiagente, RAG, analitica ML, API REST y dashboard interactivo.',
+      'Proyecto en progreso orientado a demostrar AI Engineering aplicado a negocio: orquestacion multiagente, RAG, analitica ML, API REST y dashboard interactivo.',
       'La arquitectura soporta Ollama local, OpenAI y modo mock para facilitar pruebas sin costes ni dependencias externas obligatorias.',
     ],
+    translations: {
+      en: {
+        subtitle: 'Enterprise multi-agent marketing intelligence platform',
+        description:
+          'Work-in-progress project that turns ecommerce transactional data into actionable marketing strategy through LangGraph, RAG, classic ML and a Next.js dashboard.',
+        longDescription:
+          'Marketing analytics system with RFM scoring, KMeans clustering, customer segmentation, churn prediction, campaign simulation and a multi-agent AI layer. The FastAPI backend orchestrates specialized agents with LangGraph, queries documentary knowledge through RAG on Qdrant and can run with local Ollama models, OpenAI or mock mode for development.',
+        detailSections: [
+          {
+            eyebrow: 'Context',
+            title: 'Marketing analytics with a multi-agent layer',
+            body: [
+              'Work-in-progress project focused on turning ecommerce transactional data into actionable recommendations for marketing and business.',
+              'The proposal combines customer analytics, Machine Learning models and an agent layer that reasons about KPIs, segments, playbooks and campaign simulation.',
+            ],
+          },
+          {
+            eyebrow: 'Workflow',
+            title: 'From transactional data to decisions',
+            steps: ['Ecommerce Data', 'RFM Scoring', 'Clustering', 'Churn Prediction', 'Campaign Simulation', 'RAG', 'Agents', 'Dashboard'],
+          },
+          {
+            eyebrow: 'Architecture',
+            title: 'Analytics and AI backend',
+            items: [
+              'FastAPI as backend layer',
+              'LangGraph for multi-agent orchestration',
+              'Qdrant as vector store for RAG',
+              'Local Ollama, OpenAI or mock mode for development',
+              'Next.js and TypeScript dashboard',
+              'Pandas and scikit-learn for analytics and classic models',
+            ],
+          },
+          {
+            eyebrow: 'Status',
+            title: 'Work in progress',
+            body: [
+              'The dossier keeps the project marked as in progress. No final metrics are shown because there are no closed results documented in local resources yet.',
+            ],
+          },
+        ],
+        notes: [
+          'Work-in-progress project aimed at demonstrating business-oriented AI Engineering: multi-agent orchestration, RAG, ML analytics, REST API and interactive dashboard.',
+          'The architecture supports local Ollama, OpenAI and mock mode to simplify testing without mandatory external costs or dependencies.',
+        ],
+      },
+    },
   },
   {
     title: 'TFG - Modulo de Chatbots',
@@ -266,7 +349,7 @@ const rawProjectDossiers: ProjectDossier[] = [
       'Proyecto de Trabajo Final de Grado centrado en el diseno y desarrollo de un modulo de agentes conversacionales/chatbots.',
     longDescription:
       'Sistema orientado al diseno de agentes conversacionales parametrizables, con documentacion funcional y tecnica, modelos de datos, arquitectura, analisis del sistema y recursos de seguimiento del proyecto. El dossier funciona como indice central para consultar informes, estudios, diagramas, manuales y pruebas relacionadas.',
-    category: 'universidad',
+    categories: ['universidad'],
     status: 'terminado',
     technologies: ['IA generativa', 'Chatbots', 'Arquitectura software', 'SQL', 'C#', '.NET', 'Documentacion tecnica'],
     colorTheme: {
@@ -365,22 +448,138 @@ const rawProjectDossiers: ProjectDossier[] = [
     ],
     gallery: [
       {
-        title: 'Captura del modulo',
-        src: `${tfgBasePath}/images/captura-1.png`,
-        alt: 'Captura principal del modulo de chatbots',
-        description: 'Espacio para evidencias visuales, pruebas o pantallas del proyecto.',
+        title: 'Resumen de diagramas',
+        src: `${tfgBasePath}/images/diagrams-overview.png`,
+        alt: 'Pagina de introduccion del documento de diagramas del TFG',
+        description: 'Documento real de diagramas con modelos conceptuales, flujos y estructuras de datos del modulo.',
       },
       {
-        title: 'Arquitectura y pruebas',
-        src: `${tfgBasePath}/images/captura-2.png`,
-        alt: 'Captura de arquitectura o pruebas del proyecto',
-        description: 'Puede sustituirse por diagramas, resultados o capturas funcionales.',
+        title: 'Modelo final',
+        src: `${tfgBasePath}/images/final-model-diagram.png`,
+        alt: 'Pagina del documento de diagramas con modelo final del TFG',
+        description: 'Evidencia visual del rediseño hacia el modelo configurable por agente.',
+      },
+    ],
+    detailSections: [
+      {
+        eyebrow: 'Contexto',
+        title: 'Modulo de agentes conversacionales para IATech',
+        body: [
+          'El objetivo fue disenar y analizar un modulo escalable para gestionar agentes conversacionales dentro del entorno corporativo de IATech.',
+          'La propuesta se integra en un ecosistema corporativo de automatizacion con bus de eventos Kafka y acciones backend para gestionar solicitudes en tiempo real.',
+        ],
+      },
+      {
+        eyebrow: 'Objetivo',
+        title: 'Arquitectura flexible, configurable y reutilizable',
+        body: [
+          'El proyecto busca establecer una base funcional para disenar y desplegar chatbots especializados capaces de automatizar procesos, interactuar con usuarios y gestionar flujos conversacionales con autonomia.',
+        ],
+      },
+      {
+        eyebrow: 'Evolucion tecnica',
+        title: 'De modelo estructurado a parametrizacion por agente',
+        steps: ['Analisis funcional', 'Modelo por pasos', 'PoC', 'Rediseño arquitectonico', 'TipoAgente', 'Clave-valor'],
+        body: [
+          'El analisis inicial partia de multiples entidades compartidas. Durante el desarrollo se opto por una reformulacion centrada en la parametrizacion individualizada de cada agente.',
+          'El nuevo modelo encapsula logica, estados, prompts y acciones en un registro de base de datos mediante pares clave-valor, mejorando mantenimiento, escalabilidad y despliegue de nuevos agentes.',
+        ],
+      },
+      {
+        eyebrow: 'Validacion',
+        title: 'Proof of Concept de incidencias',
+        body: [
+          'Se implemento una PoC orientada a la gestion de incidencias informaticas. La prueba confirmo la viabilidad del diseno y su capacidad para gestionar flujos configurables.',
+        ],
+      },
+      {
+        eyebrow: 'Aprendizajes',
+        title: 'Arquitectura, trazabilidad y decisiones pragmáticas',
+        items: [
+          'Diseño de agentes autonomos y configurables',
+          'Modelado de datos para flujos conversacionales',
+          'Replanteamiento arquitectonico para evitar sobreingenieria',
+          'Documentacion funcional y tecnica',
+          'ScrumBan aplicado a un proyecto con analisis conceptual y PoC',
+        ],
       },
     ],
     notes: [
       'El codigo fuente no se incluye por motivos de propiedad intelectual y confidencialidad, pero el proyecto esta documentado mediante diagramas, arquitectura, descripcion funcional y modelos de datos.',
       'Algunos recursos pueden estar limitados por motivos de confidencialidad, propiedad intelectual o contexto academico/profesional.',
     ],
+    translations: {
+      en: {
+        title: 'Final Degree Project - Chatbots Module',
+        subtitle: 'Documentary dossier for the Final Degree Project',
+        description:
+          'Final Degree Project focused on designing and developing a conversational agents/chatbots module.',
+        longDescription:
+          'System focused on the design of configurable conversational agents, with functional and technical documentation, data models, architecture, system analysis and project tracking resources. The dossier acts as a central index for reports, studies, diagrams, manuals and tests.',
+        gallery: [
+          {
+            title: 'Diagrams overview',
+            src: `${tfgBasePath}/images/diagrams-overview.png`,
+            alt: 'Introduction page from the FGP diagrams document',
+            description: 'Real diagrams document with conceptual models, flows and data structures for the module.',
+          },
+          {
+            title: 'Final model',
+            src: `${tfgBasePath}/images/final-model-diagram.png`,
+            alt: 'Diagrams document page with the final FGP model',
+            description: 'Visual evidence of the redesign toward a configurable per-agent model.',
+          },
+        ],
+        detailSections: [
+          {
+            eyebrow: 'Context',
+            title: 'Conversational agents module for IATech',
+            body: [
+              'The objective was to design and analyze a scalable module for managing conversational agents within IATech’s corporate environment.',
+              'The proposal integrates with a corporate automation ecosystem using a Kafka event bus and backend actions to manage requests in real time.',
+            ],
+          },
+          {
+            eyebrow: 'Objective',
+            title: 'Flexible, configurable and reusable architecture',
+            body: [
+              'The project establishes a functional foundation for designing and deploying specialized chatbots able to automate processes, interact with users and manage conversational flows autonomously.',
+            ],
+          },
+          {
+            eyebrow: 'Technical Evolution',
+            title: 'From structured model to per-agent parameterization',
+            steps: ['Functional analysis', 'Step model', 'PoC', 'Architectural redesign', 'TipoAgente', 'Key-value'],
+            body: [
+              'The initial analysis started from multiple shared entities. During development, the architecture was reformulated around individualized parameterization for each agent.',
+              'The new model encapsulates logic, states, prompts and actions in a database record using key-value pairs, improving maintenance, scalability and deployment of new agents.',
+            ],
+          },
+          {
+            eyebrow: 'Validation',
+            title: 'IT incident management Proof of Concept',
+            body: [
+              'A PoC focused on IT incident management was implemented. The test confirmed the feasibility of the design and its ability to manage configurable flows.',
+            ],
+          },
+          {
+            eyebrow: 'Learnings',
+            title: 'Architecture, traceability and pragmatic decisions',
+            items: [
+              'Design of autonomous and configurable agents',
+              'Data modeling for conversational flows',
+              'Architectural redesign to avoid overengineering',
+              'Functional and technical documentation',
+              'ScrumBan applied to a project with conceptual analysis and PoC',
+            ],
+          },
+        ],
+        notes: [
+          'The source code is not included for intellectual property and confidentiality reasons, but the project is documented through diagrams, architecture, functional description and data models.',
+          'Some resources may be limited due to confidentiality, intellectual property or academic/professional context.',
+        ],
+      },
+    },
   },
   {
     title: 'Expected Goals xG - StatsBomb',
@@ -412,15 +611,100 @@ const rawProjectDossiers: ProjectDossier[] = [
       pendingResource('expected-goals-xg-statsbomb', 'Memoria / Notebook del proyecto'),
     ],
     videos: [],
-    gallery: [
+    gallery: [],
+    detailSections: [
+      {
+        eyebrow: 'Contexto',
+        title: 'Expected Goals como problema de analitica deportiva',
+        body: [
+          'El proyecto parte de una idea sencilla: no todos los tiros tienen la misma probabilidad de acabar en gol. El xG intenta medir esa probabilidad usando la posicion y el contexto de cada disparo.',
+          'El notebook se apoya en una estructura compatible con StatsBomb Open Data y mantiene un fallback reproducible cuando los JSON originales no estan disponibles localmente.',
+        ],
+      },
+      {
+        eyebrow: 'Objetivo',
+        title: 'Predecir la probabilidad de gol de cada tiro',
+        items: [
+          'Preparar un dataset de tiros compatible con StatsBomb Open Data',
+          'Crear variables futbolisticas interpretables: distancia, angulo, parte del cuerpo, tipo de jugada, presion y zona',
+          'Construir una variable propia de big_chance y una metrica de eficiencia ofensiva',
+          'Comparar Logistic Regression, Random Forest y XGBoost',
+          'Evaluar con ROC-AUC, Brier Score y curvas de calibracion',
+        ],
+      },
       {
         title: 'Visualizacion principal',
         src: '/images/projects/expected-goals-xg-statsbomb.jpg',
         alt: 'Visualizacion del modelo Expected Goals',
         description: 'Espacio para graficas, metricas o resultados del modelo.',
       },
+      {
+        eyebrow: 'Criterio analitico',
+        title: 'Ordenar y calibrar probabilidades',
+        body: [
+          'La evaluacion no se centra solo en acertar goles. En xG es clave que las probabilidades esten calibradas: un conjunto de tiros con 0.10 xG deberia convertirse en gol aproximadamente el 10% de las veces.',
+        ],
+      },
     ],
-    notes: ['Dossier preparado para incorporar entregables del master, notebook final, graficas y pruebas del modelo.'],
+    notes: [
+      'El proyecto queda marcado como finalizado y el notebook local esta disponible como recurso consultable.',
+      'No se muestran metricas numericas finales porque no aparecen como salida textual verificable en el notebook revisado.',
+    ],
+    translations: {
+      en: {
+        subtitle: 'Sports Data Analytics dossier for football Expected Goals',
+        description:
+          'Data Science notebook to build and evaluate an Expected Goals model using StatsBomb-style shot event data.',
+        longDescription:
+          'Project focused on modeling the probability that a shot becomes a goal through football feature engineering, supervised models, evaluation, calibration and visual storytelling.',
+        resources: [
+          {
+            title: 'Expected Goals notebook',
+            type: 'notebook',
+            description: 'Local xG project notebook with framing, EDA, feature engineering and evaluation.',
+            url: `${projectBasePath('expected-goals-xg-statsbomb')}/notebooks/expected-goals-xg-statsbomb.ipynb`,
+            action: 'download',
+          },
+        ],
+        detailSections: [
+          {
+            eyebrow: 'Context',
+            title: 'Expected Goals as a sports analytics problem',
+            body: [
+              'The project starts from a simple idea: not every shot has the same probability of becoming a goal. xG tries to measure that probability using shot location and context.',
+              'The notebook uses a structure compatible with StatsBomb Open Data and keeps a reproducible fallback when the original JSON files are not available locally.',
+            ],
+          },
+          {
+            eyebrow: 'Objective',
+            title: 'Predict the goal probability of each shot',
+            items: [
+              'Prepare a shot dataset compatible with StatsBomb Open Data',
+              'Create interpretable football features: distance, angle, body part, play type, pressure and zone',
+              'Build a custom big_chance feature and offensive efficiency metric',
+              'Compare Logistic Regression, Random Forest and XGBoost',
+              'Evaluate with ROC-AUC, Brier Score and calibration curves',
+            ],
+          },
+          {
+            eyebrow: 'Pipeline',
+            title: 'From shot event to calibrated probability',
+            steps: ['StatsBomb Events', 'Shots Dataset', 'Cleaning', 'Football Features', 'Models', 'Calibration', 'Insights'],
+          },
+          {
+            eyebrow: 'Analytical Judgment',
+            title: 'Ranking and calibrating probabilities',
+            body: [
+              'Evaluation is not only about guessing goals. In xG, probabilities must be calibrated: a group of shots with 0.10 xG should become goals around 10% of the time.',
+            ],
+          },
+        ],
+        notes: [
+          'The project remains marked as in progress because no final report is published in public, although the local notebook is now available as a resource.',
+          'No final numeric metrics are displayed because they do not appear as verifiable textual output in the reviewed notebook.',
+        ],
+      },
+    },
   },
   {
     title: 'FindIt',
@@ -431,7 +715,7 @@ const rawProjectDossiers: ProjectDossier[] = [
       'Backend serverless para un juego de retos visuales con validacion automatica de fotografias mediante Google Cloud Vision y Firebase.',
     longDescription:
       'Aplicacion gamificada en la que el usuario recibe retos visuales, fotografia objetos y el backend valida las imagenes automaticamente. La pagina queda preparada para documentar arquitectura serverless, reglas de validacion, endpoints, pruebas y demo.',
-    category: 'backend',
+    categories: ['universidad', 'backend'],
     status: 'terminado',
     technologies: ['TypeScript', 'Firebase', 'Cloud Functions', 'Google Cloud Vision API', 'Backend'],
     colorTheme: {
@@ -453,13 +737,135 @@ const rawProjectDossiers: ProjectDossier[] = [
     videos: [],
     gallery: [
       {
-        title: 'Prueba visual',
-        src: `${projectBasePath('find-it')}/images/captura-1.png`,
-        alt: 'Captura del juego FindIt',
-        description: 'Espacio para capturas de la app, retos o validaciones.',
+        title: 'Arquitectura y stack',
+        src: `${projectBasePath('find-it')}/images/architecture-and-stack.png`,
+        alt: 'Pagina del informe FindIt con arquitectura y stack tecnologico',
+        description: 'Captura real del informe con componentes frontend, Firestore, Storage, Cloud Functions y Vision API.',
+      },
+      {
+        title: 'Capturas de la app',
+        src: `${projectBasePath('find-it')}/images/app-screenshots.png`,
+        alt: 'Pagina del informe FindIt con capturas del juego',
+        description: 'Evidencia visual del diseño de pantallas incluida en el informe de hackathon.',
       },
     ],
-    notes: ['Dossier preparado para anadir demo, pruebas de Cloud Vision y diagramas de la arquitectura Firebase.'],
+    detailSections: [
+      {
+        eyebrow: 'Contexto',
+        title: 'Juego visual con validacion automatica',
+        body: [
+          'FindIt es una aplicacion desarrollada para practicar Google Cloud y sus APIs. El usuario recibe retos aleatorios de objetos cotidianos y debe fotografiar el objeto indicado dentro de un margen de tiempo.',
+          'La validacion se realiza en backend: la imagen se guarda en Firebase Storage, una Cloud Function la procesa y Google Vision API devuelve etiquetas que se comparan con las variantes aceptadas del reto.',
+        ],
+      },
+      {
+        eyebrow: 'Arquitectura',
+        title: 'Backend serverless sobre Firebase y Google Cloud',
+        steps: ['Frontend', 'Firebase Storage', 'Cloud Function', 'Vision API', 'Firestore', 'Stats'],
+        items: [
+          'Retos almacenados en Firestore con palabra objetivo y variantes aceptadas',
+          'Usuarios con perfil, estadisticas globales y subcoleccion de partidas',
+          'Imagenes subidas a Storage y eliminadas al finalizar la partida',
+          'Cloud Function validate photo para orquestar la validacion',
+          'Vision API para deteccion de labels en imagenes',
+        ],
+      },
+      {
+        eyebrow: 'Funcionalidades',
+        title: 'Modos de juego y seguimiento',
+        items: [
+          'Modo Normal: la partida acaba al primer error',
+          'Modo Contrarreloj: tiempo limitado para encontrar el maximo de objetos',
+          'Ranking y estadisticas personales/globales',
+          'Registro de partidas con objetos correctos, objetos jugados, precision, puntos y fecha',
+        ],
+      },
+      {
+        eyebrow: 'Retos tecnicos',
+        title: 'Compatibilidad, Cloud Functions y priorizacion',
+        body: [
+          'El informe documenta una curva de aprendizaje con Google Cloud, Firebase y Cloud Functions, ademas de problemas de compatibilidad al ejecutar la app en dispositivos con Expo Go. El equipo priorizo la version web funcional para cerrar la logica principal del juego.',
+        ],
+      },
+      {
+        eyebrow: 'Aprendizajes',
+        title: 'Integracion cloud en un plazo corto',
+        body: [
+          'El proyecto sirvio para gestionar un desarrollo de 4-5 semanas con sprints semanales, control de versiones y reparto de tareas. Daniel aparece documentado como parte del foco backend junto a Alex.',
+        ],
+      },
+    ],
+    notes: ['La informacion ampliada procede del informe de hackathon incluido como recurso del proyecto.'],
+    translations: {
+      en: {
+        subtitle: 'Serverless backend and computer vision dossier',
+        description:
+          'Serverless backend for a visual challenge game that validates object photos automatically with Google Cloud Vision and Firebase.',
+        longDescription:
+          'Gamified application where the user receives visual challenges, photographs objects and the backend validates images automatically. The page documents the serverless architecture, validation rules, game flow and project report.',
+        gallery: [
+          {
+            title: 'Architecture and stack',
+            src: `${projectBasePath('find-it')}/images/architecture-and-stack.png`,
+            alt: 'FindIt report page with architecture and technology stack',
+            description: 'Real report capture with frontend, Firestore, Storage, Cloud Functions and Vision API components.',
+          },
+          {
+            title: 'App screenshots',
+            src: `${projectBasePath('find-it')}/images/app-screenshots.png`,
+            alt: 'FindIt report page with game screenshots',
+            description: 'Visual evidence of the screen design included in the hackathon report.',
+          },
+        ],
+        detailSections: [
+          {
+            eyebrow: 'Context',
+            title: 'Visual game with automated validation',
+            body: [
+              'FindIt is an application built to practice Google Cloud and its APIs. The user receives random everyday-object challenges and must photograph the requested object within a time limit.',
+              'Validation happens in the backend: the image is saved in Firebase Storage, a Cloud Function processes it and Google Vision API returns labels that are compared with the accepted challenge variants.',
+            ],
+          },
+          {
+            eyebrow: 'Architecture',
+            title: 'Serverless backend on Firebase and Google Cloud',
+            steps: ['Frontend', 'Firebase Storage', 'Cloud Function', 'Vision API', 'Firestore', 'Stats'],
+            items: [
+              'Challenges stored in Firestore with target word and accepted variants',
+              'Users with profile, global stats and games subcollection',
+              'Images uploaded to Storage and removed when the game ends',
+              'validate photo Cloud Function to orchestrate validation',
+              'Vision API for image label detection',
+            ],
+          },
+          {
+            eyebrow: 'Features',
+            title: 'Game modes and tracking',
+            items: [
+              'Normal mode: the game ends after the first error',
+              'Time trial mode: limited time to find as many objects as possible',
+              'Ranking and personal/global stats',
+              'Game records with correct objects, played objects, precision, points and date',
+            ],
+          },
+          {
+            eyebrow: 'Technical Challenges',
+            title: 'Compatibility, Cloud Functions and prioritization',
+            body: [
+              'The report documents a learning curve with Google Cloud, Firebase and Cloud Functions, plus compatibility issues when running the app on devices with Expo Go. The team prioritized a functional web version to close the main game logic.',
+            ],
+          },
+          {
+            eyebrow: 'Learnings',
+            title: 'Cloud integration in a short timeline',
+            body: [
+              'The project helped manage a 4-5 week build with weekly sprints, version control and task distribution. Daniel is documented as part of the backend-focused work together with Alex.',
+            ],
+          },
+        ],
+        notes: ['The expanded information comes from the hackathon report included as a project resource.'],
+      },
+    },
   },
   {
     title: 'LoL Win Prediction',
@@ -470,7 +876,7 @@ const rawProjectDossiers: ProjectDossier[] = [
       'Modelo de machine learning para predecir el equipo ganador en partidas de League of Legends usando datos reales.',
     longDescription:
       'Proyecto de Data Science con foco en limpieza de datos, feature engineering, prevencion de data leakage, entrenamiento de modelos y analisis de resultados. La pagina esta lista para incorporar notebook, dataset documentado, metricas, graficas y conclusiones.',
-    category: 'data-science',
+    categories: ['universidad', 'data-science'],
     status: 'terminado',
     technologies: ['Python', 'Pandas', 'scikit-learn', 'XGBoost', 'Matplotlib', 'Jupyter'],
     colorTheme: {
@@ -492,13 +898,171 @@ const rawProjectDossiers: ProjectDossier[] = [
     videos: [],
     gallery: [
       {
-        title: 'Resultados del modelo',
-        src: `${projectBasePath('lol-win-prediction')}/images/captura-1.png`,
-        alt: 'Resultados del modelo LoL Win Prediction',
-        description: 'Espacio para metricas, matrices o graficas del entrenamiento.',
+        title: 'Estructura del proyecto',
+        src: `${projectBasePath('lol-win-prediction')}/images/project-flow.png`,
+        alt: 'Indice de la presentacion LoL Win Prediction',
+        description: 'La presentacion organiza el proyecto desde exploracion y feature engineering hasta comparacion, optimizacion e interpretacion.',
+      },
+      {
+        title: 'Comparacion y validacion',
+        src: `${projectBasePath('lol-win-prediction')}/images/model-comparison.png`,
+        alt: 'Slide de comparacion de modelos del proyecto LoL',
+        description: 'Validacion train/test 80/20 y comparacion de modelos de clasificacion.',
+      },
+      {
+        title: 'Analisis de errores',
+        src: `${projectBasePath('lol-win-prediction')}/images/error-analysis.png`,
+        alt: 'Slide de analisis de errores del proyecto LoL',
+        description: 'Seccion dedicada a entender en que casos falla el modelo.',
       },
     ],
-    notes: ['Dossier preparado para documentar el pipeline de datos, los experimentos y la evaluacion del modelo.'],
+    detailSections: [
+      {
+        eyebrow: 'Contexto',
+        title: 'Prediccion de victoria en League of Legends',
+        body: [
+          'League of Legends genera mucha informacion estrategica por partida: objetivos, momentos clave, composicion de equipos y estadisticas. El proyecto aprovecha esa estructura para predecir el equipo ganador.',
+        ],
+      },
+      {
+        eyebrow: 'Objetivo',
+        title: 'Modelo predictivo realista y explicable',
+        body: [
+          'El objetivo fue construir un modelo capaz de estimar que equipo ganara una partida usando informacion estrategica disponible antes de que la partida este decidida, ademas de entender cuando falla el modelo y por que.',
+        ],
+      },
+      {
+        eyebrow: 'Dataset',
+        title: 'Mas de 180.000 partidas y dataset final por partida',
+        items: [
+          'matches.csv: informacion general de cada partida',
+          'participants.csv: jugadores, campeones y equipo',
+          'champs.csv: informacion de mas de 150 campeones',
+          'teamstats.csv: kills, muertes, asistencias, oro y minions',
+          'stats1.csv y stats2.csv: objetivos y eventos de partida',
+          'lol_final.csv: dataset construido con una fila por partida y 60 columnas',
+        ],
+      },
+      {
+        eyebrow: 'Feature Engineering',
+        title: 'Variables estrategicas y prevencion de leakage',
+        items: [
+          'Variables de primeras acciones: first blood, primera torre, primer dragon, primer baron',
+          'Variables de objetivos totales por equipo',
+          'Estadisticas por equipo y diferencias entre equipos',
+          'Variables de composicion mediante target encoding',
+          'Eliminacion de identificadores, resultados duplicados y variables que revelan directamente el resultado final',
+        ],
+      },
+      {
+        eyebrow: 'Modelado',
+        title: 'Comparacion, optimizacion e interpretacion',
+        body: [
+          'La presentacion documenta una particion train/test 80/20, comparacion de modelos de clasificacion y seleccion de XGBoost como modelo final.',
+          'La optimizacion usa Randomized Search con validacion cruzada CV = 3 y ROC-AUC como criterio principal.',
+        ],
+        items: ['Accuracy', 'F1-score', 'ROC-AUC', 'Matriz de confusion'],
+      },
+      {
+        eyebrow: 'Conclusiones',
+        title: 'Equilibrio entre rendimiento y generalizacion',
+        body: [
+          'El proyecto concluye que XGBoost ofrece el mejor equilibrio entre rendimiento y generalizacion. Las variables creadas de composicion, fases y late game aportan valor real al enfoque estrategico y explicable.',
+        ],
+      },
+    ],
+    notes: [
+      'La pagina no muestra metricas numericas finales porque la extraccion textual de la presentacion no proporciona esos valores de forma verificable.',
+      'La informacion ampliada procede de la presentacion PDF incluida como recurso.',
+    ],
+    translations: {
+      en: {
+        subtitle: 'Competitive machine learning dossier',
+        description:
+          'Machine learning model to predict the winning team in League of Legends matches using real data.',
+        longDescription:
+          'Data Science project focused on data cleaning, feature engineering, data leakage prevention, model training and result analysis with an explainability-oriented approach.',
+        gallery: [
+          {
+            title: 'Project structure',
+            src: `${projectBasePath('lol-win-prediction')}/images/project-flow.png`,
+            alt: 'LoL Win Prediction presentation outline',
+            description: 'The presentation organizes the project from exploration and feature engineering to comparison, optimization and interpretation.',
+          },
+          {
+            title: 'Comparison and validation',
+            src: `${projectBasePath('lol-win-prediction')}/images/model-comparison.png`,
+            alt: 'Model comparison slide from the LoL project',
+            description: '80/20 train/test validation and classification model comparison.',
+          },
+          {
+            title: 'Error analysis',
+            src: `${projectBasePath('lol-win-prediction')}/images/error-analysis.png`,
+            alt: 'Error analysis slide from the LoL project',
+            description: 'Section dedicated to understanding when the model fails.',
+          },
+        ],
+        detailSections: [
+          {
+            eyebrow: 'Context',
+            title: 'League of Legends win prediction',
+            body: [
+              'League of Legends generates a large amount of strategic information per match: objectives, key moments, team composition and statistics. The project uses that structure to predict the winning team.',
+            ],
+          },
+          {
+            eyebrow: 'Objective',
+            title: 'Realistic and explainable predictive model',
+            body: [
+              'The objective was to build a model able to estimate which team will win a match using strategic information available before the game is decided, while also understanding when the model fails and why.',
+            ],
+          },
+          {
+            eyebrow: 'Dataset',
+            title: 'Over 180,000 matches and a final match-level dataset',
+            items: [
+              'matches.csv: general match information',
+              'participants.csv: players, champions and team',
+              'champs.csv: information about more than 150 champions',
+              'teamstats.csv: kills, deaths, assists, gold and minions',
+              'stats1.csv and stats2.csv: objectives and match events',
+              'lol_final.csv: engineered dataset with one row per match and 60 columns',
+            ],
+          },
+          {
+            eyebrow: 'Feature Engineering',
+            title: 'Strategic variables and leakage prevention',
+            items: [
+              'First-action variables: first blood, first tower, first dragon, first baron',
+              'Total objective variables per team',
+              'Team statistics and differences between teams',
+              'Composition variables through target encoding',
+              'Removal of identifiers, duplicated results and variables that directly reveal the final result',
+            ],
+          },
+          {
+            eyebrow: 'Modeling',
+            title: 'Comparison, optimization and interpretation',
+            body: [
+              'The presentation documents an 80/20 train/test split, classification model comparison and XGBoost selection as the final model.',
+              'Optimization uses Randomized Search with CV = 3 cross-validation and ROC-AUC as the main criterion.',
+            ],
+            items: ['Accuracy', 'F1-score', 'ROC-AUC', 'Confusion matrix'],
+          },
+          {
+            eyebrow: 'Conclusions',
+            title: 'Balance between performance and generalization',
+            body: [
+              'The project concludes that XGBoost offers the best balance between performance and generalization. The engineered composition, phase and late-game variables add real value to the strategic and explainable approach.',
+            ],
+          },
+        ],
+        notes: [
+          'The page does not show final numeric metrics because the text extraction from the presentation does not provide those values in a verifiable way.',
+          'The expanded information comes from the PDF presentation included as a resource.',
+        ],
+      },
+    },
   },
   {
     title: 'FutbolData',
@@ -509,7 +1073,7 @@ const rawProjectDossiers: ProjectDossier[] = [
       'Scripts de analisis y visualizacion de datos de futbol: mapas de calor, redes de pases, posesion y valoracion de jugadores.',
     longDescription:
       'Repositorio orientado a transformar datos deportivos en visualizaciones tacticas e interpretables. La pagina queda preparada para centralizar notebooks, graficas, ejemplos, capturas y explicaciones metodologicas.',
-    category: 'data-science',
+    categories: ['data-analytics', 'data-science'],
     status: 'terminado',
     technologies: ['Python', 'Pandas', 'Matplotlib', 'Data Analysis'],
     colorTheme: {
@@ -531,7 +1095,69 @@ const rawProjectDossiers: ProjectDossier[] = [
         description: 'Espacio para mapas de calor, redes de pases o graficas tacticas.',
       },
     ],
-    notes: ['Dossier preparado para anadir ejemplos visuales, datasets usados y explicacion de cada grafica.'],
+    detailSections: [
+      {
+        eyebrow: 'Contexto',
+        title: 'Analitica y visualizacion de datos de futbol',
+        body: [
+          'Proyecto orientado a transformar datos deportivos en visualizaciones tacticas e interpretables, como mapas de calor, redes de pases, posesion y valoracion de jugadores.',
+        ],
+      },
+      {
+        eyebrow: 'Objetivo',
+        title: 'Convertir eventos deportivos en lectura tactica',
+        items: [
+          'Procesar datos de futbol con Python y Pandas',
+          'Construir graficas que ayuden a interpretar comportamiento colectivo e individual',
+          'Comunicar patrones tacticos de forma visual',
+          'Mantener scripts reutilizables para distintos analisis',
+        ],
+      },
+      {
+        eyebrow: 'Tecnologias',
+        title: 'Stack de analisis reproducible',
+        steps: ['Data Loading', 'Processing', 'Aggregation', 'Matplotlib', 'Tactical Visualization'],
+      },
+    ],
+    notes: [
+      'No hay documentos locales adicionales para extraer metricas o resultados cerrados; el dossier se limita a la informacion actual del proyecto y al repositorio enlazado.',
+    ],
+    translations: {
+      en: {
+        subtitle: 'Football data analysis and visualization dossier',
+        description:
+          'Football data analysis and visualization scripts: heatmaps, passing networks, possession and player ratings.',
+        longDescription:
+          'Repository focused on turning sports data into tactical and interpretable visualizations. The page centralizes the project purpose, technical approach and available repository resources.',
+        detailSections: [
+          {
+            eyebrow: 'Context',
+            title: 'Football data analytics and visualization',
+            body: [
+              'Project focused on turning sports data into tactical and interpretable visualizations, such as heatmaps, passing networks, possession and player rating views.',
+            ],
+          },
+          {
+            eyebrow: 'Objective',
+            title: 'Turn sports events into tactical reading',
+            items: [
+              'Process football data with Python and Pandas',
+              'Build charts that help interpret collective and individual behavior',
+              'Communicate tactical patterns visually',
+              'Keep reusable scripts for different analyses',
+            ],
+          },
+          {
+            eyebrow: 'Technologies',
+            title: 'Reproducible analysis stack',
+            steps: ['Data Loading', 'Processing', 'Aggregation', 'Matplotlib', 'Tactical Visualization'],
+          },
+        ],
+        notes: [
+          'There are no additional local documents to extract closed metrics or results from; the dossier is limited to current project information and the linked repository.',
+        ],
+      },
+    },
   },
   {
     title: 'Tofu Awards',
@@ -542,7 +1168,7 @@ const rawProjectDossiers: ProjectDossier[] = [
       'Aplicacion web para gestionar y votar premios, desplegada con Firebase Hosting y CI/CD con GitHub Actions.',
     longDescription:
       'Proyecto web centrado en frontend, despliegue y automatizacion. La pagina queda preparada para documentar flujo de usuario, arquitectura de hosting, capturas, demo, decisiones tecnicas y pipeline de despliegue.',
-    category: 'web-app',
+    categories: ['web-app'],
     status: 'terminado',
     technologies: ['JavaScript', 'CSS', 'HTML', 'Firebase', 'GitHub Actions'],
     colorTheme: {
@@ -564,7 +1190,73 @@ const rawProjectDossiers: ProjectDossier[] = [
         description: 'Espacio para pantallas de votacion, categorias o resultados.',
       },
     ],
-    notes: ['Dossier preparado para anadir capturas, demo online y detalles del despliegue con Firebase.'],
+    detailSections: [
+      {
+        eyebrow: 'Contexto',
+        title: 'Aplicacion web para premios y votaciones',
+        body: [
+          'Tofu Awards es una aplicacion web para gestionar categorias de premios y permitir votaciones, con foco en frontend, despliegue y automatizacion.',
+        ],
+      },
+      {
+        eyebrow: 'Arquitectura',
+        title: 'Frontend ligero y despliegue automatizado',
+        items: [
+          'Frontend con JavaScript, HTML y CSS',
+          'Despliegue en Firebase Hosting',
+          'Pipeline de CI/CD con GitHub Actions',
+          'Repositorio publico como recurso tecnico principal',
+        ],
+      },
+      {
+        eyebrow: 'Aprendizajes',
+        title: 'Producto web, hosting y automatizacion',
+        body: [
+          'El proyecto refuerza el flujo completo de una web sencilla: implementacion frontend, organizacion del repositorio, despliegue y automatizacion del proceso de publicacion.',
+        ],
+      },
+    ],
+    notes: [
+      'No hay documentacion local adicional ni capturas publicadas para extraer mas detalles; el dossier se mantiene prudente y enlaza el repositorio.',
+    ],
+    translations: {
+      en: {
+        subtitle: 'Web application and deployment dossier',
+        description:
+          'Web application to manage and vote awards, deployed with Firebase Hosting and CI/CD using GitHub Actions.',
+        longDescription:
+          'Web project focused on frontend, deployment and automation. The page documents the product purpose, hosting architecture and technical repository resources.',
+        detailSections: [
+          {
+            eyebrow: 'Context',
+            title: 'Web application for awards and voting',
+            body: [
+              'Tofu Awards is a web application to manage award categories and voting, focused on frontend development, deployment and automation.',
+            ],
+          },
+          {
+            eyebrow: 'Architecture',
+            title: 'Lightweight frontend and automated deployment',
+            items: [
+              'Frontend with JavaScript, HTML and CSS',
+              'Deployment on Firebase Hosting',
+              'CI/CD pipeline with GitHub Actions',
+              'Public repository as the main technical resource',
+            ],
+          },
+          {
+            eyebrow: 'Learnings',
+            title: 'Web product, hosting and automation',
+            body: [
+              'The project reinforces the full flow of a simple web app: frontend implementation, repository organization, deployment and publication automation.',
+            ],
+          },
+        ],
+        notes: [
+          'There is no additional local documentation or published screenshots to extract more details from; the dossier remains conservative and links the repository.',
+        ],
+      },
+    },
   },
   {
     title: 'UNImate',
@@ -575,7 +1267,7 @@ const rawProjectDossiers: ProjectDossier[] = [
       'Proyecto academico colaborativo para facilitar la organizacion y conexion dentro de la comunidad universitaria.',
     longDescription:
       'Aplicacion desarrollada en equipo con enfoque en organizacion, colaboracion y experiencia de usuario universitaria. La pagina queda preparada para recoger memoria, roles, capturas, presentacion, decisiones de diseno y recursos del proyecto.',
-    category: 'universidad',
+    categories: ['universidad', 'web-app'],
     status: 'terminado',
     technologies: ['React', 'Node.js', 'Firebase', 'CSS', 'Trabajo en equipo'],
     colorTheme: {
@@ -618,13 +1310,157 @@ const rawProjectDossiers: ProjectDossier[] = [
     ],
     gallery: [
       {
-        title: 'Interfaz academica',
-        src: `${projectBasePath('unimate')}/images/captura-1.png`,
-        alt: 'Captura de UNImate',
-        description: 'Espacio para capturas de organizacion, tareas o colaboracion.',
+        title: 'Objetivos y requisitos',
+        src: `${projectBasePath('unimate')}/images/requirements-summary.png`,
+        alt: 'Pagina de la memoria de UNImate con objetivos y requisitos',
+        description: 'Extracto real de la memoria con funcionalidades completadas y reparto de trabajo.',
+      },
+      {
+        title: 'Metodologia y progreso',
+        src: `${projectBasePath('unimate')}/images/methodology-and-progress.png`,
+        alt: 'Pagina de la memoria de UNImate con metodologia y sprints',
+        description: 'Evidencia documental del trabajo por sprints y metodologia de desarrollo.',
       },
     ],
-    notes: ['Dossier preparado para documentar aportaciones, funcionalidades, capturas y presentacion del proyecto.'],
+    detailSections: [
+      {
+        eyebrow: 'Contexto',
+        title: 'Plataforma academica para comunidad universitaria',
+        body: [
+          'UNImate es una aplicacion colaborativa orientada a facilitar la organizacion, conexion e informacion dentro de la comunidad universitaria.',
+          'El proyecto se desarrollo en equipo y Daniel aparece documentado con rol de Front y Documentacion en el documento de especificaciones.',
+        ],
+      },
+      {
+        eyebrow: 'Funcionalidades',
+        title: 'Objetivos completados del proyecto',
+        items: [
+          'Registro, inicio de sesion y perfiles personalizables',
+          'Busqueda de informacion sobre universidades, facultades y grados',
+          'Foro con publicaciones, comentarios, reacciones y filtros por categorias',
+          'Red de amigos y solicitudes de amistad',
+          'Mapa interactivo de universidades y facultades',
+          'Chat privado y chats grupales por grado/facultad',
+          'Recomendador de perfiles',
+          'Verificacion de matricula',
+        ],
+      },
+      {
+        eyebrow: 'Metodologia',
+        title: 'Trabajo por sprints y control de versiones',
+        body: [
+          'La memoria documenta tres sprints principales, captura de requisitos, control de versiones y politica de ramas. El desarrollo incluyo aprendizaje desde cero de tecnologias y resolucion de bloqueos de base de datos y entorno.',
+        ],
+      },
+      {
+        eyebrow: 'Aportacion',
+        title: 'Frontend y documentacion',
+        body: [
+          'La documentacion indica que Daniel participo en el diseno e implementacion del frontend para las pantallas y funcionalidades principales, ademas de tareas de documentacion.',
+        ],
+      },
+      {
+        eyebrow: 'Recursos',
+        title: 'Memoria, especificaciones, vision y demo',
+        body: [
+          'El dossier centraliza la memoria academica, el documento de especificaciones, el documento de vision y un video demostrativo ya disponible en public.',
+        ],
+      },
+    ],
+    notes: ['La informacion ampliada procede de la memoria, especificaciones y video existentes del proyecto.'],
+    translations: {
+      en: {
+        subtitle: 'Collaborative academic project dossier',
+        description:
+          'Collaborative academic project to support organization and connection within the university community.',
+        longDescription:
+          'Team-developed application focused on organization, collaboration and university user experience. The page centralizes the report, specifications, vision document, contribution context and demo video.',
+        resources: [
+          githubResource('https://github.com/danielgarciaN/Unimate'),
+          {
+            title: 'UNImate report',
+            type: 'pdf',
+            description: 'Academic report for the collaborative UNImate project.',
+            url: `${projectBasePath('unimate')}/docs/Memoria UNImate.pdf`,
+            action: 'download',
+          },
+          {
+            title: 'Specification document',
+            type: 'pdf',
+            description: 'Functional and technical specification document for the project.',
+            url: `${projectBasePath('unimate')}/docs/UNImate_ Document d'Especificacions (V3.0).pdf`,
+            action: 'download',
+          },
+          {
+            title: 'Vision document',
+            type: 'pdf',
+            description: 'Product vision and functional scope document.',
+            url: `${projectBasePath('unimate')}/docs/UNImate_Document de visió.docx.pdf`,
+            action: 'download',
+          },
+        ],
+        gallery: [
+          {
+            title: 'Objectives and requirements',
+            src: `${projectBasePath('unimate')}/images/requirements-summary.png`,
+            alt: 'UNImate report page with objectives and requirements',
+            description: 'Real report extract with completed features and task distribution.',
+          },
+          {
+            title: 'Methodology and progress',
+            src: `${projectBasePath('unimate')}/images/methodology-and-progress.png`,
+            alt: 'UNImate report page with methodology and sprints',
+            description: 'Documentary evidence of sprint-based development and methodology.',
+          },
+        ],
+        detailSections: [
+          {
+            eyebrow: 'Context',
+            title: 'Academic platform for the university community',
+            body: [
+              'UNImate is a collaborative application aimed at supporting organization, connection and information within the university community.',
+              'The project was developed as a team, and Daniel is documented with a Front and Documentation role in the specification document.',
+            ],
+          },
+          {
+            eyebrow: 'Features',
+            title: 'Completed project objectives',
+            items: [
+              'Registration, login and customizable profiles',
+              'Search for information about universities, faculties and degrees',
+              'Forum with posts, comments, reactions and category filters',
+              'Friend network and friend requests',
+              'Interactive map of universities and faculties',
+              'Private chat and group chats by degree/faculty',
+              'Profile recommender',
+              'Enrollment verification',
+            ],
+          },
+          {
+            eyebrow: 'Methodology',
+            title: 'Sprint work and version control',
+            body: [
+              'The report documents three main sprints, requirements capture, version control and branch policy. Development included learning technologies from scratch and solving database and environment blockers.',
+            ],
+          },
+          {
+            eyebrow: 'Contribution',
+            title: 'Frontend and documentation',
+            body: [
+              'The documentation indicates that Daniel contributed to the design and implementation of the frontend for the main screens and features, along with documentation tasks.',
+            ],
+          },
+          {
+            eyebrow: 'Resources',
+            title: 'Report, specifications, vision and demo',
+            body: [
+              'The dossier centralizes the academic report, specification document, vision document and an existing demo video available in public.',
+            ],
+          },
+        ],
+        notes: ['The expanded information comes from the existing report, specifications and video resources.'],
+      },
+    },
   },
 ];
 

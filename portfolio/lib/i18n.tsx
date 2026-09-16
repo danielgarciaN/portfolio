@@ -1,6 +1,7 @@
 'use client';
 
 import { createContext, useContext, useEffect, useMemo, useState } from 'react';
+import { MotionConfig } from 'framer-motion';
 import es from '@/messages/es.json';
 import en from '@/messages/en.json';
 
@@ -47,7 +48,7 @@ export function I18nProvider({ children }: { children: React.ReactNode }) {
     [locale, messages]
   );
 
-  return <I18nContext.Provider value={value}>{children}</I18nContext.Provider>;
+  return <I18nContext.Provider value={value}><MotionConfig reducedMotion="user">{children}</MotionConfig></I18nContext.Provider>;
 }
 
 export function useI18n() {

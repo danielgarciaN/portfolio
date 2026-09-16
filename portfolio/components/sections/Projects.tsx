@@ -14,12 +14,12 @@ interface ProjectsProps {
 
 const categories: (ProjectCategory | 'all')[] = [
   'all',
+  'data-analytics',
   'data-science',
+  'master',
   'web-app',
   'backend',
   'universidad',
-  'master',
-  'personal',
 ];
 
 export default function Projects({ projects }: ProjectsProps) {
@@ -30,7 +30,8 @@ export default function Projects({ projects }: ProjectsProps) {
 
   const filtered = useMemo(() => {
     return allProjects.filter((project) => {
-      const matchesCategory = activeCategory === 'all' || project.category === activeCategory;
+      const projectCategories = project.categories ?? (project.category ? [project.category] : []);
+      const matchesCategory = activeCategory === 'all' || projectCategories.includes(activeCategory);
       const query = search.toLowerCase();
       const translatedProject = messages.projects.items[project.slug as keyof typeof messages.projects.items];
       const matchesSearch =
@@ -44,10 +45,13 @@ export default function Projects({ projects }: ProjectsProps) {
   }, [allProjects, activeCategory, search, messages]);
 
   return (
-    <Section id="proyectos">
+    <Section id="proyectos" className="section-soft">
       <span className="heading-section">{messages.projects.eyebrow}</span>
-      <h2 className="heading-lg mt-3 mb-4">{messages.projects.title}</h2>
-      <p className="mb-8 max-w-2xl text-sm leading-relaxed text-surface-500 dark:text-surface-400">
+      <h2 className="heading-lg mt-3 mb-4">
+        {messages.projects.title}{' '}
+        <span className="text-accent-ink">{messages.projects.titleAccent}</span>
+      </h2>
+      <p className="mb-8 max-w-2xl text-sm leading-relaxed text-muted">
         {messages.projects.intro}
       </p>
 
@@ -57,10 +61,11 @@ export default function Projects({ projects }: ProjectsProps) {
             <button
               key={category}
               onClick={() => setActiveCategory(category)}
+              aria-pressed={activeCategory === category}
               className={`rounded-lg px-3.5 py-1.5 text-xs font-semibold transition-all duration-200 ${
                 activeCategory === category
-                  ? 'bg-accent text-white shadow-sm shadow-accent/25 dark:text-surface-950'
-                  : 'bg-surface-100 text-surface-600 hover:bg-surface-200 dark:bg-surface-800 dark:text-surface-400 dark:hover:bg-surface-700'
+                  ? 'border border-accent bg-accent text-surface-950 shadow-sm shadow-accent/25 '
+                  : 'border border-line/10 bg-[rgb(var(--color-card)/0.76)] text-muted hover:-translate-y-0.5 hover:border-accent/35 hover:bg-accent/10 hover:text-accent-ink      '
               }`}
             >
               {messages.projects.categories[category]}
@@ -69,13 +74,14 @@ export default function Projects({ projects }: ProjectsProps) {
         </div>
 
         <div className="relative">
-          <Search className="absolute left-3 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-surface-400" />
+          <Search className="absolute left-3 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-subtle" />
           <input
             type="text"
             placeholder={messages.projects.search}
+            aria-label={messages.projects.search}
             value={search}
             onChange={(event) => setSearch(event.target.value)}
-            className="w-full rounded-lg border border-surface-200 bg-[rgb(var(--color-card)/0.92)] py-2 pl-9 pr-4 text-sm text-surface-700 placeholder:text-surface-400 focus:border-accent/50 focus:outline-none focus:ring-2 focus:ring-accent/20 dark:border-surface-700 dark:bg-surface-900 dark:text-surface-200 dark:placeholder:text-surface-500 sm:w-64"
+            className="w-full rounded-lg border border-line/10 bg-[rgb(var(--color-card)/0.92)] py-2 pl-9 pr-4 text-sm text-ink placeholder:text-subtle focus:border-accent/50 focus:outline-none focus:ring-2 focus:ring-accent/20 sm:w-64"
           />
         </div>
       </div>
@@ -88,7 +94,7 @@ export default function Projects({ projects }: ProjectsProps) {
         </div>
       ) : (
         <div className="flex flex-col items-center justify-center py-20 text-center">
-          <p className="text-sm text-surface-500">
+          <p className="text-sm text-muted">
             {messages.projects.noResults}
           </p>
           <button
@@ -96,7 +102,7 @@ export default function Projects({ projects }: ProjectsProps) {
               setActiveCategory('all');
               setSearch('');
             }}
-            className="mt-3 text-sm font-semibold text-accent hover:underline"
+            className="mt-3 text-sm font-semibold text-accent-ink hover:underline"
           >
             {messages.projects.clearFilters}
           </button>
