@@ -28,6 +28,8 @@ function normalizeProject(project: Project): Project {
   return {
     ...project,
     categories: normalizeCategories(project),
+    // This completed project may still have an older status in Supabase.
+    status: project.slug === 'expected-goals-xg-statsbomb' ? 'terminado' : project.status,
   };
 }
 

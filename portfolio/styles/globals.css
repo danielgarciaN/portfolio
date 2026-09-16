@@ -48,7 +48,7 @@
 
 @layer components {
   .section-container {
-    @apply mx-auto max-w-6xl px-5 sm:px-8;
+    @apply mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12;
   }
 
   .section-padding {
@@ -74,8 +74,25 @@
   }
 
   .card-hover {
-    @apply hover:-translate-y-1 hover:border-accent/45 hover:bg-[rgb(var(--color-card))] hover:shadow-[0_24px_70px_rgba(0,124,145,0.18)]
-           dark:hover:border-accent/45 dark:hover:bg-[rgb(var(--color-card-muted)/0.92)] dark:hover:shadow-accent/15;
+    position: relative;
+    transition: translate 300ms ease, scale 300ms ease, box-shadow 300ms ease, border-color 300ms ease, background-color 300ms ease;
+  }
+
+  .card-hover:focus-within {
+    @apply border-accent/50 shadow-[0_24px_65px_rgba(0,124,145,0.2)];
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .card-hover:hover {
+      translate: 0 -6px;
+      scale: 1.02;
+      z-index: 2;
+      @apply border-accent/50 bg-[rgb(var(--color-card))] shadow-[0_24px_65px_rgba(0,124,145,0.2)] dark:bg-[rgb(var(--color-card-muted))];
+    }
+
+    .skill-card:hover {
+      scale: 1.045;
+    }
   }
 
   .btn-primary {
@@ -102,8 +119,51 @@
   }
 
   .status-badge {
-    @apply inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-medium;
+    @apply inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-[11px] font-semibold leading-relaxed shadow-sm;
   }
+
+  .badge-category {
+    @apply border-cyan-600 bg-cyan-900 text-white;
+  }
+
+  .badge-completed {
+    @apply border-emerald-600 bg-emerald-800 text-white;
+  }
+
+  .badge-progress {
+    @apply border-blue-600 bg-blue-800 text-white;
+  }
+
+  .badge-future {
+    @apply border-slate-500 bg-slate-700 text-white;
+  }
+}
+
+section[id] { scroll-margin-top: 5rem; }
+
+.hero-cover {
+  background: radial-gradient(ellipse at 90% 30%, rgb(var(--color-accent) / .19), transparent 55%),
+    radial-gradient(ellipse at 0% 75%, rgb(var(--color-accent-light) / .12), transparent 50%),
+    linear-gradient(120deg, rgb(var(--color-page)), rgb(var(--color-page-soft)));
+}
+
+.hero-orbit {
+  position: absolute;
+  inset: 8% -12% 4% 0;
+  border: 1px solid rgb(var(--color-accent) / .22);
+  border-radius: 50%;
+  rotate: -25deg;
+  background: linear-gradient(140deg, rgb(var(--color-accent) / .15), transparent 65%);
+  box-shadow: 0 0 100px rgb(var(--color-accent) / .08);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+  }
+  .card-hover:hover { translate: none; scale: 1; }
 }
 
 /* Smooth scrollbar */

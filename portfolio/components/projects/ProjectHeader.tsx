@@ -14,12 +14,9 @@ const statusIcons: Record<ProjectStatus, ComponentType<{ className?: string }>> 
 };
 
 const statusStyles: Record<ProjectStatus, string> = {
-  terminado:
-    'border-emerald-700 bg-emerald-700 text-white shadow-sm shadow-emerald-700/20 dark:border-emerald-300/45 dark:bg-emerald-500/25 dark:text-emerald-50',
-  en_proceso:
-    'border-cyan-700 bg-cyan-700 text-white shadow-sm shadow-cyan-700/20 dark:border-accent/60 dark:bg-accent/25 dark:text-cyan-50',
-  futuro:
-    'border-surface-200 bg-surface-100 text-surface-600 dark:border-white/20 dark:bg-white/10 dark:text-slate-100',
+  terminado: 'badge-completed',
+  en_proceso: 'badge-progress',
+  futuro: 'badge-future',
 };
 
 interface ProjectHeaderProps {
@@ -59,14 +56,14 @@ export default function ProjectHeader({ project }: ProjectHeaderProps) {
               {categories.map((category) => (
                 <span
                   key={category}
-                  className="inline-flex items-center gap-1.5 rounded-full border border-accent/35 bg-accent/10 px-3 py-1 text-xs font-bold text-accent-dark dark:border-accent/45 dark:bg-accent/15 dark:text-cyan-50"
+                  className="status-badge badge-category"
                 >
                   <Layers3 className="h-3.5 w-3.5" />
                   {messages.projects.categories[category] ?? category}
                 </span>
               ))}
-              <span className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-xs font-bold ${statusStyles[project.status]}`}>
-                <StatusIcon className="h-3.5 w-3.5 text-[var(--project-primary)]" />
+              <span className={`status-badge ${statusStyles[project.status]}`}>
+                <StatusIcon className="h-3.5 w-3.5" />
                 {messages.projects.statuses[project.status]}
               </span>
             </div>

@@ -13,7 +13,8 @@
     "menu": "Menu",
     "language": "Language",
     "spanish": "Español",
-    "english": "English"
+    "english": "English",
+    "education": "Education"
   },
   "hero": {
     "badge": "Data Analyst at SDG Group",
@@ -29,7 +30,7 @@
   "about": {
     "eyebrow": "About",
     "title": "Technical profile, data",
-    "titleAccent": "and a bit more",
+    "titleAccent": "and business",
     "paragraphs": [
       "I am Daniel García Nilo, a Computer Engineer currently working as a Data Analyst at SDG Group. I work in data consulting projects involving analytics, data transformation, visualization and business-oriented data solutions.",
       "My professional background began mainly in Software Engineering, backend, automation and enterprise systems. From October 2024 to May 2026 I worked in the Architecture Department at Grupo Catalana Occident / Occident, evolving corporate solutions linked to AI, internal processes, C#/.NET, SQL, GAAN, JavaScript validations and agile work with JIRA.",
@@ -83,13 +84,132 @@
     "titleAccent": "by focus",
     "intro": "Tools and practices I use to work with data: analytics, visualization, BI, statistics, Data Science, AI and software development.",
     "categories": [
-      { "name": "Data Analytics", "icon": "bar-chart", "featured": true, "desc": "Analysis, KPIs, reporting and communication of business-oriented insights.", "skills": ["SQL", "Power BI", "Power Query", "DAX", "Data Visualization", "KPI Analysis", "Business Intelligence", "Statistics"] },
-      { "name": "Data Engineering", "icon": "database", "featured": true, "desc": "Data modeling, transformation and preparation for reliable analysis.", "skills": ["Snowflake", "ETL / ELT", "Data Modeling", "Data Warehousing", "Data Transformation", "Relational Databases"] },
-      { "name": "Data Science", "icon": "brain", "desc": "Python, applied statistics, machine learning and model evaluation.", "skills": ["Python", "Pandas", "NumPy", "scikit-learn", "Statistical Analysis", "Machine Learning", "XGBoost"] },
-      { "name": "Programming Languages", "icon": "code", "desc": "Languages used for analysis, automation and solution development.", "skills": ["Python", "SQL", "C#", "Java", "JavaScript", "TypeScript"] },
-      { "name": "Software Engineering", "icon": "server", "desc": "Technical foundation for maintainable and integrated solutions.", "skills": ["APIs", "Backend Development", ".NET", "Architecture", "Automation", "Testing"] },
-      { "name": "Tools & Methodologies", "icon": "wrench", "desc": "Tools and working practices for collaborative, well-documented projects.", "skills": ["Git", "GitHub", "Power BI", "Jupyter", "Agile", "Documentation", "Problem Solving", "Business-oriented thinking"] }
-    ]
+      {
+        "name": "Data Analytics",
+        "icon": "bar-chart",
+        "featured": true,
+        "desc": "Analysis, KPIs, reporting and communication of business-oriented insights.",
+        "skills": [
+          "SQL",
+          "Power BI",
+          "Power Query",
+          "DAX",
+          "Data Visualization",
+          "KPI Analysis",
+          "Business Intelligence",
+          "Statistics"
+        ]
+      },
+      {
+        "name": "Data Engineering",
+        "icon": "database",
+        "featured": true,
+        "desc": "Data modeling, transformation and preparation for reliable analysis.",
+        "skills": [
+          "Snowflake",
+          "ETL / ELT",
+          "Data Modeling",
+          "Data Warehousing",
+          "Data Transformation",
+          "Relational Databases"
+        ]
+      },
+      {
+        "name": "Data Science",
+        "icon": "brain",
+        "desc": "Python, applied statistics, machine learning and model evaluation.",
+        "skills": [
+          "Python",
+          "Pandas",
+          "NumPy",
+          "scikit-learn",
+          "Statistical Analysis",
+          "Machine Learning",
+          "XGBoost"
+        ]
+      },
+      {
+        "name": "Programming Languages",
+        "icon": "code",
+        "desc": "Languages used for analysis, automation and solution development.",
+        "skills": [
+          "Python",
+          "SQL",
+          "C#",
+          "Java",
+          "JavaScript",
+          "TypeScript"
+        ]
+      },
+      {
+        "name": "Software Engineering",
+        "icon": "server",
+        "desc": "Technical foundation for maintainable and integrated solutions.",
+        "skills": [
+          "APIs",
+          "Backend Development",
+          ".NET",
+          "Architecture",
+          "Automation",
+          "Testing"
+        ]
+      },
+      {
+        "name": "Tools & Methodologies",
+        "icon": "wrench",
+        "desc": "Tools and working practices for collaborative, well-documented projects.",
+        "skills": [
+          "Git",
+          "GitHub",
+          "Power BI",
+          "Jupyter",
+          "Agile",
+          "Documentation",
+          "Problem Solving",
+          "Business-oriented thinking"
+        ]
+      }
+    ],
+    "descriptions": {
+      "SQL": "Data queries and analysis",
+      "Power BI": "Reports and visualization",
+      "Power Query": "Data preparation",
+      "DAX": "Measures and calculations",
+      "Data Visualization": "Visual data communication",
+      "KPI Analysis": "Interpreting indicators",
+      "Business Intelligence": "Data for decisions",
+      "Statistics": "Statistical interpretation",
+      "Snowflake": "Data platform",
+      "ETL / ELT": "Transformation workflows",
+      "Data Modeling": "Structuring data",
+      "Data Warehousing": "Analytical storage",
+      "Data Transformation": "Cleaning and transformation",
+      "Relational Databases": "Relationships and queries",
+      "Python": "Analysis and automation",
+      "Pandas": "Tabular data exploration",
+      "NumPy": "Numerical computation",
+      "scikit-learn": "Modeling and evaluation",
+      "Statistical Analysis": "Patterns and associations",
+      "Machine Learning": "Learning from data",
+      "XGBoost": "Boosting models",
+      "C#": "Business logic",
+      "Java": "Software development",
+      "JavaScript": "Web logic and interfaces",
+      "TypeScript": "Typed development",
+      "APIs": "Service integration",
+      "Backend Development": "Server-side logic",
+      ".NET": "Applications and services",
+      "Architecture": "Solution structure",
+      "Automation": "Process automation",
+      "Testing": "Software validation",
+      "Git": "Version control",
+      "GitHub": "Code and collaboration",
+      "Jupyter": "Notebook analysis",
+      "Agile": "Iterative work",
+      "Documentation": "Clear technical context",
+      "Problem Solving": "Problem analysis",
+      "Business-oriented thinking": "Business context"
+    }
   },
   "projects": {
     "eyebrow": "Featured projects",
@@ -116,7 +236,8 @@
     "actions": {
       "github": "View code on GitHub",
       "demo": "View demo",
-      "openGithub": "Open on GitHub"
+      "openGithub": "Open on GitHub",
+      "details": "Explore project"
     },
     "items": {
       "statistical-sales-analysis": {
@@ -179,33 +300,100 @@
         "id": "t0",
         "title": "Data Analyst",
         "organization": "SDG Group",
-        "description": "Data Analyst at SDG Group, a consulting firm specialized in Data, Analytics and Artificial Intelligence. I work on data consulting projects involving analytics, data transformation, visualization and business-oriented data solutions. Current project: Fundación \"la Caixa\"."
+        "description": "Data Analyst at SDG Group, a consulting firm specialized in Data, Analytics and Artificial Intelligence. I work on data consulting projects involving analytics, data transformation, visualization and business-oriented data solutions. Current project: Fundación \"la Caixa\".",
+        "highlights": [
+          "Data Analyst",
+          "Full-time",
+          "Permanent",
+          "Analytics",
+          "Data Transformation",
+          "Data Visualization"
+        ]
       },
       {
         "id": "t1",
         "title": "Software Developer - Architecture, AI and processes",
         "organization": "Grupo Catalana Occident / Occident",
-        "description": "Development and improvement of the corporate IATeach module, an AI-oriented solution for document management and internal processes. Experience in corporate architecture, business logic with C#/.NET, SQL integration, GAAN interfaces, JavaScript validations and agile work with JIRA, contributing technical judgment in a real product, data and automation environment."
+        "description": "Development and improvement of the corporate IATeach module, an AI-oriented solution for document management and internal processes. Experience in corporate architecture, business logic with C#/.NET, SQL integration, GAAN interfaces, JavaScript validations and agile work with JIRA, contributing technical judgment in a real product, data and automation environment.",
+        "highlights": [
+          "AI Engineering",
+          "C#",
+          ".NET",
+          "SQL",
+          "JavaScript",
+          "GAAN",
+          "JIRA",
+          "Architecture"
+        ]
       },
       {
         "id": "t2",
         "title": "Evolve Master's - Data Science / Artificial Intelligence",
         "organization": "Evolve",
-        "description": "Evolve Master's program oriented to real professional environments. Specialization in Python, SQL, Power BI, advanced data analysis, automation, machine learning and data-driven decision making."
+        "description": "Evolve Master's program oriented to real professional environments. Specialization in Python, SQL, Power BI, advanced data analysis, automation, machine learning and data-driven decision making.",
+        "highlights": [
+          "Python",
+          "SQL",
+          "Power BI",
+          "Data Science",
+          "Machine Learning",
+          "AI"
+        ]
       },
       {
         "id": "t3",
         "title": "Computer Engineering - Software Engineering focus",
         "organization": "Higher education",
-        "description": "Computer Engineering degree with comprehensive training in software engineering, databases, algorithms, systems, web development and team projects. Final project focused on conversational agents and generative AI applied to a corporate context."
+        "description": "Computer Engineering degree with comprehensive training in software engineering, databases, algorithms, systems, web development and team projects. Final project focused on conversational agents and generative AI applied to a corporate context.",
+        "highlights": [
+          "Software Engineering",
+          "Databases",
+          "Algorithms",
+          "AI final project",
+          "Teamwork"
+        ]
       },
       {
         "id": "t4",
         "title": "AI Engineering and Data Science projects",
         "organization": "Personal GitHub",
-        "description": "Development of personal projects in Python, data analysis, ML, RAG, agents, web applications and cloud. Practical focus on documentation, clean architecture and useful solutions."
+        "description": "Development of personal projects in Python, data analysis, ML, RAG, agents, web applications and cloud. Practical focus on documentation, clean architecture and useful solutions.",
+        "highlights": [
+          "AI Engineering",
+          "Data Science",
+          "RAG",
+          "Agents",
+          "Machine Learning",
+          "Cloud"
+        ]
+      },
+      {
+        "id": "t5",
+        "title": "Baccalaureate",
+        "organization": "",
+        "description": "",
+        "highlights": []
       }
-    ]
+    ],
+    "responsibilities": "Responsibilities",
+    "areas": "Areas & technologies",
+    "workDetails": {
+      "t0": {
+        "responsibilities": [
+          "Participation in data consulting projects involving analytics, transformation and visualization.",
+          "Business-oriented data solutions."
+        ],
+        "summary": "SDG Group · Data, Analytics & AI consulting. Current project: Fundación \"la Caixa\"."
+      },
+      "t1": {
+        "responsibilities": [
+          "Development and improvement of IATeach for document management and internal processes.",
+          "Business logic with C#/.NET and SQL integration.",
+          "GAAN interfaces, JavaScript validations and agile work with JIRA."
+        ],
+        "summary": "Corporate architecture, AI and process automation in a real product environment."
+      }
+    }
   },
   "github": {
     "eyebrow": "Data portfolio",
@@ -260,17 +448,26 @@
       {
         "title": "How I am consolidating Data Analytics, BI and AI",
         "excerpt": "Notes on SQL, Power BI, Python, statistics, advanced analytics, automation and AI systems applied to business.",
-        "tags": ["Data Science", "AI"]
+        "tags": [
+          "Data Science",
+          "AI"
+        ]
       },
       {
         "title": "Conversational agent architecture",
         "excerpt": "Technical reflections on configurable agents, generative AI and validation through Proof of Concept.",
-        "tags": ["Generative AI", "Architecture"]
+        "tags": [
+          "Generative AI",
+          "Architecture"
+        ]
       },
       {
         "title": "My roadmap as a Data Analyst",
         "excerpt": "A practical look at the technologies and projects I want to keep consolidating in analytics, BI, Data Science, AI and software.",
-        "tags": ["Roadmap", "Data Analytics"]
+        "tags": [
+          "Roadmap",
+          "Data Analytics"
+        ]
       }
     ]
   },
@@ -312,5 +509,9 @@
     "title": "Page not found",
     "body": "The route you are looking for does not exist or has been moved. There may be an error in the URL.",
     "back": "Back home"
+  },
+  "passions": {
+    "eyebrow": "Beyond the screen",
+    "title": "Passionate About"
   }
 }

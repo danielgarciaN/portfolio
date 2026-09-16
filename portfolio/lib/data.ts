@@ -369,7 +369,7 @@ export const timelineItems: TimelineItem[] = [
     type: 'education',
     title: 'Ingeniería Informática - Mención en Ingeniería del Software',
     organization: 'Formación universitaria',
-    start_date: '2020-09',
+    start_date: '2021-09',
     end_date: '2025-06',
     current: false,
     description:
@@ -382,12 +382,23 @@ export const timelineItems: TimelineItem[] = [
     type: 'certification',
     title: 'Proyectos de AI Engineering y Data Science',
     organization: 'GitHub personal',
-    start_date: '2023-01',
+    start_date: '2024-01',
     current: true,
     description:
       'Desarrollo de proyectos propios en Python, análisis de datos, ML, RAG, agentes, aplicaciones web y cloud. Enfoque práctico en documentación, arquitectura limpia y construcción de soluciones con utilidad real.',
     highlights: ['AI Engineering', 'Data Science', 'RAG', 'Agentes', 'Machine Learning', 'Cloud'],
     order_index: 4,
+  },
+  {
+    id: 't5',
+    type: 'education',
+    title: 'Bachillerato',
+    organization: '',
+    start_date: '2019-09',
+    end_date: '2021-06',
+    current: false,
+    description: '',
+    order_index: 5,
   },
 ];
 
@@ -401,6 +412,8 @@ export const personalInfo = {
   github: 'https://github.com/danielgarciaN',
   linkedin: 'https://www.linkedin.com/in/danielgarcianilo/',
   location: 'España',
+  // Set the transparent PNG path here when the final portrait is available.
+  profileCutoutImage: '',
   profileImage: '/images/profile/daniel-garcia-nilo.jpg',
   cvUrl: '/cv/daniel-garcia-nilo-cv.pdf',
 };

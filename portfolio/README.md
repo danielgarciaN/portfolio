@@ -105,6 +105,14 @@ Guarda tu foto aquí:
 public/images/profile/daniel-garcia-nilo.jpg
 ```
 
+Para integrar el retrato PNG sin fondo, guarda el archivo en
+`public/images/profile/daniel-garcia-nilo.png` y asigna
+`profileCutoutImage: '/images/profile/daniel-garcia-nilo.png'` en `lib/data.ts`.
+El Hero usará la imagen completa, alineada abajo, sin recorte ni marco, con
+sombra suave sobre las capas del fondo. La fotografía JPG actual se mantiene
+como respaldo si el PNG no está configurado o no se puede cargar. Revisa el
+tamaño visual y el espacio transparente del PNG definitivo en móvil y escritorio.
+
 Ruta completa en este proyecto:
 
 ```txt

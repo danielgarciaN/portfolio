@@ -8,9 +8,10 @@ import { useI18n, type Locale } from '@/lib/i18n';
 
 const navLinks = [
   { href: '#sobre-mi', key: 'about' },
+  { href: '#formacion', key: 'education' },
+  { href: '#experiencia', key: 'experience' },
   { href: '#skills', key: 'skills' },
   { href: '#proyectos', key: 'projects' },
-  { href: '#experiencia', key: 'experience' },
   { href: '#contacto', key: 'contact' },
 ];
 
@@ -77,14 +78,14 @@ export default function Navbar() {
       <nav className="section-container flex h-16 items-center justify-between">
         <Link href="/" className="flex items-center gap-2 font-mono text-sm font-semibold tracking-tight">
           <Terminal className="h-4 w-4 text-accent" />
-          <span className="text-surface-800 dark:text-white">Daniel García Nilo</span>
+          <span className="text-surface-800 dark:text-white"><span className="sm:hidden">DG</span><span className="hidden sm:inline">Daniel García Nilo</span></span>
         </Link>
 
-        <div className="hidden items-center gap-1 md:flex">
+        <div className="hidden items-center gap-1 xl:flex">
           {navLinks.map((link) => (
             <Link
               key={link.href}
-              href={link.href}
+              href={`/${link.href}`}
               className="rounded-lg px-3.5 py-2 text-sm font-medium text-surface-600 transition-colors hover:bg-surface-100 hover:text-surface-900 dark:text-surface-400 dark:hover:bg-surface-800 dark:hover:text-surface-100"
             >
               {messages.nav[link.key as keyof typeof messages.nav]}
@@ -101,7 +102,7 @@ export default function Navbar() {
           </button>
         </div>
 
-        <div className="flex items-center gap-2 md:hidden">
+        <div className="flex items-center gap-2 xl:hidden">
           {languageSelector}
           <button
             onClick={toggleTheme}
@@ -126,13 +127,13 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="overflow-hidden border-t border-surface-200/60 bg-[rgb(var(--color-card)/0.96)] backdrop-blur-xl dark:border-white/15 dark:bg-[rgb(var(--color-page)/0.96)] md:hidden"
+            className="overflow-hidden border-t border-surface-200/60 bg-[rgb(var(--color-card)/0.96)] backdrop-blur-xl dark:border-white/15 dark:bg-[rgb(var(--color-page)/0.96)] xl:hidden"
           >
             <div className="section-container flex flex-col gap-1 py-4">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
-                  href={link.href}
+                  href={`/${link.href}`}
                   onClick={() => setIsOpen(false)}
                   className="rounded-lg px-4 py-2.5 text-sm text-surface-600 transition-colors hover:bg-surface-100 hover:text-surface-900 dark:text-surface-400 dark:hover:bg-surface-800 dark:hover:text-surface-100"
                 >

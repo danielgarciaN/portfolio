@@ -10,9 +10,11 @@ import { useI18n } from '@/lib/i18n';
 export default function Hero() {
   const { messages } = useI18n();
   const [profileImageFailed, setProfileImageFailed] = useState(false);
+  const [cutoutFailed, setCutoutFailed] = useState(false);
+  const useCutout = Boolean(personalInfo.profileCutoutImage) && !cutoutFailed;
 
   return (
-    <section className="relative flex min-h-[100dvh] items-center overflow-hidden bg-[rgb(var(--color-page))]">
+    <section className="hero-cover relative flex min-h-[min(900px,100dvh)] items-center overflow-hidden">
       <div
         className="pointer-events-none absolute inset-0 text-accent opacity-[0.055] dark:opacity-[0.08]"
         style={{
@@ -24,8 +26,8 @@ export default function Hero() {
       <div className="pointer-events-none absolute inset-x-0 top-0 h-72 bg-[linear-gradient(180deg,rgba(14,165,198,0.14),rgba(14,165,198,0))] dark:bg-[linear-gradient(180deg,rgba(34,211,238,0.12),rgba(34,211,238,0))]" />
       <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-40 bg-[linear-gradient(0deg,rgb(var(--color-page)),rgba(243,247,250,0))] dark:bg-[linear-gradient(0deg,rgb(var(--color-page)),rgba(7,11,18,0))]" />
 
-      <div className="section-container relative w-full pt-28 pb-16">
-        <div className="grid items-center gap-12 lg:grid-cols-[0.95fr_1.05fr]">
+      <div className="section-container relative w-full pb-16 pt-28 lg:pb-24 lg:pt-36">
+        <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-8">
           <div className="max-w-2xl">
             <motion.div
               initial={{ opacity: 0, y: 14 }}
@@ -41,9 +43,9 @@ export default function Hero() {
               initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.55, delay: 0.12 }}
-              className="text-5xl font-extrabold tracking-normal text-surface-950 dark:text-white sm:text-6xl lg:text-7xl"
+              className="text-[clamp(3rem,5.9vw,6rem)] font-extrabold leading-[1.06] tracking-tight text-surface-950 dark:text-white"
             >
-              {messages.hero.name}
+              <span className="block">Daniel</span><span className="block">García Nilo<span className="text-accent">.</span></span>
             </motion.h1>
 
             <motion.p
@@ -112,43 +114,33 @@ export default function Hero() {
             initial={{ opacity: 0, x: 24, scale: 0.98 }}
             animate={{ opacity: 1, x: 0, scale: 1 }}
             transition={{ duration: 0.7, delay: 0.22 }}
-            className="order-first flex justify-center lg:order-last lg:justify-end"
+            className="relative flex justify-center lg:justify-end"
           >
-            <div className="relative h-[23rem] w-full max-w-[22rem] sm:h-[30rem] sm:max-w-[28rem] lg:h-[34rem] lg:max-w-[31rem]">
-              <div className="absolute inset-x-6 bottom-6 top-16 rounded-[3rem] border border-accent/20 bg-[linear-gradient(145deg,rgba(255,255,255,0.82),rgba(221,245,248,0.44))] shadow-[0_30px_90px_rgba(0,124,145,0.18)] backdrop-blur dark:border-accent/20 dark:bg-[linear-gradient(145deg,rgba(34,211,238,0.14),rgba(13,21,32,0.72))] dark:shadow-[0_30px_90px_rgba(34,211,238,0.12)]" />
-              <div className="absolute left-5 top-10 hidden h-24 w-24 rounded-3xl border border-accent/20 bg-[rgb(var(--color-card)/0.56)] p-4 shadow-lg shadow-accent/10 backdrop-blur sm:block dark:border-white/15 dark:bg-white/5">
-                <div className="flex h-full items-end gap-1.5">
-                  {[42, 66, 34, 78, 54].map((height, index) => (
-                    <span
-                      key={height + index}
-                      className="w-full rounded-t bg-accent/80"
-                      style={{ height: `${height}%` }}
-                    />
-                  ))}
-                </div>
-              </div>
-              <div className="absolute right-2 top-24 h-16 w-28 rounded-2xl border border-surface-200 bg-[rgb(var(--color-card)/0.68)] px-4 py-3 shadow-lg shadow-accent/10 backdrop-blur dark:border-white/15 dark:bg-white/5">
-                <div className="h-2 w-16 rounded-full bg-accent/70" />
-                <div className="mt-3 h-2 w-10 rounded-full bg-surface-300 dark:bg-white/30" />
-              </div>
-              <div className="absolute inset-x-0 bottom-0 top-0 overflow-hidden rounded-[3.5rem]">
-                {!profileImageFailed && (
+            <div className="relative isolate h-[25rem] w-full max-w-[36rem] sm:h-[34rem] lg:h-[39rem]">
+              <div aria-hidden="true" className="hero-orbit pointer-events-none" />
+              <div aria-hidden="true" className="hero-orbit pointer-events-none !inset-[18%_-18%_10%_-5%] !rotate-[20deg] !bg-none" />
+              <div aria-hidden="true" className="absolute -left-4 top-14 h-20 w-20 rounded-full bg-accent/15 blur-xl" />
+              <div className={useCutout ? 'absolute inset-0' : 'absolute inset-x-4 bottom-7 top-8 overflow-hidden rounded-[4rem_1.5rem_4rem_1.5rem] border border-accent/25 shadow-[0_30px_80px_rgba(0,96,112,0.22)] sm:inset-x-8'}>
+                {(!profileImageFailed || useCutout) && (
                   <Image
-                    src={personalInfo.profileImage}
+                    key={useCutout ? 'cutout' : 'portrait'}
+                    src={useCutout ? personalInfo.profileCutoutImage : personalInfo.profileImage}
                     alt={messages.hero.imageAlt}
                     fill
                     priority
-                    sizes="(min-width: 1024px) 496px, (min-width: 640px) 448px, 352px"
-                    className="object-cover object-center transition-transform duration-700 hover:scale-[1.025]"
-                    onError={() => setProfileImageFailed(true)}
+                    sizes="(min-width: 1440px) 576px, (min-width: 1024px) 45vw, (min-width: 640px) 576px, 90vw"
+                    className={useCutout ? 'object-contain object-bottom drop-shadow-[0_24px_28px_rgba(0,96,112,0.22)]' : 'object-cover object-[50%_40%]'}
+                    onError={() => useCutout ? setCutoutFailed(true) : setProfileImageFailed(true)}
                   />
                 )}
-                {profileImageFailed && (
-                  <div className="flex h-full w-full items-center justify-center bg-[rgb(var(--color-card-muted))] text-5xl font-extrabold text-accent dark:bg-surface-900">
-                    DG
-                  </div>
+                {profileImageFailed && !useCutout && (
+                  <div className="flex h-full w-full items-center justify-center bg-[rgb(var(--color-card-muted))] text-7xl font-extrabold text-accent">DG</div>
                 )}
-                <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0)_54%,rgb(var(--color-page))_100%)] dark:bg-[linear-gradient(180deg,rgba(7,11,18,0)_54%,rgb(var(--color-page))_100%)]" />
+                {!useCutout && <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-gradient-to-t from-surface-950/40 via-transparent to-transparent" />}
+              </div>
+              <div className="absolute bottom-0 left-0 right-4 flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-accent/20 bg-[rgb(var(--color-card)/0.92)] px-5 py-4 shadow-xl shadow-accent/10 backdrop-blur-xl sm:left-4">
+                <span className="font-mono text-xs font-semibold text-accent">SQL · Python · Power BI</span>
+                <span className="text-xs text-surface-600 dark:text-slate-300">Data Analytics</span>
               </div>
             </div>
           </motion.div>

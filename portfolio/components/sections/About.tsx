@@ -1,10 +1,10 @@
 'use client';
 
 import Section from '@/components/ui/Section';
-import { Clapperboard, Dumbbell, Sparkles, TentTree } from 'lucide-react';
+import { BarChart3, BrainCircuit, Code2, Database } from 'lucide-react';
 import { useI18n } from '@/lib/i18n';
 
-const interestIcons = [Sparkles, Dumbbell, Clapperboard, TentTree];
+const focusIcons = [BarChart3, Database, BrainCircuit, Code2];
 
 export default function About() {
   const { messages } = useI18n();
@@ -26,8 +26,8 @@ export default function About() {
         </div>
 
         <div className="grid gap-4 sm:grid-cols-2">
-          {messages.about.interests.map((item, index) => {
-            const Icon = interestIcons[index] ?? Sparkles;
+          {messages.about.cards.map((item, index) => {
+            const Icon = focusIcons[index] ?? Code2;
             return (
               <article key={item.title} className="card card-hover group p-5">
                 <div className="mb-4 inline-flex rounded-2xl bg-accent/10 p-3 text-accent transition-all group-hover:-translate-y-0.5 group-hover:bg-accent group-hover:text-white dark:group-hover:text-surface-950">

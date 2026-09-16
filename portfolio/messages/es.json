@@ -13,7 +13,8 @@
     "menu": "Menú",
     "language": "Idioma",
     "spanish": "Español",
-    "english": "English"
+    "english": "English",
+    "education": "Formación"
   },
   "hero": {
     "badge": "Data Analyst en SDG Group",
@@ -29,7 +30,7 @@
   "about": {
     "eyebrow": "Sobre mí",
     "title": "Perfil técnico, datos",
-    "titleAccent": "y algo más",
+    "titleAccent": "y negocio",
     "paragraphs": [
       "Soy Daniel García Nilo, ingeniero informático y actualmente Data Analyst en SDG Group. Trabajo en consultoría de datos, participando en proyectos relacionados con análisis, transformación, visualización y soluciones orientadas a negocio.",
       "Mi trayectoria comenzó principalmente en Software Engineering, backend, automatización y sistemas empresariales. Entre octubre de 2024 y mayo de 2026 trabajé en el Departamento de Arquitectura de Grupo Catalana Occident / Occident, evolucionando soluciones corporativas vinculadas a IA, procesos internos, C#/.NET, SQL, GAAN, validaciones JavaScript y trabajo ágil con JIRA.",
@@ -83,13 +84,132 @@
     "titleAccent": "agrupado",
     "intro": "Herramientas y prácticas que uso para trabajar con datos: analítica, visualización, BI, estadística, Data Science, IA y desarrollo software.",
     "categories": [
-      { "name": "Data Analytics", "icon": "bar-chart", "featured": true, "desc": "Análisis, KPIs, reporting y comunicación de insights orientados a negocio.", "skills": ["SQL", "Power BI", "Power Query", "DAX", "Data Visualization", "KPI Analysis", "Business Intelligence", "Statistics"] },
-      { "name": "Data Engineering", "icon": "database", "featured": true, "desc": "Modelado, transformación y preparación de datos para análisis fiable.", "skills": ["Snowflake", "ETL / ELT", "Data Modeling", "Data Warehousing", "Data Transformation", "Relational Databases"] },
-      { "name": "Data Science", "icon": "brain", "desc": "Python, estadística aplicada, machine learning y evaluación de modelos.", "skills": ["Python", "Pandas", "NumPy", "scikit-learn", "Statistical Analysis", "Machine Learning", "XGBoost"] },
-      { "name": "Programming Languages", "icon": "code", "desc": "Lenguajes usados para análisis, automatización y desarrollo de soluciones.", "skills": ["Python", "SQL", "C#", "Java", "JavaScript", "TypeScript"] },
-      { "name": "Software Engineering", "icon": "server", "desc": "Base técnica para construir soluciones mantenibles e integradas.", "skills": ["APIs", "Backend Development", ".NET", "Architecture", "Automation", "Testing"] },
-      { "name": "Tools & Methodologies", "icon": "wrench", "desc": "Herramientas y formas de trabajo para proyectos colaborativos y bien documentados.", "skills": ["Git", "GitHub", "Power BI", "Jupyter", "Agile", "Documentation", "Problem Solving", "Business-oriented thinking"] }
-    ]
+      {
+        "name": "Data Analytics",
+        "icon": "bar-chart",
+        "featured": true,
+        "desc": "Análisis, KPIs, reporting y comunicación de insights orientados a negocio.",
+        "skills": [
+          "SQL",
+          "Power BI",
+          "Power Query",
+          "DAX",
+          "Data Visualization",
+          "KPI Analysis",
+          "Business Intelligence",
+          "Statistics"
+        ]
+      },
+      {
+        "name": "Data Engineering",
+        "icon": "database",
+        "featured": true,
+        "desc": "Modelado, transformación y preparación de datos para análisis fiable.",
+        "skills": [
+          "Snowflake",
+          "ETL / ELT",
+          "Data Modeling",
+          "Data Warehousing",
+          "Data Transformation",
+          "Relational Databases"
+        ]
+      },
+      {
+        "name": "Data Science",
+        "icon": "brain",
+        "desc": "Python, estadística aplicada, machine learning y evaluación de modelos.",
+        "skills": [
+          "Python",
+          "Pandas",
+          "NumPy",
+          "scikit-learn",
+          "Statistical Analysis",
+          "Machine Learning",
+          "XGBoost"
+        ]
+      },
+      {
+        "name": "Programming Languages",
+        "icon": "code",
+        "desc": "Lenguajes usados para análisis, automatización y desarrollo de soluciones.",
+        "skills": [
+          "Python",
+          "SQL",
+          "C#",
+          "Java",
+          "JavaScript",
+          "TypeScript"
+        ]
+      },
+      {
+        "name": "Software Engineering",
+        "icon": "server",
+        "desc": "Base técnica para construir soluciones mantenibles e integradas.",
+        "skills": [
+          "APIs",
+          "Backend Development",
+          ".NET",
+          "Architecture",
+          "Automation",
+          "Testing"
+        ]
+      },
+      {
+        "name": "Tools & Methodologies",
+        "icon": "wrench",
+        "desc": "Herramientas y formas de trabajo para proyectos colaborativos y bien documentados.",
+        "skills": [
+          "Git",
+          "GitHub",
+          "Power BI",
+          "Jupyter",
+          "Agile",
+          "Documentation",
+          "Problem Solving",
+          "Business-oriented thinking"
+        ]
+      }
+    ],
+    "descriptions": {
+      "SQL": "Consultas y análisis de datos",
+      "Power BI": "Informes y visualización",
+      "Power Query": "Preparación de datos",
+      "DAX": "Medidas y cálculos",
+      "Data Visualization": "Comunicación visual de datos",
+      "KPI Analysis": "Lectura de indicadores",
+      "Business Intelligence": "Datos para decisiones",
+      "Statistics": "Interpretación estadística",
+      "Snowflake": "Plataforma de datos",
+      "ETL / ELT": "Flujos de transformación",
+      "Data Modeling": "Estructura de los datos",
+      "Data Warehousing": "Almacenamiento analítico",
+      "Data Transformation": "Limpieza y transformación",
+      "Relational Databases": "Relaciones y consultas",
+      "Python": "Análisis y automatización",
+      "Pandas": "Exploración de tablas",
+      "NumPy": "Cálculo numérico",
+      "scikit-learn": "Modelado y evaluación",
+      "Statistical Analysis": "Patrones y asociaciones",
+      "Machine Learning": "Aprendizaje con datos",
+      "XGBoost": "Modelos de boosting",
+      "C#": "Lógica de negocio",
+      "Java": "Desarrollo de software",
+      "JavaScript": "Lógica e interfaces web",
+      "TypeScript": "Desarrollo con tipos",
+      "APIs": "Integración de servicios",
+      "Backend Development": "Lógica del servidor",
+      ".NET": "Aplicaciones y servicios",
+      "Architecture": "Estructura de soluciones",
+      "Automation": "Automatización de procesos",
+      "Testing": "Validación de software",
+      "Git": "Control de versiones",
+      "GitHub": "Código y colaboración",
+      "Jupyter": "Análisis en notebooks",
+      "Agile": "Trabajo iterativo",
+      "Documentation": "Contexto técnico claro",
+      "Problem Solving": "Análisis de problemas",
+      "Business-oriented thinking": "Contexto de negocio"
+    }
   },
   "projects": {
     "eyebrow": "Proyectos destacados",
@@ -116,7 +236,8 @@
     "actions": {
       "github": "Ver código en GitHub",
       "demo": "Ver demo",
-      "openGithub": "Abrir en GitHub"
+      "openGithub": "Abrir en GitHub",
+      "details": "Explorar proyecto"
     },
     "items": {
       "statistical-sales-analysis": {
@@ -179,33 +300,100 @@
         "id": "t0",
         "title": "Data Analyst",
         "organization": "SDG Group",
-        "description": "Analista de Datos en SDG Group, consultora especializada en Data, Analytics e Inteligencia Artificial. Participo en proyectos de consultoría relacionados con análisis, transformación y visualización de datos y soluciones orientadas a negocio. Proyecto actual: Fundación \"la Caixa\"."
+        "description": "Analista de Datos en SDG Group, consultora especializada en Data, Analytics e Inteligencia Artificial. Participo en proyectos de consultoría relacionados con análisis, transformación y visualización de datos y soluciones orientadas a negocio. Proyecto actual: Fundación \"la Caixa\".",
+        "highlights": [
+          "Data Analyst",
+          "Jornada completa",
+          "Indefinido",
+          "Analítica",
+          "Transformación de datos",
+          "Visualización"
+        ]
       },
       {
         "id": "t1",
         "title": "Software Developer - Arquitectura, IA y procesos",
         "organization": "Grupo Catalana Occident / Occident",
-        "description": "Desarrollo y mejora del módulo corporativo IATeach, una solución orientada a IA para gestión documental y procesos internos. Experiencia en arquitectura corporativa, lógica de negocio con C#/.NET, integración SQL, interfaces GAAN, validaciones JavaScript y trabajo ágil con JIRA, aportando criterio técnico en un entorno real de producto, datos y automatización."
+        "description": "Desarrollo y mejora del módulo corporativo IATeach, una solución orientada a IA para gestión documental y procesos internos. Experiencia en arquitectura corporativa, lógica de negocio con C#/.NET, integración SQL, interfaces GAAN, validaciones JavaScript y trabajo ágil con JIRA, aportando criterio técnico en un entorno real de producto, datos y automatización.",
+        "highlights": [
+          "AI Engineering",
+          "C#",
+          ".NET",
+          "SQL",
+          "JavaScript",
+          "GAAN",
+          "JIRA",
+          "Arquitectura"
+        ]
       },
       {
         "id": "t2",
         "title": "Máster Evolve - Data Science / Inteligencia Artificial",
         "organization": "Evolve",
-        "description": "Máster de Evolve orientado a entorno profesional real. Especialización en Python, SQL, Power BI, análisis avanzado de datos, automatización, machine learning y toma de decisiones basada en datos."
+        "description": "Máster de Evolve orientado a entorno profesional real. Especialización en Python, SQL, Power BI, análisis avanzado de datos, automatización, machine learning y toma de decisiones basada en datos.",
+        "highlights": [
+          "Python",
+          "SQL",
+          "Power BI",
+          "Data Science",
+          "Machine Learning",
+          "AI"
+        ]
       },
       {
         "id": "t3",
         "title": "Ingeniería Informática - Mención en Ingeniería del Software",
         "organization": "Formación universitaria",
-        "description": "Grado en Ingeniería Informática con formación integral en ingeniería del software, bases de datos, algoritmos, sistemas, desarrollo web y proyectos en equipo. Trabajo final centrado en agentes conversacionales e IA generativa aplicado a un contexto corporativo."
+        "description": "Grado en Ingeniería Informática con formación integral en ingeniería del software, bases de datos, algoritmos, sistemas, desarrollo web y proyectos en equipo. Trabajo final centrado en agentes conversacionales e IA generativa aplicado a un contexto corporativo.",
+        "highlights": [
+          "Ingeniería del Software",
+          "Bases de datos",
+          "Algoritmos",
+          "TFG IA",
+          "Trabajo en equipo"
+        ]
       },
       {
         "id": "t4",
         "title": "Proyectos de AI Engineering y Data Science",
         "organization": "GitHub personal",
-        "description": "Desarrollo de proyectos propios en Python, análisis de datos, ML, RAG, agentes, aplicaciones web y cloud. Enfoque práctico en documentación, arquitectura limpia y construcción de soluciones con utilidad real."
+        "description": "Desarrollo de proyectos propios en Python, análisis de datos, ML, RAG, agentes, aplicaciones web y cloud. Enfoque práctico en documentación, arquitectura limpia y construcción de soluciones con utilidad real.",
+        "highlights": [
+          "AI Engineering",
+          "Data Science",
+          "RAG",
+          "Agentes",
+          "Machine Learning",
+          "Cloud"
+        ]
+      },
+      {
+        "id": "t5",
+        "title": "Bachillerato",
+        "organization": "",
+        "description": "",
+        "highlights": []
       }
-    ]
+    ],
+    "responsibilities": "Responsabilidades",
+    "areas": "Áreas y tecnologías",
+    "workDetails": {
+      "t0": {
+        "responsibilities": [
+          "Participación en proyectos de consultoría de análisis, transformación y visualización de datos.",
+          "Soluciones de datos orientadas a negocio."
+        ],
+        "summary": "SDG Group · Consultoría de Data, Analytics e IA. Proyecto actual: Fundación \"la Caixa\"."
+      },
+      "t1": {
+        "responsibilities": [
+          "Desarrollo y mejora de IATeach para gestión documental y procesos internos.",
+          "Lógica de negocio con C#/.NET e integración SQL.",
+          "Interfaces GAAN, validaciones JavaScript y trabajo ágil con JIRA."
+        ],
+        "summary": "Arquitectura corporativa, IA y automatización de procesos en un entorno real de producto."
+      }
+    }
   },
   "github": {
     "eyebrow": "Data portfolio",
@@ -260,17 +448,26 @@
       {
         "title": "Cómo estoy consolidando Data Analytics, BI e IA",
         "excerpt": "Notas sobre SQL, Power BI, Python, estadística, análisis avanzado, automatización y sistemas de IA aplicados a negocio.",
-        "tags": ["Data Science", "AI"]
+        "tags": [
+          "Data Science",
+          "AI"
+        ]
       },
       {
         "title": "Arquitectura de agentes conversacionales",
         "excerpt": "Reflexiones técnicas sobre agentes configurables, IA generativa y validación mediante Proof of Concept.",
-        "tags": ["IA generativa", "Arquitectura"]
+        "tags": [
+          "IA generativa",
+          "Arquitectura"
+        ]
       },
       {
         "title": "Mi roadmap como Data Analyst",
         "excerpt": "Una mirada práctica a las tecnologías y proyectos que quiero seguir consolidando en analítica, BI, Data Science, IA y software.",
-        "tags": ["Roadmap", "Data Analytics"]
+        "tags": [
+          "Roadmap",
+          "Data Analytics"
+        ]
       }
     ]
   },
@@ -312,5 +509,9 @@
     "title": "Página no encontrada",
     "body": "La ruta que buscas no existe o ha sido movida. Puede que haya un error en la URL.",
     "back": "Volver al inicio"
+  },
+  "passions": {
+    "eyebrow": "Fuera de la pantalla",
+    "title": "Lo que me apasiona"
   }
 }
