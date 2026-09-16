@@ -123,31 +123,10 @@ export interface ProjectGalleryImage {
   description?: string;
 }
 
-export interface ProjectMetric {
-  label: string;
-  value: string;
-  description?: string;
-}
-
 export interface ProjectDetailSection {
-  eyebrow?: string;
+  eyebrow: string;
   title: string;
-  body?: string[];
-  items?: string[];
-  steps?: string[];
-  metrics?: ProjectMetric[];
-  image?: ProjectGalleryImage;
-}
-
-export interface ProjectDossierTranslation {
-  title?: string;
-  subtitle?: string;
-  description?: string;
-  longDescription?: string;
-  resources?: ProjectResource[];
-  gallery?: ProjectGalleryImage[];
-  notes?: string[];
-  detailSections?: ProjectDetailSection[];
+  body: string[];
 }
 
 export interface ProjectDossier {
@@ -172,6 +151,7 @@ export interface ProjectDossier {
   resources: ProjectResource[];
   videos: ProjectVideo[];
   gallery: ProjectGalleryImage[];
+  detailSections?: ProjectDetailSection[];
   notes: string[];
   detailSections?: ProjectDetailSection[];
   translations?: {

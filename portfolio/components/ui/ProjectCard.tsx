@@ -80,8 +80,8 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
         <div className="section-dark absolute inset-0 flex items-center justify-center gap-3 bg-surface-950/0 opacity-0 transition-all duration-300 group-hover:bg-surface-950/60 group-hover:opacity-100 group-focus-within:bg-surface-950/60 group-focus-within:opacity-100">
           <Link
             href={`/projects/${project.slug}`}
-            className="relative z-20 rounded-full border border-white/25 bg-white/15 p-2.5 text-white shadow-lg backdrop-blur transition-all hover:scale-110 hover:border-accent/70 hover:bg-accent/20 hover:text-accent-ink"
-            aria-label={`${messages.projects.actions.details}: ${title}`}
+            className="relative z-20 rounded-full bg-[rgb(var(--color-card))] p-2.5 text-surface-800 shadow-lg transition-transform hover:scale-110 dark:bg-surface-50 dark:text-surface-950"
+            aria-label={`Abrir dossier: ${title}`}
           >
             <FileText className="h-4 w-4" />
           </Link>
@@ -90,7 +90,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
               href={project.github_url}
               target="_blank"
               rel="noopener noreferrer"
-              className="relative z-20 rounded-full border border-white/25 bg-white/15 p-2.5 text-white shadow-lg backdrop-blur transition-all hover:scale-110 hover:border-accent/70 hover:bg-accent/20 hover:text-accent-ink"
+              className="relative z-20 rounded-full bg-[rgb(var(--color-card))] p-2.5 text-surface-800 shadow-lg transition-transform hover:scale-110 dark:bg-surface-50 dark:text-surface-950"
               aria-label={`${messages.projects.actions.github}: ${title}`}
             >
               <Github className="h-4 w-4" />

@@ -3,45 +3,25 @@ import type { Project, SkillCategory, TimelineItem } from '@/types';
 export const fallbackProjects: Project[] = [
   {
     id: '9',
-    title: 'Statistical Sales Analysis',
-    slug: 'statistical-sales-analysis',
+    title: 'StatsBomb SQL Analytics',
+    slug: 'statsbomb-sql-analytics',
     description:
-      'Analisis estadistico de factores asociados a ingresos por ventas con Python, regresion lineal multiple, metricas de evaluacion y diagnostico estadistico.',
+      'Base de datos relacional en MySQL para analizar jugadores, equipos y competiciones con datos abiertos de StatsBomb.',
     long_description:
-      'Proyecto finalizado del Master en Data Science basado en un dataset sintetico de 60.000 observaciones y 23 variables. Estudia asociaciones entre marketing, comportamiento del cliente, engagement digital y contexto comercial con sales_revenue_usd, usando EDA, deteccion de outliers, seleccion de variables, regresion lineal multiple, R2, MAE, RMSE, VIF, diagnostico de residuos, test de White y errores robustos HC3.',
-    categories: ['master', 'data-analytics'],
-    technologies: ['Python', 'Statistics', 'Regression', 'Pandas'],
-    image_url: '/images/projects/statistical-sales-analysis.jpg',
+      'Proyecto de master orientado al diseno conceptual y logico de una base de datos relacional, carga y limpieza de datos, definicion de restricciones e integridad referencial, consultas analiticas e insights de negocio sobre rendimiento futbolistico.',
+    category: 'master',
+    technologies: ['SQL', 'MySQL', 'Data Modeling', 'Data Analysis', 'Business Intelligence'],
+    github_url: 'https://github.com/danielgarciaN/player-match-stats-sql',
+    image_url: '/images/projects/model.jpg',
     status: 'terminado',
     featured: true,
     learnings: [
-      'Analisis estadistico observacional',
-      'Regresion lineal multiple e interpretacion ceteris paribus',
-      'Diagnostico con VIF, residuos, White test y HC3',
-      'Comunicacion de insights sin asumir causalidad',
+      'Modelado relacional y normalizacion',
+      'SQL avanzado con CTEs, vistas y funciones ventana',
+      'Analisis de datos deportivos con enfoque de negocio',
+      'Validacion, limpieza e integridad referencial',
     ],
-    created_at: '2026-09-01',
-  },
-  {
-    id: '10',
-    title: 'Global Electronics Retail Analytics',
-    slug: 'global-electronics-powerbi',
-    description:
-      'Dashboard completo de Business Intelligence en Power BI con Power Query, modelo estrella, DAX, KPIs, navegacion, filtros y storytelling visual.',
-    long_description:
-      'Proyecto finalizado del Master en Data Science sobre Global Electronics Retailer. Construye un informe ejecutivo e interactivo con preparacion de datos en Power Query, modelo en estrella, calendario DAX, medidas de ventas, margen, pedidos, ticket medio, YoY, YTD y rankings, ademas de paginas de resumen, productos, clientes, mercados, tiendas y detalle.',
-    categories: ['master', 'data-analytics'],
-    technologies: ['Power BI', 'Power Query', 'DAX', 'Data Modeling'],
-    image_url: '/images/projects/global-electronics-powerbi.jpg',
-    status: 'terminado',
-    featured: true,
-    learnings: [
-      'Flujo completo de Business Intelligence',
-      'Power Query y modelado en estrella',
-      'Medidas DAX, KPIs e inteligencia temporal',
-      'Storytelling visual con filtros, bookmarks y drillthrough',
-    ],
-    created_at: '2026-09-01',
+    created_at: '2026-06-20',
   },
   {
     id: '8',
@@ -76,6 +56,7 @@ export const fallbackProjects: Project[] = [
     categories: ['master', 'data-analytics'],
     technologies: ['Python', 'StatsBomb', 'Pandas', 'scikit-learn', 'XGBoost', 'Matplotlib', 'Seaborn'],
     image_url: '/images/projects/expected-goals-xg-statsbomb.jpg',
+    github_url: 'https://github.com/danielgarciaN/xG-statsbomb-master',
     status: 'terminado',
     featured: true,
     learnings: [
