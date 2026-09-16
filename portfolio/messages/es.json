@@ -387,7 +387,8 @@
       "web-app": "Web/App",
       "backend": "Backend",
       "universidad": "Académico",
-      "master": "Máster"
+      "master": "Máster",
+      "personal": "Personal"
     },
     "statuses": {
       "terminado": "Finalizado",

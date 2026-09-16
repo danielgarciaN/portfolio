@@ -62,12 +62,12 @@ export default function GithubSection() {
               <span className="rounded-full border border-accent/25 bg-accent/10 px-2.5 py-1 font-semibold text-accent-ink">
                 {projectAccent[project.slug]}
               </span>
-              {project.categories.slice(0, 2).map((category) => (
+              {(project.categories ?? (project.category ? [project.category] : [])).slice(0, 2).map((category) => (
                 <span
                   key={category}
                   className="rounded-full border border-line/10 px-2.5 py-1 font-semibold text-muted"
                 >
-                  {messages.projects.categories[category]}
+                  {messages.projects.categories[category] ?? category}
                 </span>
               ))}
               {project.github_url && (

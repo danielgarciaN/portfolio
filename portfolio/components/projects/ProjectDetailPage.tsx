@@ -69,9 +69,20 @@ export default function ProjectDetailPage({ project }: ProjectDetailPageProps) {
 
           {localizedProject.detailSections && localizedProject.detailSections.length > 0 && (
             <div className="mt-8 space-y-6">
-              {localizedProject.detailSections.map((section) => (
+              {localizedProject.detailSections.map((section) => {
+                const imageSection = section.image ??
+                  (section.src
+                    ? {
+                        src: section.src,
+                        alt: section.alt ?? section.title ?? 'Project detail image',
+                        title: section.title,
+                        description: section.description,
+                      }
+                    : undefined);
+
+                return (
                 <section
-                  key={`${section.eyebrow ?? section.title}-${section.title}`}
+                  key={`${section.eyebrow ?? section.title ?? 'section'}-${section.title ?? 'detail'}`}
                   className="rounded-2xl border border-line/10 bg-[rgb(var(--color-card)/0.9)] p-6 shadow-sm sm:p-8"
                 >
                   {section.eyebrow && (
@@ -79,9 +90,11 @@ export default function ProjectDetailPage({ project }: ProjectDetailPageProps) {
                       {section.eyebrow}
                     </span>
                   )}
-                  <h2 className="mt-2 text-2xl font-semibold tracking-tight text-ink">
-                    {section.title}
-                  </h2>
+                  {section.title && (
+                    <h2 className="mt-2 text-2xl font-semibold tracking-tight text-ink">
+                      {section.title}
+                    </h2>
+                  )}
 
                   {section.body && (
                     <div className="mt-4 space-y-3">
@@ -147,25 +160,25 @@ export default function ProjectDetailPage({ project }: ProjectDetailPageProps) {
                     </ul>
                   )}
 
-                  {section.image && (
+                  {imageSection && (
                     <div className="mt-6 overflow-hidden rounded-xl border border-line/10 bg-surface-900">
                       <div className="relative aspect-video">
                         <Image
-                          src={section.image.src}
-                          alt={section.image.alt}
+                          src={imageSection.src}
+                          alt={imageSection.alt}
                           fill
                           sizes="(min-width: 1024px) 896px, 100vw"
                           className="object-contain"
                         />
                       </div>
-                      {(section.image.title || section.image.description) && (
+                      {(imageSection.title || imageSection.description) && (
                         <div className="border-t border-line/10 p-4">
                           <h3 className="text-sm font-bold text-ink">
-                            {section.image.title}
+                            {imageSection.title}
                           </h3>
-                          {section.image.description && (
+                          {imageSection.description && (
                             <p className="mt-1 text-sm leading-relaxed text-muted">
-                              {section.image.description}
+                              {imageSection.description}
                             </p>
                           )}
                         </div>
@@ -173,7 +186,8 @@ export default function ProjectDetailPage({ project }: ProjectDetailPageProps) {
                     </div>
                   )}
                 </section>
-              ))}
+                );
+              })}
             </div>
           )}
 
@@ -189,11 +203,13 @@ export default function ProjectDetailPage({ project }: ProjectDetailPageProps) {
                 <h2 className="mt-2 text-2xl font-semibold tracking-tight text-surface-900 dark:text-surface-50">
                   {section.title}
                 </h2>
-                <div className="mt-4 space-y-3 text-sm leading-relaxed text-surface-600 dark:text-surface-300 sm:text-base">
-                  {section.body.map((paragraph) => (
-                    <p key={paragraph}>{paragraph}</p>
-                  ))}
-                </div>
+                {section.body && (
+                  <div className="mt-4 space-y-3 text-sm leading-relaxed text-surface-600 dark:text-surface-300 sm:text-base">
+                    {section.body.map((paragraph) => (
+                      <p key={paragraph}>{paragraph}</p>
+                    ))}
+                  </div>
+                )}
               </section>
             ))}
             <ProjectResourceList resources={project.resources} />

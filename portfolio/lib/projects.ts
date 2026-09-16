@@ -57,9 +57,13 @@ export async function getProjects(category?: ProjectCategory): Promise<Project[]
     const { data, error } = await query;
     if (error) throw error;
     const projects = mergeWithFallbackProjects((data as Project[]) ?? fallbackProjects);
-    return category ? projects.filter((project) => project.categories.includes(category)) : projects;
+    return category
+      ? projects.filter((project) => (project.categories ?? (project.category ? [project.category] : [])).includes(category))
+      : projects;
   } catch {
-    return category ? fallbackProjects.filter((project) => project.categories.includes(category)) : fallbackProjects;
+    return category
+      ? fallbackProjects.filter((project) => (project.categories ?? (project.category ? [project.category] : [])).includes(category))
+      : fallbackProjects;
   }
 }
 

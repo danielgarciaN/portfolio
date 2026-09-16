@@ -5,7 +5,8 @@ export type ProjectCategory =
   | 'master'
   | 'universidad'
   | 'backend'
-  | 'web-app';
+  | 'web-app'
+  | 'personal';
 
 export interface Project {
   id: string;
@@ -13,7 +14,7 @@ export interface Project {
   slug: string;
   description: string;
   long_description?: string;
-  categories: ProjectCategory[];
+  categories?: ProjectCategory[];
   category?: ProjectCategory;
   technologies: string[];
   github_url?: string;
@@ -123,10 +124,46 @@ export interface ProjectGalleryImage {
   description?: string;
 }
 
+export interface ProjectDetailMetric {
+  label: string;
+  value: string;
+  description?: string;
+}
+
+export interface ProjectDetailImage {
+  src: string;
+  alt: string;
+  title?: string;
+  description?: string;
+}
+
 export interface ProjectDetailSection {
-  eyebrow: string;
-  title: string;
-  body: string[];
+  eyebrow?: string;
+  title?: string;
+  body?: string[];
+  steps?: string[];
+  items?: string[];
+  metrics?: ProjectDetailMetric[];
+  image?: ProjectDetailImage;
+  src?: string;
+  alt?: string;
+  description?: string;
+  content?: string;
+  label?: string;
+  value?: string;
+}
+
+export interface ProjectDossierTranslation {
+  title?: string;
+  subtitle?: string;
+  author?: string;
+  description?: string;
+  longDescription?: string;
+  resources?: ProjectResource[];
+  videos?: ProjectVideo[];
+  gallery?: ProjectGalleryImage[];
+  notes?: string[];
+  detailSections?: ProjectDetailSection[];
 }
 
 export interface ProjectDossier {
@@ -136,7 +173,7 @@ export interface ProjectDossier {
   author: string;
   description: string;
   longDescription: string;
-  categories: ProjectCategory[];
+  categories?: ProjectCategory[];
   category?: ProjectCategory;
   status: ProjectStatus;
   technologies: string[];
@@ -153,7 +190,6 @@ export interface ProjectDossier {
   gallery: ProjectGalleryImage[];
   detailSections?: ProjectDetailSection[];
   notes: string[];
-  detailSections?: ProjectDetailSection[];
   translations?: {
     en?: ProjectDossierTranslation;
   };

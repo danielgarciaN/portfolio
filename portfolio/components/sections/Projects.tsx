@@ -20,6 +20,7 @@ const categories: (ProjectCategory | 'all')[] = [
   'web-app',
   'backend',
   'universidad',
+  'personal',
 ];
 
 export default function Projects({ projects }: ProjectsProps) {
