@@ -21,11 +21,11 @@ export default function ProjectResourceList({ resources }: ProjectResourceListPr
           <span className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--project-primary)]">
             {messages.projectDossier.resourcesEyebrow}
           </span>
-          <h2 className="mt-2 text-2xl font-semibold tracking-tight text-surface-900 dark:text-surface-50">
+          <h2 className="mt-2 text-2xl font-semibold tracking-tight text-ink">
             {messages.projectDossier.resourcesTitle}
           </h2>
         </div>
-        <p className="max-w-md text-sm leading-relaxed text-surface-500 dark:text-surface-400">
+        <p className="max-w-md text-sm leading-relaxed text-muted">
           {messages.projectDossier.resourcesIntro}
         </p>
       </div>

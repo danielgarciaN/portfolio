@@ -64,7 +64,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="es" suppressHydrationWarning>
+    <html lang="es">
       <body className={`${manrope.variable} ${jetbrains.variable} font-sans antialiased`}>
         <I18nProvider>
           <Navbar />

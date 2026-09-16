@@ -9,7 +9,7 @@ const icons = [Sparkles, Dumbbell, Clapperboard, TentTree];
 export default function PassionateAbout() {
   const { messages } = useI18n();
   return (
-    <Section id="pasiones" className="border-t border-accent/10 !bg-[rgb(var(--color-page-soft))]">
+    <Section id="pasiones" className="section-grey border-t border-line/10">
       <span className="heading-section">{messages.passions.eyebrow}</span>
       <h2 className="heading-lg mb-10 mt-3">{messages.passions.title}</h2>
       <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
@@ -17,9 +17,9 @@ export default function PassionateAbout() {
           const Icon = icons[index] ?? Sparkles;
           return (
             <article key={item.title} className="card card-hover group">
-              <Icon aria-hidden="true" className="mb-6 h-8 w-8 text-accent" strokeWidth={1.5} />
+              <Icon aria-hidden="true" className="mb-6 h-8 w-8 text-accent-ink" strokeWidth={1.5} />
               <h3 className="text-lg font-bold">{item.title}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-surface-600 dark:text-slate-300">{item.desc}</p>
+              <p className="mt-3 text-sm leading-relaxed text-muted">{item.desc}</p>
             </article>
           );
         })}

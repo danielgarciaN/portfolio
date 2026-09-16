@@ -237,6 +237,8 @@ export const skillCategories: SkillCategory[] = [
     icon: 'database',
     skills: [
       { id: 's11', name: 'Snowflake', category: 'Data Engineering / Cloud', order_index: 0 },
+      { id: 's59', name: 'Informatica', category: 'Data Engineering / Cloud', order_index: 6 },
+      { id: 's60', name: 'Databricks', category: 'Data Engineering / Cloud', order_index: 7 },
       { id: 's12', name: 'ETL / ELT', category: 'Data Engineering / Cloud', order_index: 1 },
       { id: 's13', name: 'Data Warehousing', category: 'Data Engineering / Cloud', order_index: 2 },
       { id: 's14', name: 'Relational Databases', category: 'Data Engineering / Cloud', order_index: 3 },
@@ -270,6 +272,7 @@ export const skillCategories: SkillCategory[] = [
       { id: 's30', name: 'APIs REST', category: 'Software Engineering', order_index: 5 },
       { id: 's31', name: 'Backend Development', category: 'Software Engineering', order_index: 6 },
       { id: 's32', name: 'Software Architecture', category: 'Software Engineering', order_index: 7 },
+      { id: 's61', name: 'Database Integration', category: 'Software Engineering', order_index: 8 },
     ],
   },
   {
@@ -335,7 +338,7 @@ export const timelineItems: TimelineItem[] = [
     current: true,
     description:
       'Analista de Datos en SDG Group, consultora especializada en Data, Analytics e Inteligencia Artificial. Participo en proyectos de consultoría relacionados con análisis, transformación y visualización de datos y soluciones orientadas a negocio. Proyecto actual: Fundación "la Caixa".',
-    highlights: ['Data Analyst', 'Full-time', 'Permanent', 'Analytics', 'Data Transformation', 'Data Visualization'],
+    highlights: ['SQL', 'Snowflake', 'Informatica', 'ETL / ELT', 'Data Analytics'],
     order_index: 0,
   },
   {
@@ -392,12 +395,13 @@ export const timelineItems: TimelineItem[] = [
   {
     id: 't5',
     type: 'education',
-    title: 'Bachillerato',
-    organization: '',
+    title: 'Bachillerato Tecnológico',
+    organization: 'Institut Joan Oliver',
     start_date: '2019-09',
     end_date: '2021-06',
     current: false,
-    description: '',
+    description: 'Formación científica y técnica con base en matemáticas, física, tecnología y electrotecnia.',
+    highlights: ['Matemáticas', 'Física', 'Tecnología', 'Electrotecnia'],
     order_index: 5,
   },
 ];
@@ -405,7 +409,7 @@ export const timelineItems: TimelineItem[] = [
 export const personalInfo = {
   name: 'Daniel García Nilo',
   shortName: 'Daniel García',
-  title: 'Data Analyst & Computer Engineer',
+  title: 'Data Analyst',
   bio: 'Data Analyst e ingeniero informático con background en Software Engineering, Data Science e Inteligencia Artificial. Combino analítica, visualización, estadística, BI y tecnología para convertir datos en insights útiles para negocio.',
   email: 'danielgarcianilo1@gmail.com',
   phone: '+34 644 41 01 49',
@@ -414,6 +418,6 @@ export const personalInfo = {
   location: 'España',
   // Set the transparent PNG path here when the final portrait is available.
   profileCutoutImage: '',
-  profileImage: '/images/profile/daniel-garcia-nilo.jpg',
+  profileImage: '/images/profile/daniel-garcia-nilo-night.jpg',
   cvUrl: '/cv/daniel-garcia-nilo-cv.pdf',
 };

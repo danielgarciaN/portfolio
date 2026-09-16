@@ -33,9 +33,9 @@ export default function ProjectHeader({ project }: ProjectHeaderProps) {
   const categories = project.categories ?? (project.category ? [project.category] : []);
 
   return (
-    <header className="overflow-hidden rounded-2xl border border-surface-200 bg-[rgb(var(--color-card)/0.92)] shadow-[0_18px_55px_rgba(0,124,145,0.1)] dark:border-white/15 dark:bg-surface-900">
+    <header className="overflow-hidden rounded-2xl border border-line/10 bg-[rgb(var(--color-card)/0.92)] shadow-[0_18px_55px_rgba(0,0,0,0.2)]">
       {showCover && (
-        <div className="relative aspect-[16/7] min-h-56 overflow-hidden border-b border-surface-200 bg-surface-100 dark:border-white/15 dark:bg-surface-950">
+        <div className="relative aspect-[16/7] min-h-56 overflow-hidden border-b border-line/10 bg-surface-900">
           <Image
             src={project.coverImage as string}
             alt={project.title}
@@ -68,14 +68,14 @@ export default function ProjectHeader({ project }: ProjectHeaderProps) {
               </span>
             </div>
 
-            <h1 className="text-3xl font-semibold tracking-tight text-surface-950 dark:text-white sm:text-4xl">
+            <h1 className="text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
               {project.title}
             </h1>
-            <p className="mt-3 text-base leading-relaxed text-surface-500 dark:text-surface-400 sm:text-lg">
+            <p className="mt-3 text-base leading-relaxed text-muted sm:text-lg">
               {project.subtitle}
             </p>
 
-            <div className="mt-6 flex flex-wrap items-center gap-4 text-sm text-surface-500 dark:text-surface-400">
+            <div className="mt-6 flex flex-wrap items-center gap-4 text-sm text-muted">
               <span className="inline-flex items-center gap-2">
                 <User2 className="h-4 w-4 text-[var(--project-primary)]" />
                 {project.author}
@@ -89,7 +89,7 @@ export default function ProjectHeader({ project }: ProjectHeaderProps) {
 
           <div className="flex shrink-0 items-center justify-center">
             {showLogo ? (
-              <div className="relative h-20 w-32 overflow-hidden rounded-xl border border-surface-200 bg-[rgb(var(--color-card))] p-3 dark:border-white/15 dark:bg-surface-950">
+              <div className="relative h-20 w-32 overflow-hidden rounded-xl border border-line/10 bg-[rgb(var(--color-card))] p-3">
                 <Image
                   src={project.logo as string}
                   alt={`${project.title} logo`}
@@ -109,7 +109,7 @@ export default function ProjectHeader({ project }: ProjectHeaderProps) {
 
         <div className="mt-8 flex flex-wrap gap-2">
           {project.technologies.map((technology) => (
-            <span key={technology} className="rounded-lg bg-surface-100 px-2.5 py-1 text-xs font-semibold text-surface-600 dark:bg-white/10 dark:text-slate-200">
+            <span key={technology} className="rounded-lg bg-surface-900 px-2.5 py-1 text-xs font-semibold text-muted">
               {technology}
             </span>
           ))}

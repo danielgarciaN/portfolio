@@ -33,8 +33,8 @@ export default function ProjectDetailPage({ project }: ProjectDetailPageProps) {
         }
       : project;
   const projectTheme = {
-    '--project-primary': localizedProject.colorTheme.primary,
-    '--project-soft': localizedProject.colorTheme.soft,
+    '--project-primary': '#B8966B',
+    '--project-soft': 'rgba(184, 150, 107, 0.10)',
   } as CSSProperties;
 
   return (
@@ -52,17 +52,17 @@ export default function ProjectDetailPage({ project }: ProjectDetailPageProps) {
         <div className="mx-auto max-w-5xl">
           <ProjectHeader project={localizedProject} />
 
-          <div className="mt-8 rounded-2xl border border-surface-200 bg-[rgb(var(--color-card)/0.9)] p-6 shadow-[0_16px_45px_rgba(35,78,112,0.08)] dark:border-surface-800 dark:bg-surface-900 sm:p-8">
+          <div className="mt-8 rounded-2xl border border-line/10 bg-[rgb(var(--color-card)/0.9)] p-6 shadow-[0_16px_45px_rgba(0,0,0,0.2)] sm:p-8">
             <span className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--project-primary)]">
               {messages.projectDossier.overviewEyebrow}
             </span>
-            <h2 className="mt-2 text-2xl font-semibold tracking-tight text-surface-900 dark:text-surface-50">
+            <h2 className="mt-2 text-2xl font-semibold tracking-tight text-ink">
               {messages.projectDossier.overviewTitle}
             </h2>
-            <p className="mt-4 text-sm leading-relaxed text-surface-500 dark:text-surface-400 sm:text-base">
+            <p className="mt-4 text-sm leading-relaxed text-muted sm:text-base">
               {localizedProject.description}
             </p>
-            <p className="mt-3 text-sm leading-relaxed text-surface-600 dark:text-surface-300 sm:text-base">
+            <p className="mt-3 text-sm leading-relaxed text-muted sm:text-base">
               {localizedProject.longDescription}
             </p>
           </div>
@@ -72,14 +72,14 @@ export default function ProjectDetailPage({ project }: ProjectDetailPageProps) {
               {localizedProject.detailSections.map((section) => (
                 <section
                   key={`${section.eyebrow ?? section.title}-${section.title}`}
-                  className="rounded-2xl border border-surface-200 bg-[rgb(var(--color-card)/0.9)] p-6 shadow-sm dark:border-surface-800 dark:bg-surface-900 sm:p-8"
+                  className="rounded-2xl border border-line/10 bg-[rgb(var(--color-card)/0.9)] p-6 shadow-sm sm:p-8"
                 >
                   {section.eyebrow && (
                     <span className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--project-primary)]">
                       {section.eyebrow}
                     </span>
                   )}
-                  <h2 className="mt-2 text-2xl font-semibold tracking-tight text-surface-900 dark:text-surface-50">
+                  <h2 className="mt-2 text-2xl font-semibold tracking-tight text-ink">
                     {section.title}
                   </h2>
 
@@ -88,7 +88,7 @@ export default function ProjectDetailPage({ project }: ProjectDetailPageProps) {
                       {section.body.map((paragraph) => (
                         <p
                           key={paragraph}
-                          className="text-sm leading-relaxed text-surface-600 dark:text-surface-300 sm:text-base"
+                          className="text-sm leading-relaxed text-muted sm:text-base"
                         >
                           {paragraph}
                         </p>
@@ -104,7 +104,7 @@ export default function ProjectDetailPage({ project }: ProjectDetailPageProps) {
                             {step}
                           </span>
                           {index < (section.steps?.length ?? 0) - 1 && (
-                            <span className="text-xs font-bold text-surface-300 dark:text-surface-600">/</span>
+                            <span className="text-xs font-bold text-muted">/</span>
                           )}
                         </div>
                       ))}
@@ -116,16 +116,16 @@ export default function ProjectDetailPage({ project }: ProjectDetailPageProps) {
                       {section.metrics.map((metric) => (
                         <div
                           key={`${metric.label}-${metric.value}`}
-                          className="rounded-xl border border-surface-200 bg-surface-50/70 p-4 dark:border-surface-800 dark:bg-surface-950/45"
+                          className="rounded-xl border border-line/10 bg-surface-900/70 p-4"
                         >
-                          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-surface-400">
+                          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-subtle">
                             {metric.label}
                           </p>
                           <p className="mt-2 text-2xl font-bold tracking-tight text-[var(--project-primary)]">
                             {metric.value}
                           </p>
                           {metric.description && (
-                            <p className="mt-1 text-xs leading-relaxed text-surface-500 dark:text-surface-400">
+                            <p className="mt-1 text-xs leading-relaxed text-muted">
                               {metric.description}
                             </p>
                           )}
@@ -139,7 +139,7 @@ export default function ProjectDetailPage({ project }: ProjectDetailPageProps) {
                       {section.items.map((item) => (
                         <li
                           key={item}
-                          className="rounded-lg bg-surface-100 px-3 py-2 text-sm text-surface-600 dark:bg-surface-800 dark:text-surface-300"
+                          className="rounded-lg bg-surface-900 px-3 py-2 text-sm text-muted"
                         >
                           {item}
                         </li>
@@ -148,7 +148,7 @@ export default function ProjectDetailPage({ project }: ProjectDetailPageProps) {
                   )}
 
                   {section.image && (
-                    <div className="mt-6 overflow-hidden rounded-xl border border-surface-200 bg-surface-100 dark:border-surface-800 dark:bg-surface-950">
+                    <div className="mt-6 overflow-hidden rounded-xl border border-line/10 bg-surface-900">
                       <div className="relative aspect-video">
                         <Image
                           src={section.image.src}
@@ -159,12 +159,12 @@ export default function ProjectDetailPage({ project }: ProjectDetailPageProps) {
                         />
                       </div>
                       {(section.image.title || section.image.description) && (
-                        <div className="border-t border-surface-200 p-4 dark:border-surface-800">
-                          <h3 className="text-sm font-bold text-surface-800 dark:text-surface-100">
+                        <div className="border-t border-line/10 p-4">
+                          <h3 className="text-sm font-bold text-ink">
                             {section.image.title}
                           </h3>
                           {section.image.description && (
-                            <p className="mt-1 text-sm leading-relaxed text-surface-500 dark:text-surface-400">
+                            <p className="mt-1 text-sm leading-relaxed text-muted">
                               {section.image.description}
                             </p>
                           )}
