@@ -2,6 +2,71 @@ import type { Project, SkillCategory, TimelineItem } from '@/types';
 
 export const fallbackProjects: Project[] = [
   {
+    id: '12',
+    title: 'Hotel Booking Cancellation Prediction',
+    slug: 'hotel-booking-cancellation-ml',
+    description:
+      'Predicción de cancelaciones hoteleras con Machine Learning, validación temporal, selección de umbral e interpretabilidad SHAP.',
+    long_description:
+      'Proyecto del Máster en Data Science & IA con 119.390 reservas. Compara regresión logística, Random Forest e HistGradientBoosting y selecciona HGB con umbral 0,30. En TEST obtiene ROC-AUC 0,8914, Precision 68,2 %, Recall 89,0 % y F1 77,3 %, con un 52,9 % de reservas señaladas.',
+    categories: ['master', 'data-science'],
+    technologies: ['Python', 'scikit-learn', 'SHAP', 'Pandas', 'HistGradientBoosting'],
+    github_url: 'https://github.com/danielgarciaN/hoteles_evolve',
+    image_url: '/images/projects/hotel-booking-cancellation-ml-cover.jpg',
+    status: 'terminado',
+    featured: false,
+    learnings: [
+      'Validación temporal y prevención de data leakage',
+      'Selección de modelo y umbral según equilibrio operativo',
+      'Interpretación con SHAP sin atribuir causalidad',
+      'Análisis de falsas alarmas y volumen de intervención',
+    ],
+    created_at: '2026-09-28',
+  },
+  {
+    id: '11',
+    title: 'Statistical Sales Analysis',
+    slug: 'statistical-sales-analysis',
+    description:
+      'Analisis estadistico de factores asociados a ingresos por ventas con Python, regresion lineal multiple, metricas de evaluacion y diagnostico estadistico.',
+    long_description:
+      'Proyecto finalizado del Master en Data Science basado en un dataset sintetico de 60.000 observaciones y 23 variables. Estudia asociaciones entre marketing, comportamiento del cliente, engagement digital y contexto comercial con sales_revenue_usd, usando EDA, deteccion de outliers, seleccion de variables, regresion lineal multiple, R2, MAE, RMSE, VIF, diagnostico de residuos, test de White y errores robustos HC3.',
+    categories: ['master', 'data-analytics'],
+    technologies: ['Python', 'Statistics', 'Regression', 'Pandas'],
+    image_url: '/images/projects/statistical-sales-analysis-cover.jpg',
+    status: 'terminado',
+    featured: false,
+    learnings: [
+      'Analisis estadistico observacional',
+      'Regresion lineal multiple e interpretacion ceteris paribus',
+      'Diagnostico con VIF, residuos, White test y HC3',
+      'Comunicacion de insights sin asumir causalidad',
+    ],
+    created_at: '2026-09-01',
+  },
+  {
+    id: '10',
+    title: 'Global Electronics Retail Analytics',
+    slug: 'global-electronics-powerbi',
+    description:
+      'Dashboard completo de Business Intelligence en Power BI con Power Query, modelo estrella, DAX, KPIs, navegacion, filtros y storytelling visual.',
+    long_description:
+      'Proyecto finalizado del Master en Data Science sobre Global Electronics Retailer. Construye un informe ejecutivo e interactivo con preparacion de datos en Power Query, modelo en estrella, calendario DAX, medidas de ventas, margen, pedidos, ticket medio, YoY, YTD y rankings, ademas de paginas de resumen, productos, clientes, mercados, tiendas y detalle.',
+    categories: ['master', 'data-analytics'],
+    technologies: ['Power BI', 'Power Query', 'DAX', 'Data Modeling'],
+    image_url: '/images/projects/global-electronics-powerbi-cover.jpg',
+    status: 'terminado',
+    featured: true,
+    featuredOrder: 4,
+    learnings: [
+      'Flujo completo de Business Intelligence',
+      'Power Query y modelado en estrella',
+      'Medidas DAX, KPIs e inteligencia temporal',
+      'Storytelling visual con filtros, bookmarks y drillthrough',
+    ],
+    created_at: '2026-09-01',
+  },
+  {
     id: '9',
     title: 'StatsBomb SQL Analytics',
     slug: 'statsbomb-sql-analytics',
@@ -15,6 +80,7 @@ export const fallbackProjects: Project[] = [
     image_url: '/images/projects/model.jpg',
     status: 'terminado',
     featured: true,
+    featuredOrder: 6,
     learnings: [
       'Modelado relacional y normalizacion',
       'SQL avanzado con CTEs, vistas y funciones ventana',
@@ -36,7 +102,7 @@ export const fallbackProjects: Project[] = [
     github_url: 'https://github.com/danielgarciaN/marketing-ia',
     image_url: '/images/projects/marketing-ia.jpg',
     status: 'en_proceso',
-    featured: true,
+    featured: false,
     learnings: [
       'Orquestacion multiagente con LangGraph',
       'RAG con Qdrant y embeddings locales',
@@ -59,6 +125,7 @@ export const fallbackProjects: Project[] = [
     github_url: 'https://github.com/danielgarciaN/xG-statsbomb-master',
     status: 'terminado',
     featured: true,
+    featuredOrder: 5,
     learnings: [
       'Modelado de Expected Goals',
       'Feature engineering futbolístico',
@@ -80,6 +147,7 @@ export const fallbackProjects: Project[] = [
     image_url: '/images/projects/tfg-agentes-conversacionales-iatech.jpg',
     status: 'terminado',
     featured: true,
+    featuredOrder: 3,
     learnings: [
       'Diseño de arquitecturas parametrizables',
       'Validación de soluciones mediante Proof of Concept',
@@ -101,7 +169,7 @@ export const fallbackProjects: Project[] = [
     github_url: 'https://github.com/danielgarciaN/find-it',
     image_url: '/images/projects/find-it.jpg',
     status: 'terminado',
-    featured: true,
+    featured: false,
     learnings: [
       'Integración con Google Cloud Vision API',
       'Arquitectura serverless con Firebase',
@@ -123,6 +191,7 @@ export const fallbackProjects: Project[] = [
     image_url: '/images/projects/lol-win-prediction.jpg',
     status: 'terminado',
     featured: true,
+    featuredOrder: 2,
     learnings: [
       'Feature engineering aplicado a datos competitivos',
       'Prevención de data leakage',
@@ -144,7 +213,7 @@ export const fallbackProjects: Project[] = [
     github_url: 'https://github.com/danielgarciaN/futbol-data',
     image_url: '/images/projects/futbol-data.jpg',
     status: 'terminado',
-    featured: true,
+    featured: false,
     learnings: [
       'Procesamiento de datos deportivos',
       'Visualización avanzada con Matplotlib',
@@ -186,7 +255,8 @@ export const fallbackProjects: Project[] = [
     github_url: 'https://github.com/danielgarciaN/Unimate',
     image_url: '/images/projects/unimate.JPG',
     status: 'terminado',
-    featured: false,
+    featured: true,
+    featuredOrder: 1,
     learnings: [
       'Trabajo con repositorio compartido',
       'Diseño centrado en comunidad universitaria',

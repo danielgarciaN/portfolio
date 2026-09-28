@@ -22,6 +22,7 @@ export interface Project {
   image_url?: string;
   status: ProjectStatus;
   featured: boolean;
+  featuredOrder?: number;
   learnings?: string[];
   created_at: string;
 }

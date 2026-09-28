@@ -1,6 +1,7 @@
 import { supabase } from './supabase';
 import type { Project, ProjectCategory } from '@/types';
 import { fallbackProjects } from '@/lib/data';
+import { getOrderedFeaturedProjects } from '@/lib/project-list';
 
 const legacyCategoryMap: Record<string, ProjectCategory> = {
   personal: 'data-analytics',
@@ -25,8 +26,12 @@ function normalizeCategories(project: Project) {
 }
 
 function normalizeProject(project: Project): Project {
+  const localProject = fallbackProjects.find((item) => item.slug === project.slug);
   return {
     ...project,
+    featured: localProject?.featured ?? project.featured,
+    featuredOrder: localProject ? localProject.featuredOrder : project.featuredOrder,
+    image_url: localProject?.image_url?.endsWith('-cover.jpg') ? localProject.image_url : project.image_url,
     categories: normalizeCategories(project),
     // This completed project may still have an older status in Supabase.
     status: project.slug === 'expected-goals-xg-statsbomb' ? 'terminado' : project.status,
@@ -46,7 +51,9 @@ function mergeWithFallbackProjects(projects: Project[]) {
 
 export async function getProjects(category?: ProjectCategory): Promise<Project[]> {
   try {
-    if (!supabase) return fallbackProjects;
+    if (!supabase) return category
+      ? fallbackProjects.filter((project) => (project.categories ?? (project.category ? [project.category] : [])).includes(category))
+      : fallbackProjects;
 
     let query = supabase
       .from('projects')
@@ -87,19 +94,5 @@ export async function getProjectBySlug(slug: string): Promise<Project | null> {
 }
 
 export async function getFeaturedProjects(): Promise<Project[]> {
-  try {
-    if (!supabase) return fallbackProjects.filter((p) => p.featured);
-
-    const { data, error } = await supabase
-      .from('projects')
-      .select('*')
-      .eq('featured', true)
-      .order('created_at', { ascending: false })
-      .limit(4);
-
-    if (error) throw error;
-    return mergeWithFallbackProjects((data as Project[]) ?? []).filter((p) => p.featured).slice(0, 4);
-  } catch {
-    return fallbackProjects.filter((p) => p.featured);
-  }
+  return getOrderedFeaturedProjects(await getProjects());
 }

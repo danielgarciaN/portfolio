@@ -380,6 +380,8 @@
     "search": "Buscar proyecto...",
     "noResults": "No se encontraron proyectos con esos filtros.",
     "clearFilters": "Limpiar filtros",
+    "viewMore": "Ver más proyectos",
+    "showLess": "Ver menos",
     "categories": {
       "all": "Todos",
       "data-analytics": "Data Analytics",
@@ -402,6 +404,10 @@
       "details": "Explorar proyecto"
     },
     "items": {
+      "hotel-booking-cancellation-ml": {
+        "title": "Hotel Booking Cancellation Prediction",
+        "description": "Predicción de cancelaciones hoteleras con Machine Learning, validación temporal, selección de umbral e interpretabilidad SHAP."
+      },
       "statistical-sales-analysis": {
         "title": "Statistical Sales Analysis",
         "description": "Análisis estadístico de factores asociados a ingresos por ventas con Python, regresión lineal múltiple, métricas de evaluación y diagnóstico estadístico."

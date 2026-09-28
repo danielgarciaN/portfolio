@@ -35,7 +35,7 @@ export default function ProjectHeader({ project }: ProjectHeaderProps) {
   return (
     <header className="overflow-hidden rounded-2xl border border-line/10 bg-[rgb(var(--color-card)/0.92)] shadow-[0_18px_55px_rgba(0,0,0,0.2)]">
       {showCover && (
-        <div className="relative aspect-[16/7] min-h-56 overflow-hidden border-b border-line/10 bg-surface-900">
+        <div className="relative aspect-[16/7] min-h-56 w-full overflow-hidden border-b border-line/10 bg-surface-900">
           <Image
             src={project.coverImage as string}
             alt={project.title}

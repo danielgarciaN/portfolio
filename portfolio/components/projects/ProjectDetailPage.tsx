@@ -38,7 +38,7 @@ export default function ProjectDetailPage({ project }: ProjectDetailPageProps) {
   } as CSSProperties;
 
   return (
-    <main style={projectTheme} className="bg-[rgb(var(--color-page))] pt-24">
+    <main style={projectTheme} className="bg-[rgb(var(--color-page))] pt-24 [overflow-wrap:anywhere]">
       <motion.div
         initial={{ opacity: 0, y: 24 }}
         animate={{ opacity: 1, y: 0 }}
@@ -173,9 +173,11 @@ export default function ProjectDetailPage({ project }: ProjectDetailPageProps) {
                       </div>
                       {(imageSection.title || imageSection.description) && (
                         <div className="border-t border-line/10 p-4">
-                          <h3 className="text-sm font-bold text-ink">
-                            {imageSection.title}
-                          </h3>
+                          {imageSection.title && (
+                            <h3 className="text-sm font-bold text-ink">
+                              {imageSection.title}
+                            </h3>
+                          )}
                           {imageSection.description && (
                             <p className="mt-1 text-sm leading-relaxed text-muted">
                               {imageSection.description}
@@ -192,30 +194,10 @@ export default function ProjectDetailPage({ project }: ProjectDetailPageProps) {
           )}
 
           <div className="mt-10 space-y-12">
-            {project.detailSections?.map((section) => (
-              <section
-                key={`${section.eyebrow}-${section.title}`}
-                className="rounded-2xl border border-surface-200 bg-[rgb(var(--color-card)/0.9)] p-6 shadow-[0_16px_45px_rgba(35,78,112,0.08)] dark:border-surface-800 dark:bg-surface-900 sm:p-8"
-              >
-                <span className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--project-primary)]">
-                  {section.eyebrow}
-                </span>
-                <h2 className="mt-2 text-2xl font-semibold tracking-tight text-surface-900 dark:text-surface-50">
-                  {section.title}
-                </h2>
-                {section.body && (
-                  <div className="mt-4 space-y-3 text-sm leading-relaxed text-surface-600 dark:text-surface-300 sm:text-base">
-                    {section.body.map((paragraph) => (
-                      <p key={paragraph}>{paragraph}</p>
-                    ))}
-                  </div>
-                )}
-              </section>
-            ))}
-            <ProjectResourceList resources={project.resources} />
-            <ProjectVideoSection videos={project.videos} />
-            <ProjectGallery images={project.gallery} />
-            <ProjectNote notes={project.notes} />
+            <ProjectResourceList resources={localizedProject.resources} />
+            <ProjectVideoSection videos={localizedProject.videos} />
+            <ProjectGallery images={localizedProject.gallery} />
+            <ProjectNote notes={localizedProject.notes} />
           </div>
 
           <div className="mt-10">

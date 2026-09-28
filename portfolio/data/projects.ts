@@ -1,6 +1,7 @@
 import { existsSync } from 'node:fs';
 import path from 'node:path';
 import type { ProjectDossier, ProjectGalleryImage, ProjectResource, ProjectVideo } from '@/types';
+import { hotelBookingCancellationDossier } from './hotel-booking-cancellation';
 
 const tfgBasePath = '/projects/tfg-modulo-chatbots';
 const projectBasePath = (slug: string) => `/projects/${slug}`;
@@ -82,6 +83,606 @@ function githubResource(url: string) {
 }
 
 const rawProjectDossiers: ProjectDossier[] = [
+  hotelBookingCancellationDossier,
+  {
+    title: 'Statistical Sales Analysis',
+    slug: 'statistical-sales-analysis',
+    subtitle: 'Analisis estadistico de factores asociados a ingresos por ventas',
+    author: 'Daniel Garcia Nilo',
+    description:
+      'Proyecto finalizado del Master en Data Science que analiza que factores de marketing, cliente, engagement digital y contexto comercial estan mas asociados con los ingresos por ventas.',
+    longDescription:
+      'El trabajo utiliza un dataset sintetico de 60.000 observaciones y 23 variables para estudiar sales_revenue_usd desde una perspectiva observacional. El analisis combina calidad de datos, estadistica descriptiva, outliers IQR, comparaciones por grupos, correlaciones, seleccion de variables y regresion lineal multiple evaluada con R2, MAE, RMSE, VIF, residuos, test de White y errores estandar robustos HC3.',
+    categories: ['master', 'data-analytics'],
+    status: 'terminado',
+    technologies: [
+      'Python',
+      'Pandas',
+      'NumPy',
+      'Matplotlib',
+      'Seaborn',
+      'Scikit-learn',
+      'Statsmodels',
+      'SciPy',
+      'Jupyter Notebook',
+      'Statistics',
+      'Linear Regression',
+      'Data Analysis',
+    ],
+    colorTheme: {
+      primary: '#2B5D7E',
+      soft: 'rgba(43, 93, 126, 0.11)',
+    },
+    coverImage: '/images/projects/statistical-sales-analysis-cover.jpg',
+    resources: [
+      {
+        title: 'Informe final PDF',
+        type: 'pdf',
+        description: 'Informe estadistico final de 5 paginas con metodologia, resultados, conclusiones y limitaciones.',
+        url: `${statisticalSalesBasePath}/docs/DanielGarcia_proyecto_informe_estadistica.pdf`,
+        action: 'view',
+      },
+      {
+        title: 'Jupyter Notebook',
+        type: 'notebook',
+        description: 'Notebook de laboratorio con el analisis reproducible, graficas, modelo y diagnosticos.',
+        url: `${statisticalSalesBasePath}/notebooks/proyecto_estadistica_marketing_sales_v2.ipynb`,
+        action: 'download',
+      },
+    ],
+    videos: [],
+    gallery: [
+      {
+        title: 'Distribucion y boxplot de revenue',
+        src: `${statisticalSalesBasePath}/images/revenue-distribution-boxplot.png`,
+        alt: 'Distribucion y boxplot de sales_revenue_usd',
+        description: 'Figura real del notebook: los ingresos muestran asimetria a la derecha y presencia de valores extremos.',
+      },
+      {
+        title: 'Ingresos medios por grupos',
+        src: `${statisticalSalesBasePath}/images/category-comparison.png`,
+        alt: 'Ingreso medio por segmento, canal, categoria de producto y temporada',
+        description: 'Comparaciones descriptivas por customer segment, sales channel, product category y season.',
+      },
+      {
+        title: 'Relaciones numericas con revenue',
+        src: `${statisticalSalesBasePath}/images/marketing-revenue-relationship.png`,
+        alt: 'Relacion entre marketing budget, conversion, compras previas, satisfaccion e ingresos',
+        description: 'Marketing budget presenta la correlacion lineal mas alta con revenue dentro del analisis numerico.',
+      },
+      {
+        title: 'Diagnostico de residuos',
+        src: `${statisticalSalesBasePath}/images/residual-diagnostics.png`,
+        alt: 'Graficos de diagnostico de residuos del modelo lineal',
+        description: 'Diagnosticos del modelo: residuos asimetricos, valores extremos y evidencia de heterocedasticidad.',
+      },
+    ],
+    detailSections: [
+      {
+        eyebrow: 'Pregunta de negocio',
+        title: 'Factores asociados a mayores ingresos',
+        body: [
+          'La pregunta principal fue: que factores de marketing, comportamiento del cliente, engagement digital y contexto comercial estan mas asociados con los ingresos por ventas?',
+          'La variable objetivo es sales_revenue_usd. Todo el dossier mantiene lenguaje de asociacion: el analisis no demuestra causalidad.',
+        ],
+      },
+      {
+        eyebrow: 'Dataset',
+        title: '60.000 observaciones, 23 variables, periodo 2020-2023',
+        body: [
+          'Dataset sintetico con bloques de variables de marketing, cliente, digital/engagement y contexto comercial. El identificador id y la fecha se excluyen del modelo principal.',
+        ],
+        items: [
+          'Marketing: presupuesto, promociones, descuentos',
+          'Cliente: segmento, edad, satisfaccion, compras previas',
+          'Digital / Engagement: trafico web, conversion, email, seguidores',
+          'Contexto comercial: region, canal, categoria, temporada, vendedores, competencia',
+        ],
+      },
+      {
+        eyebrow: 'Metodologia',
+        title: 'Flujo analitico reproducible',
+        steps: [
+          'Data Quality',
+          'EDA',
+          'Descriptive Statistics',
+          'Outlier Detection',
+          'Correlation Analysis',
+          'Feature Selection',
+          'Multiple Linear Regression',
+          'Model Evaluation',
+          'Statistical Diagnostics',
+          'Business Insights',
+        ],
+        items: [
+          'IQR outlier detection',
+          'Train/test split 80/20',
+          'Dummy variables para categoricas',
+          'R2, Adjusted R2, MAE y RMSE',
+          'Variance Inflation Factor (VIF)',
+          'Residual analysis, White test y errores robustos HC3',
+        ],
+      },
+      {
+        eyebrow: 'Key Results',
+        title: 'Metricas del modelo',
+        metrics: [
+          { label: 'R2 Train', value: '0.834', description: 'Rendimiento en entrenamiento.' },
+          { label: 'Adjusted R2', value: '0.833', description: 'Muy proximo al R2 train.' },
+          { label: 'R2 Test', value: '0.831', description: 'Rendimiento estable en datos nuevos.' },
+          { label: 'MAE Test', value: '1,247 USD', description: 'Error absoluto medio.' },
+          { label: 'RMSE Test', value: '2,361 USD', description: 'Penaliza errores extremos.' },
+          { label: 'Maximum VIF', value: '2.18', description: 'Sin multicolinealidad seria.' },
+        ],
+      },
+      {
+        eyebrow: 'Insights',
+        title: 'Patrones relevantes para negocio',
+        body: [
+          'Marketing budget presenta la correlacion lineal mas elevada con revenue (r = 0.727) y mantiene una asociacion positiva en la regresion al controlar por el resto de variables.',
+          'Tambien destacan conversion_rate, num_previous_purchases y customer_satisfaction_score. En variables categoricas aparecen diferencias relevantes asociadas con Corporate/VIP customers, Electronics, Wholesale y Q4.',
+          'Age, followers, email open rate y region no presentan evidencia estadistica clara una vez controladas las demas variables.',
+        ],
+      },
+      {
+        eyebrow: 'Limitaciones',
+        title: 'Criterio estadistico y prudencia',
+        items: [
+          'El dataset es sintetico.',
+          'El analisis es observacional.',
+          'Asociacion no implica causalidad.',
+          'Existen outliers.',
+          'Existe heterocedasticidad.',
+          'Los residuos presentan problemas de normalidad.',
+          'Se utilizan errores estandar robustos HC3.',
+        ],
+      },
+    ],
+    notes: [
+      'El proyecto estudia asociaciones estadisticas y no relaciones causales.',
+      'Las metricas y visuales proceden del notebook y del informe final proporcionados.',
+    ],
+    translations: {
+      en: {
+        subtitle: 'Statistical analysis of factors associated with sales revenue',
+        description:
+          'Completed Data Science Master project analyzing which marketing, customer, digital engagement and commercial context factors are most associated with sales revenue.',
+        longDescription:
+          'The project uses a synthetic dataset with 60,000 observations and 23 variables to study sales_revenue_usd from an observational perspective. The analysis combines data quality, descriptive statistics, IQR outliers, group comparisons, correlations, feature selection and multiple linear regression evaluated with R2, MAE, RMSE, VIF, residual analysis, White test and robust HC3 standard errors.',
+        resources: [
+          {
+            title: 'Final PDF report',
+            type: 'pdf',
+            description: 'Five-page statistical report with methodology, results, conclusions and limitations.',
+            url: `${statisticalSalesBasePath}/docs/DanielGarcia_proyecto_informe_estadistica.pdf`,
+            action: 'view',
+          },
+          {
+            title: 'Jupyter Notebook',
+            type: 'notebook',
+            description: 'Laboratory notebook with reproducible analysis, charts, model and diagnostics.',
+            url: `${statisticalSalesBasePath}/notebooks/proyecto_estadistica_marketing_sales_v2.ipynb`,
+            action: 'download',
+          },
+        ],
+        gallery: [
+          {
+            title: 'Revenue distribution and boxplot',
+            src: `${statisticalSalesBasePath}/images/revenue-distribution-boxplot.png`,
+            alt: 'Distribution and boxplot of sales_revenue_usd',
+            description: 'Real notebook figure: revenue is right-skewed and contains extreme values.',
+          },
+          {
+            title: 'Average revenue by groups',
+            src: `${statisticalSalesBasePath}/images/category-comparison.png`,
+            alt: 'Average revenue by segment, channel, product category and season',
+            description: 'Descriptive comparisons by customer segment, sales channel, product category and season.',
+          },
+          {
+            title: 'Numerical relationships with revenue',
+            src: `${statisticalSalesBasePath}/images/marketing-revenue-relationship.png`,
+            alt: 'Relationship between marketing budget, conversion, previous purchases, satisfaction and revenue',
+            description: 'Marketing budget has the highest linear correlation with revenue in the numerical analysis.',
+          },
+          {
+            title: 'Residual diagnostics',
+            src: `${statisticalSalesBasePath}/images/residual-diagnostics.png`,
+            alt: 'Residual diagnostic plots for the linear model',
+            description: 'Model diagnostics: skewed residuals, extreme values and evidence of heteroscedasticity.',
+          },
+        ],
+        detailSections: [
+          {
+            eyebrow: 'Business Question',
+            title: 'Factors associated with higher revenue',
+            body: [
+              'The main question was: which marketing, customer behavior, digital engagement and commercial context factors are most associated with sales revenue?',
+              'The target variable is sales_revenue_usd. The whole dossier uses association language: the analysis does not prove causality.',
+            ],
+          },
+          {
+            eyebrow: 'Dataset',
+            title: '60,000 observations, 23 variables, 2020-2023 period',
+            body: [
+              'Synthetic dataset with marketing, customer, digital engagement and commercial context variable blocks. The id and date fields are excluded from the main model.',
+            ],
+            items: [
+              'Marketing: budget, promotions, discounts',
+              'Customer: segment, age, satisfaction, previous purchases',
+              'Digital / Engagement: web traffic, conversion, email, followers',
+              'Commercial context: region, channel, category, season, salespeople, competition',
+            ],
+          },
+          {
+            eyebrow: 'Methodology',
+            title: 'Reproducible analytical workflow',
+            steps: [
+              'Data Quality',
+              'EDA',
+              'Descriptive Statistics',
+              'Outlier Detection',
+              'Correlation Analysis',
+              'Feature Selection',
+              'Multiple Linear Regression',
+              'Model Evaluation',
+              'Statistical Diagnostics',
+              'Business Insights',
+            ],
+            items: [
+              'IQR outlier detection',
+              '80/20 train/test split',
+              'Dummy variables for categorical features',
+              'R2, Adjusted R2, MAE and RMSE',
+              'Variance Inflation Factor (VIF)',
+              'Residual analysis, White test and robust HC3 errors',
+            ],
+          },
+          {
+            eyebrow: 'Key Results',
+            title: 'Model metrics',
+            metrics: [
+              { label: 'R2 Train', value: '0.834', description: 'Training performance.' },
+              { label: 'Adjusted R2', value: '0.833', description: 'Very close to train R2.' },
+              { label: 'R2 Test', value: '0.831', description: 'Stable performance on new data.' },
+              { label: 'MAE Test', value: '1,247 USD', description: 'Mean absolute error.' },
+              { label: 'RMSE Test', value: '2,361 USD', description: 'Penalizes extreme errors.' },
+              { label: 'Maximum VIF', value: '2.18', description: 'No serious multicollinearity.' },
+            ],
+          },
+          {
+            eyebrow: 'Insights',
+            title: 'Business-relevant patterns',
+            body: [
+              'Marketing budget has the highest linear correlation with revenue (r = 0.727) and keeps a positive association in the regression after controlling for the rest of the variables.',
+              'conversion_rate, num_previous_purchases and customer_satisfaction_score also stand out. Categorical variables show relevant differences associated with Corporate/VIP customers, Electronics, Wholesale and Q4.',
+              'Age, followers, email open rate and region do not show clear statistical evidence after controlling for the other variables.',
+            ],
+          },
+          {
+            eyebrow: 'Limitations',
+            title: 'Statistical judgment and caution',
+            items: [
+              'The dataset is synthetic.',
+              'The analysis is observational.',
+              'Association does not imply causality.',
+              'Outliers exist.',
+              'Heteroscedasticity is present.',
+              'Residuals show normality problems.',
+              'Robust HC3 standard errors are used.',
+            ],
+          },
+        ],
+        notes: [
+          'The project studies statistical associations, not causal relationships.',
+          'Metrics and visuals come from the provided notebook and final report.',
+        ],
+      },
+    },
+  },
+  {
+    title: 'Global Electronics Retail Analytics',
+    slug: 'global-electronics-powerbi',
+    subtitle: 'Power BI Analytics sobre un retailer global de electronica',
+    author: 'Daniel Garcia Nilo',
+    description:
+      'Proyecto finalizado del Master en Data Science que construye una solucion completa de Business Intelligence en Power BI para analizar ventas, margen, productos, clientes, mercados y tiendas.',
+    longDescription:
+      'El informe trabaja con el dataset Global Electronics Retailer y cubre el flujo completo de BI: preparacion y transformacion en Power Query, modelo en estrella, tabla calendario, medidas DAX, KPIs, segmentadores, navegacion, bookmarks, drillthrough, visualizaciones interactivas y storytelling ejecutivo.',
+    categories: ['master', 'data-analytics'],
+    status: 'terminado',
+    technologies: ['Power BI', 'Power Query', 'DAX', 'Data Modeling', 'Business Intelligence', 'Data Visualization', 'Data Analytics'],
+    colorTheme: {
+      primary: '#2B5D7E',
+      soft: 'rgba(43, 93, 126, 0.11)',
+    },
+    coverImage: '/images/projects/global-electronics-powerbi-cover.jpg',
+    resources: [
+      {
+        title: 'Documento explicativo PDF',
+        type: 'pdf',
+        description: 'Documento final con preparacion, modelo de datos, DAX, paginas del dashboard, interactividad e insights.',
+        url: `${globalElectronicsBasePath}/docs/GarciaNilo_Daniel_TrabajoPBI_DocumentoExplicativo.pdf`,
+        action: 'view',
+      },
+      {
+        title: 'Proyecto Power BI PBIX',
+        type: 'powerbi',
+        description: 'Archivo Power BI Desktop con el informe interactivo y el modelo implementado.',
+        url: `${globalElectronicsBasePath}/powerbi/Garcia_Daniel_TrabajoPBI.pbix`,
+        action: 'download',
+      },
+      {
+        title: 'Data dictionary',
+        type: 'data',
+        description: 'Diccionario de datos original del dataset Global Electronics Retailer.',
+        url: `${globalElectronicsBasePath}/data/Data_Dictionary.csv`,
+        action: 'download',
+      },
+    ],
+    videos: [],
+    gallery: [
+      {
+        title: 'Modelo de datos',
+        src: `${globalElectronicsBasePath}/images/data-model-and-calendar.png`,
+        alt: 'Modelo estrella del proyecto Power BI con FACT_Ventas, dimensiones y tabla de medidas',
+        description: 'Modelo en estrella con FACT_Ventas, DIM_Productos, DIM_Clientes, DIM_Tiendas, DIM_Calendario y tabla Medidas.',
+      },
+      {
+        title: 'Resumen ejecutivo',
+        src: `${globalElectronicsBasePath}/images/dax-measures.png`,
+        alt: 'Pagina Resumen Ejecutivo del dashboard Power BI',
+        description: 'Vista ejecutiva con KPIs, ventas mensuales, mix por pais, categoria y evolucion ventas-margen.',
+      },
+      {
+        title: 'Tiendas y detalle',
+        src: `${globalElectronicsBasePath}/images/dashboard-storytelling.png`,
+        alt: 'Pagina Tiendas y Detalle del dashboard Power BI',
+        description: 'Vista de rendimiento por punto de venta y tabla de detalle de pedidos.',
+      },
+    ],
+    detailSections: [
+      {
+        eyebrow: 'Contexto',
+        title: 'Business Intelligence para retail global',
+        body: [
+          'El objetivo fue construir un informe ejecutivo e interactivo para analizar el rendimiento comercial de un retailer global de electronica, identificando evolucion de ventas y margen, productos y mercados que impulsan el negocio, perfil de cliente y desempeno de tiendas.',
+        ],
+      },
+      {
+        eyebrow: 'Dataset',
+        title: 'Global Electronics Retailer',
+        body: [
+          'Origen: Maven Analytics Data Playground - Global Electronics Retailer. Rango temporal del modelo: 2016-01-01 a 2021-02-20.',
+        ],
+        items: [
+          'Sales.csv: pedidos, fecha, cliente, tienda, producto, cantidad y moneda',
+          'Customers.csv: datos demograficos y geograficos del cliente',
+          'Products.csv: producto, marca, categoria, subcategoria, coste y precio unitario',
+          'Stores.csv: pais, estado, superficie, fecha de apertura y canal Online',
+          'Exchange_Rates.csv: tipos de cambio diarios mantenidos como consulta auxiliar',
+          'Data_Dictionary.csv: descripcion de campos',
+        ],
+      },
+      {
+        eyebrow: 'Power Query',
+        title: 'Preparacion y transformacion de datos',
+        steps: ['Raw CSV', 'Power Query', 'Data Model', 'DAX', 'Visualization', 'Business Insights'],
+        items: [
+          'Renombrado de consultas y campos con nomenclatura de negocio',
+          'Correccion de tipos de datos y configuracion regional inglesa (Estados Unidos)',
+          'Limpieza de campos monetarios y conversion a decimal',
+          'Codigos postales tratados como texto',
+          'Conservacion justificada de nulos cuando el dato no aplica',
+          'AUX_TiposCambio preparada como apoyo con carga deshabilitada',
+        ],
+      },
+      {
+        eyebrow: 'Modelo de datos',
+        title: 'Esquema en estrella y calendario DAX',
+        body: [
+          'FACT_Ventas actua como tabla de hechos central relacionada 1:* y con filtro unidireccional hacia DIM_Productos, DIM_Clientes, DIM_Tiendas y DIM_Calendario. Las claves tecnicas se ocultan al usuario final y las medidas se concentran en una tabla especifica.',
+          'La tabla calendario se creo con DAX mediante CALENDAR sobre el minimo y maximo de FechaPedido e incluye Ano, Mes, MesNumero, AnoMes, Trimestre, Semana, DiaSemana y DiaSemanaNumero.',
+        ],
+        image: {
+          title: 'Relaciones del modelo Power BI',
+          src: `${globalElectronicsBasePath}/images/data-model-and-calendar.png`,
+          alt: 'Modelo estrella de Power BI',
+          description: 'Captura real del modelo relacional incluido en el documento del proyecto.',
+        },
+      },
+      {
+        eyebrow: 'DAX & KPIs',
+        title: 'Medidas principales verificadas',
+        items: [
+          'Total_Ventas: SUMX sobre FACT_Ventas con cantidad por precio unitario relacionado',
+          'Margen_Total: Total_Ventas menos Total_Coste',
+          'Pct_Margen: DIVIDE(Margen_Total, Total_Ventas)',
+          'Num_Pedidos: DISTINCTCOUNT(IdPedido)',
+          'Ticket_Medio: DIVIDE(Total_Ventas, Num_Pedidos)',
+          'Ventas_Año_Anterior, Pct_Variacion_Ventas_YoY, Ventas_YTD y rankings con RANKX',
+        ],
+      },
+      {
+        eyebrow: 'Dashboard',
+        title: 'Paginas, navegacion e interactividad',
+        items: [
+          'Resumen Ejecutivo',
+          'Productos',
+          'Clientes y Mercados',
+          'Tiendas y Detalle',
+          'Segmentadores sincronizados de Ano, Trimestre, Categoria, Marca y Pais',
+          'Bookmark funcional de Restablecer filtros',
+          'Drillthrough desde Productos hacia una pagina oculta de detalle',
+        ],
+      },
+      {
+        eyebrow: 'Insights',
+        title: 'Conclusiones principales del informe',
+        metrics: [
+          { label: 'Ventas totales', value: '55.76 M', description: 'Rendimiento agregado analizado.' },
+          { label: 'Margen total', value: '32.66 M', description: 'Beneficio bruto estimado.' },
+          { label: '% Margen', value: '58.58%', description: 'Rentabilidad relativa estable.' },
+          { label: 'Pedidos YoY', value: '+12.8%', description: 'Crecimiento apoyado en volumen/frecuencia.' },
+          { label: 'Ticket medio YoY', value: '-0.6%', description: 'Ligera caida del gasto medio por pedido.' },
+          { label: 'Ventas 2020', value: '-49.1%', description: 'Contraccion significativa del periodo.' },
+        ],
+        body: [
+          'Computers lidera el catalogo con alrededor de 19.30 M, Estados Unidos concentra aproximadamente 23.8 M y el canal Online destaca frente a cada tienda fisica individual.',
+        ],
+      },
+    ],
+    notes: [
+      'No se anade repositorio GitHub porque el proyecto se entrega como PBIX, documento explicativo y recursos del dataset.',
+      'Las funcionalidades destacadas proceden del documento explicativo proporcionado.',
+    ],
+    translations: {
+      en: {
+        subtitle: 'Power BI Analytics for a global electronics retailer',
+        description:
+          'Completed Data Science Master project building a full Business Intelligence solution in Power BI to analyze sales, margin, products, customers, markets and stores.',
+        longDescription:
+          'The report uses the Global Electronics Retailer dataset and covers the complete BI workflow: preparation and transformation in Power Query, star schema, calendar table, DAX measures, KPIs, slicers, navigation, bookmarks, drillthrough, interactive visualizations and executive storytelling.',
+        resources: [
+          {
+            title: 'Project documentation PDF',
+            type: 'pdf',
+            description: 'Final document covering preparation, data model, DAX, dashboard pages, interactivity and insights.',
+            url: `${globalElectronicsBasePath}/docs/GarciaNilo_Daniel_TrabajoPBI_DocumentoExplicativo.pdf`,
+            action: 'view',
+          },
+          {
+            title: 'Power BI PBIX project',
+            type: 'powerbi',
+            description: 'Power BI Desktop file with the interactive report and implemented model.',
+            url: `${globalElectronicsBasePath}/powerbi/Garcia_Daniel_TrabajoPBI.pbix`,
+            action: 'download',
+          },
+          {
+            title: 'Data dictionary',
+            type: 'data',
+            description: 'Original data dictionary for the Global Electronics Retailer dataset.',
+            url: `${globalElectronicsBasePath}/data/Data_Dictionary.csv`,
+            action: 'download',
+          },
+        ],
+        gallery: [
+          {
+            title: 'Data model',
+            src: `${globalElectronicsBasePath}/images/data-model-and-calendar.png`,
+            alt: 'Power BI star schema with FACT_Ventas, dimensions and measures table',
+            description: 'Star schema with FACT_Ventas, DIM_Products, DIM_Customers, DIM_Stores, DIM_Calendar and Measures table.',
+          },
+          {
+            title: 'Executive summary',
+            src: `${globalElectronicsBasePath}/images/dax-measures.png`,
+            alt: 'Executive Summary page of the Power BI dashboard',
+            description: 'Executive view with KPIs, monthly sales, country mix, category mix and sales-margin evolution.',
+          },
+          {
+            title: 'Stores and detail',
+            src: `${globalElectronicsBasePath}/images/dashboard-storytelling.png`,
+            alt: 'Stores and Detail page of the Power BI dashboard',
+            description: 'Store performance view and order detail table.',
+          },
+        ],
+        detailSections: [
+          {
+            eyebrow: 'Context',
+            title: 'Business Intelligence for global retail',
+            body: [
+              'The objective was to build an executive and interactive report to analyze the commercial performance of a global electronics retailer, identifying sales and margin evolution, products and markets driving the business, customer profile and store performance.',
+            ],
+          },
+          {
+            eyebrow: 'Dataset',
+            title: 'Global Electronics Retailer',
+            body: [
+              'Source: Maven Analytics Data Playground - Global Electronics Retailer. Model date range: 2016-01-01 to 2021-02-20.',
+            ],
+            items: [
+              'Sales.csv: orders, date, customer, store, product, quantity and currency',
+              'Customers.csv: customer demographic and geographic data',
+              'Products.csv: product, brand, category, subcategory, cost and unit price',
+              'Stores.csv: country, state, surface area, opening date and Online channel',
+              'Exchange_Rates.csv: daily exchange rates kept as an auxiliary query',
+              'Data_Dictionary.csv: field descriptions',
+            ],
+          },
+          {
+            eyebrow: 'Power Query',
+            title: 'Data preparation and transformation',
+            steps: ['Raw CSV', 'Power Query', 'Data Model', 'DAX', 'Visualization', 'Business Insights'],
+            items: [
+              'Queries and fields renamed with business-oriented naming',
+              'Data type correction and English (United States) regional settings',
+              'Monetary fields cleaned and converted to decimal',
+              'Postal codes treated as text',
+              'Nulls preserved when the value does not apply',
+              'AUX_TiposCambio prepared as support with load disabled',
+            ],
+          },
+          {
+            eyebrow: 'Data Model',
+            title: 'Star schema and DAX calendar',
+            body: [
+              'FACT_Ventas acts as the central fact table with 1:* single-direction filter relationships to DIM_Products, DIM_Customers, DIM_Stores and DIM_Calendar. Technical keys are hidden from the final user and measures are concentrated in a dedicated table.',
+              'The calendar table was created in DAX with CALENDAR over the minimum and maximum FechaPedido and includes Year, Month, MonthNumber, YearMonth, Quarter, Week, Weekday and WeekdayNumber.',
+            ],
+            image: {
+              title: 'Power BI model relationships',
+              src: `${globalElectronicsBasePath}/images/data-model-and-calendar.png`,
+              alt: 'Power BI star schema',
+              description: 'Real screenshot of the relational model included in the project document.',
+            },
+          },
+          {
+            eyebrow: 'DAX & KPIs',
+            title: 'Verified main measures',
+            items: [
+              'Total_Ventas: SUMX over FACT_Ventas with quantity times related unit price',
+              'Margen_Total: Total_Ventas minus Total_Coste',
+              'Pct_Margen: DIVIDE(Margen_Total, Total_Ventas)',
+              'Num_Pedidos: DISTINCTCOUNT(IdPedido)',
+              'Ticket_Medio: DIVIDE(Total_Ventas, Num_Pedidos)',
+              'Ventas_Año_Anterior, Pct_Variacion_Ventas_YoY, Ventas_YTD and RANKX rankings',
+            ],
+          },
+          {
+            eyebrow: 'Dashboard',
+            title: 'Pages, navigation and interactivity',
+            items: [
+              'Executive Summary',
+              'Products',
+              'Customers and Markets',
+              'Stores and Detail',
+              'Synchronized slicers for Year, Quarter, Category, Brand and Country',
+              'Functional Reset filters bookmark',
+              'Drillthrough from Products to a hidden detail page',
+            ],
+          },
+          {
+            eyebrow: 'Insights',
+            title: 'Main conclusions from the report',
+            metrics: [
+              { label: 'Total sales', value: '55.76 M', description: 'Aggregate analyzed performance.' },
+              { label: 'Total margin', value: '32.66 M', description: 'Estimated gross profit.' },
+              { label: 'Margin %', value: '58.58%', description: 'Stable relative profitability.' },
+              { label: 'Orders YoY', value: '+12.8%', description: 'Growth driven by volume/frequency.' },
+              { label: 'Average ticket YoY', value: '-0.6%', description: 'Slight decrease in average spend per order.' },
+              { label: '2020 sales', value: '-49.1%', description: 'Significant contraction in the period.' },
+            ],
+            body: [
+              'Computers leads the catalog with around 19.30 M, the United States concentrates approximately 23.8 M and the Online channel stands out compared with every individual physical store.',
+            ],
+          },
+        ],
+        notes: [
+          'No GitHub repository is added because the project is delivered as a PBIX, explanatory document and dataset resources.',
+          'The highlighted features come from the provided explanatory document.',
+        ],
+      },
+    },
+  },
   {
     title: 'StatsBomb SQL Analytics',
     slug: 'statsbomb-sql-analytics',

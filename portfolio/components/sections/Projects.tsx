@@ -1,11 +1,13 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useId, useMemo, useRef, useState } from 'react';
 import Section from '@/components/ui/Section';
 import ProjectCard from '@/components/ui/ProjectCard';
 import { fallbackProjects } from '@/lib/data';
 import { useI18n } from '@/lib/i18n';
-import { Search } from 'lucide-react';
+import { ChevronDown, ChevronUp, Search } from 'lucide-react';
+import { useReducedMotion } from 'framer-motion';
+import { getProjectSelection } from '@/lib/project-list';
 import type { Project, ProjectCategory } from '@/types';
 
 interface ProjectsProps {
@@ -28,12 +30,16 @@ export default function Projects({ projects }: ProjectsProps) {
   const allProjects = projects ?? fallbackProjects;
   const [activeCategory, setActiveCategory] = useState<ProjectCategory | 'all'>('all');
   const [search, setSearch] = useState('');
+  const [showAll, setShowAll] = useState(false);
+  const gridId = useId();
+  const filtersRef = useRef<HTMLDivElement>(null);
+  const reduceMotion = useReducedMotion();
 
   const filtered = useMemo(() => {
     return allProjects.filter((project) => {
       const projectCategories = project.categories ?? (project.category ? [project.category] : []);
       const matchesCategory = activeCategory === 'all' || projectCategories.includes(activeCategory);
-      const query = search.toLowerCase();
+      const query = search.trim().toLowerCase();
       const translatedProject = messages.projects.items[project.slug as keyof typeof messages.projects.items];
       const matchesSearch =
         !query ||
@@ -44,6 +50,17 @@ export default function Projects({ projects }: ProjectsProps) {
       return matchesCategory && matchesSearch;
     });
   }, [allProjects, activeCategory, search, messages]);
+
+  const { visible, hasMore } = getProjectSelection(
+    filtered, activeCategory === 'all' && !search.trim(), showAll,
+  );
+
+  function toggleExpanded() {
+    if (showAll && filtersRef.current && filtersRef.current.getBoundingClientRect().top < 80) {
+      filtersRef.current.scrollIntoView({ behavior: reduceMotion ? 'instant' : 'smooth', block: 'start' });
+    }
+    setShowAll((expanded) => !expanded);
+  }
 
   return (
     <Section id="proyectos" className="section-soft">
@@ -56,12 +73,15 @@ export default function Projects({ projects }: ProjectsProps) {
         {messages.projects.intro}
       </p>
 
-      <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+      <div ref={filtersRef} className="mb-8 flex scroll-mt-24 flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div className="flex flex-wrap gap-2">
           {categories.map((category) => (
             <button
               key={category}
-              onClick={() => setActiveCategory(category)}
+              onClick={() => {
+                setActiveCategory(category);
+                setShowAll(false);
+              }}
               aria-pressed={activeCategory === category}
               className={`rounded-lg px-3.5 py-1.5 text-xs font-semibold transition-all duration-200 ${
                 activeCategory === category
@@ -81,16 +101,19 @@ export default function Projects({ projects }: ProjectsProps) {
             placeholder={messages.projects.search}
             aria-label={messages.projects.search}
             value={search}
-            onChange={(event) => setSearch(event.target.value)}
+            onChange={(event) => {
+              setSearch(event.target.value);
+              setShowAll(false);
+            }}
             className="w-full rounded-lg border border-line/10 bg-[rgb(var(--color-card)/0.92)] py-2 pl-9 pr-4 text-sm text-ink placeholder:text-subtle focus:border-accent/50 focus:outline-none focus:ring-2 focus:ring-accent/20 sm:w-64"
           />
         </div>
       </div>
 
       {filtered.length > 0 ? (
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {filtered.map((project, index) => (
-            <ProjectCard key={project.id} project={project} index={index} />
+        <div id={gridId} className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {visible.map((project, index) => (
+            <ProjectCard key={project.slug} project={project} index={index % 6} />
           ))}
         </div>
       ) : (
@@ -102,10 +125,25 @@ export default function Projects({ projects }: ProjectsProps) {
             onClick={() => {
               setActiveCategory('all');
               setSearch('');
+              setShowAll(false);
             }}
             className="mt-3 text-sm font-semibold text-accent-ink hover:underline"
           >
             {messages.projects.clearFilters}
+          </button>
+        </div>
+      )}
+      {hasMore && (
+        <div className="mt-8 flex justify-center">
+          <button
+            type="button"
+            aria-expanded={showAll}
+            aria-controls={gridId}
+            onClick={toggleExpanded}
+            className="btn-secondary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+          >
+            {showAll ? messages.projects.showLess : messages.projects.viewMore}
+            {showAll ? <ChevronUp aria-hidden="true" className="h-4 w-4" /> : <ChevronDown aria-hidden="true" className="h-4 w-4" />}
           </button>
         </div>
       )}

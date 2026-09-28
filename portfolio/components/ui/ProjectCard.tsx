@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import { ArrowUpRight, ExternalLink, FileText, Github, ImageIcon } from 'lucide-react';
 import { useI18n } from '@/lib/i18n';
 import type { Project, ProjectCategory } from '@/types';
@@ -21,6 +21,7 @@ interface ProjectCardProps {
 
 export default function ProjectCard({ project, index }: ProjectCardProps) {
   const { messages } = useI18n();
+  const reduceMotion = useReducedMotion();
   const status = statusConfig[project.status] ?? statusConfig.terminado;
   const [imageFailed, setImageFailed] = useState(false);
   const showImage = Boolean(project.image_url) && !imageFailed;
@@ -31,9 +32,9 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
 
   return (
     <motion.article
-      initial={{ opacity: 0, y: 24 }}
+      initial={{ opacity: 0, y: reduceMotion ? 0 : 12 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4, delay: index * 0.08 }}
+      transition={{ duration: reduceMotion ? 0 : 0.25, delay: reduceMotion ? 0 : Math.min(index, 5) * 0.04 }}
       className="card card-hover group relative flex flex-col overflow-hidden !p-0"
     >
       <Link

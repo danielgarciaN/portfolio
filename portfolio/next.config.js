@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  distDir: process.env.PORTFOLIO_CHECK_DIR || '.next',
   output: 'standalone',
   images: {
     remotePatterns: [
