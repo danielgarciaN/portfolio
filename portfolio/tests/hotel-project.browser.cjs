@@ -19,7 +19,7 @@ async function main() {
     const articles = page.locator('#proyectos article');
     assert.equal(await articles.count(), 6);
     const initialTitles = await articles.locator('h3').allTextContents();
-    assert.deepEqual(initialTitles, ['UNImate', 'LoL Win Prediction', 'TFG - Modulo de Chatbots', 'Global Electronics Retail Analytics', 'Expected Goals xG - StatsBomb', 'StatsBomb SQL Analytics']);
+    assert.deepEqual(initialTitles, ['Global Electronics Retail Analytics', 'Expected Goals xG - StatsBomb', 'StatsBomb SQL Analytics', 'LoL Win Prediction', 'TFG - Modulo de Chatbots', 'Hotel Booking Cancellation Prediction']);
     await page.getByRole('button', { name: es.projects.viewMore, exact: true }).click();
     assert.equal(await articles.count(), 12);
     const card = articles.filter({ has: page.getByRole('heading', { name: 'Hotel Booking Cancellation Prediction', exact: true }) });
@@ -38,7 +38,7 @@ async function main() {
     await page.getByRole('textbox').fill('cancelaciones');
     assert.equal(await card.count(), 1);
     assert.equal(await articles.count(), 1);
-    console.log('PASS: original six, expanded twelve, categories and search');
+    console.log('PASS: ordered six, expanded twelve, categories and search');
 
     const response = await page.goto(root + '/projects/' + slug, { waitUntil: 'networkidle' });
     assert.equal(response.status(), 200);

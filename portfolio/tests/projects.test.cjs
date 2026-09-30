@@ -28,24 +28,26 @@ const { fallbackProjects: projects } = loadTypeScript('lib/data.ts');
 const { projectDossiers } = loadTypeScript('data/projects.ts');
 const { getProjectSelection } = loadTypeScript('lib/project-list.ts');
 const featuredSlugs = [
-  'unimate', 'lol-win-prediction', 'tfg-modulo-chatbots',
   'global-electronics-powerbi', 'expected-goals-xg-statsbomb', 'statsbomb-sql-analytics',
+  'lol-win-prediction', 'tfg-modulo-chatbots', 'hotel-booking-cancellation-ml', 'unimate',
 ];
 
 test('the explicit featured order survives catalog reordering', () => {
   const result = getProjectSelection([...projects].reverse(), true, false);
-  assert.deepEqual(result.visible.map((p) => p.slug), featuredSlugs);
+  assert.equal(result.visible.length, 6);
+  assert.deepEqual(result.visible.map((p) => p.slug), featuredSlugs.slice(0, 6));
+  assert(!result.visible.some((p) => p.slug === 'unimate'));
   assert.equal(result.hasMore, true);
 });
 
-test('expansion retains the first six and reveals every project once', () => {
+test('expansion retains the first seven and reveals every project once', () => {
   const { visible } = getProjectSelection(projects, true, true);
   assert.equal(visible.length, projects.length);
   assert.equal(new Set(visible.map((p) => p.slug)).size, projects.length);
   assert.equal(new Set(projects.map((p) => p.id)).size, projects.length);
-  assert.deepEqual(visible.slice(0, 6).map((p) => p.slug), featuredSlugs);
+  assert.deepEqual(visible.slice(0, 7).map((p) => p.slug), featuredSlugs);
   assert(visible.some((p) => p.slug === 'statistical-sales-analysis'));
-  assert.deepEqual(getProjectSelection(projects, true, false).visible.map((p) => p.slug), featuredSlugs);
+  assert.deepEqual(getProjectSelection(projects, true, false).visible.map((p) => p.slug), featuredSlugs.slice(0, 6));
 });
 
 for (const count of [0, 4, 6, 7]) {
@@ -87,11 +89,12 @@ const hotelSlug = 'hotel-booking-cancellation-ml';
 const hotel = projectDossiers.find((project) => project.slug === hotelSlug);
 const hotelPublic = path.resolve(__dirname, '../public/projects', hotelSlug);
 
-test('the completed hotel project extends the catalog without replacing featured projects', () => {
+test('the completed hotel project is featured sixth without losing other projects', () => {
   assert.equal(projects.length, 12);
   const card = projects.find((project) => project.slug === hotelSlug);
   assert(card && hotel);
-  assert.equal(card.featured, false);
+  assert.equal(card.featured, true);
+  assert.equal(card.featuredOrder, 6);
   assert.equal(card.status, 'terminado');
   assert.deepEqual(card.categories, ['master', 'data-science']);
   assert.equal(card.image_url, hotel.coverImage);

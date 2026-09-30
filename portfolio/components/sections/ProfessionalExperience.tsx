@@ -31,6 +31,9 @@ export default function ProfessionalExperience() {
           const content = messages.timeline.items.find((entry) => entry.id === item.id) ?? item;
           const details = messages.timeline.workDetails[item.id as keyof typeof messages.timeline.workDetails];
           const brand = companyPresentation[item.id];
+          const employment = item.id === 't1'
+            ? messages.timeline.occidentEmployment
+            : item.current ? messages.timeline.employment : undefined;
           const style = { '--company-line': brand?.line ?? '#B8966B', '--company-ink': brand?.ink ?? '#705235', '--company-header': brand?.header ?? '#141414' } as CSSProperties;
           return (
             <article key={item.id} style={style} className="experience-card card card-hover overflow-hidden !p-0">
@@ -43,7 +46,7 @@ export default function ProfessionalExperience() {
                       <TimelineDates item={item} />
                     </div>
                     <h3 className="mt-2 text-xl font-semibold leading-snug sm:text-2xl">{content.title}</h3>
-                    {item.current && <p className="mt-3 text-xs text-muted">{messages.timeline.employment}</p>}
+                    {employment && <p className="mt-3 text-xs text-muted">{employment}</p>}
                   </div>
                 </div>
               </header>

@@ -42,8 +42,8 @@
     ],
     "interests": [
       {
-        "title": "Marvel",
-        "desc": "Stories, connected universes and pop culture as a way to disconnect and think about narrative."
+        "title": "Reading",
+        "desc": "A way to learn, disconnect and discover new ideas and perspectives."
       },
       {
         "title": "Gym",
@@ -591,7 +591,8 @@
     "context": "Project context",
     "focus": "Focus",
     "technologies": "Technologies",
-    "employment": "Full-time · Permanent contract"
+    "employment": "Full-time · Permanent contract",
+    "occidentEmployment": "Part-time · Internship"
   },
   "github": {
     "eyebrow": "Data portfolio",
@@ -610,7 +611,7 @@
     "eyebrow": "Contact",
     "title": "Let's talk",
     "intro": "Have a project or an idea in mind? Let’s talk about data, software and how I can contribute.",
-    "successTitle": "Message sent",
+    "successTitle": "Message sent successfully.",
     "successBody": "Thanks for reaching out. I will reply as soon as possible.",
     "sendAnother": "Send another message",
     "name": "Name",
@@ -621,17 +622,17 @@
     "subjectPlaceholder": "What would you like to discuss?",
     "message": "Message",
     "messagePlaceholder": "Your message...",
-    "error": "Error sending the message. Try again or email me directly.",
+    "error": "The message could not be sent. Please try again.",
     "sending": "Sending...",
     "send": "Send message",
     "also": "You can also find me on",
     "location": "Currently in",
     "locationSuffix": "interested in opportunities to turn data into insights and useful analytical solutions for business.",
     "validation": {
-      "name": "Name must be at least 2 characters.",
+      "name": "Name must be 2-100 characters on a single line.",
       "email": "Enter a valid email address.",
-      "subject": "Subject must be at least 3 characters.",
-      "message": "Message must be at least 10 characters."
+      "subject": "Subject must be 3-160 characters on a single line.",
+      "message": "Message must be 10-5000 characters."
     }
   },
   "footer": {

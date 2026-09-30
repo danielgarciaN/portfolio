@@ -270,6 +270,8 @@ NEXT_PUBLIC_SITE_URL=http://localhost:3000
 
 ## Supabase paso a paso
 
+El formulario de contacto no utiliza Supabase. Su configuración de email se describe en la siguiente sección.
+
 Supabase es opcional. Sin Supabase, la web usa los datos de `lib/data.ts`.
 
 1. Crea una cuenta en Supabase.
@@ -295,6 +297,29 @@ NEXT_PUBLIC_SUPABASE_ANON_KEY=tu-anon-key
    - Guarda sus URLs en la tabla `projects`, campo `image_url`.
 
 Para un portfolio personal sencillo, lo más fácil es guardar imágenes en `public/images/projects`.
+
+## Contacto por email con Resend
+
+El formulario hace `POST /api/contact`. El servidor valida el contenido y envía un email de texto mediante la API HTTPS de Resend, con el email del visitante en `reply_to`. No guarda mensajes en Supabase ni en archivos locales y no abre un cliente de correo.
+
+Configura estas variables en `.env.local` y en Vercel (Settings > Environment Variables, en los entornos donde quieras habilitar contacto) y vuelve a desplegar:
+
+```env
+RESEND_API_KEY=
+CONTACT_EMAIL=
+CONTACT_FROM_EMAIL=
+```
+
+- `RESEND_API_KEY`: clave privada de Resend con permiso de envío. Nunca usar el prefijo `NEXT_PUBLIC_` ni subirla a Git.
+- `CONTACT_EMAIL`: una única dirección válida del buzón donde quieres recibir los mensajes. No se deduce del email público del portfolio ni se corrige automáticamente.
+- `CONTACT_FROM_EMAIL`: dirección de remitente de un dominio verificado en Resend, sin nombre entre corchetes. No usar el email del visitante como remitente; se utiliza `reply_to` para responderle.
+- Las plantillas sin secretos están en `.env.example` y `.env.local.example`. Documentación oficial: [Resend con Next.js](https://resend.com/docs/send-with-nextjs) y [API de envío](https://resend.com/docs/api-reference/emails/send-email).
+
+Sin configuración válida la API responde `503`, y el formulario muestra un error conservando el mensaje. Solo confirma éxito cuando Resend acepta el envío y devuelve un ID; esto no garantiza entrega final al buzón. Comprueba el estado de entrega en Resend y realiza una prueba desde el despliegue configurado.
+
+Protecciones: validación compartida cliente/servidor, límites de longitud, cuerpo de hasta 32 KiB incluso sin Content-Length, control de origen, timeout y honeypot oculto. No hay rate limiting distribuido: si aparece abuso, utiliza los controles de Vercel o añade un almacén compartido. Los tests de la API simulan Resend para no enviar correos reales.
+
+La tabla y las políticas de contacto ya no se incluyen en `supabase/schema.sql`. No se ejecutan borrados sobre una base existente ni sobre archivos de mensajes antiguos; esos datos se conservan para que el propietario decida su archivo o eliminación.
 
 ## Subir el proyecto a GitHub
 

@@ -699,7 +699,7 @@ const rawProjectDossiers: ProjectDossier[] = [
       primary: '#256B4E',
       soft: 'rgba(37, 107, 78, 0.11)',
     },
-    coverImage: '/images/projects/model.jpg',
+    coverImage: '/images/projects/statsbomb-sql-analytics-cover.jpg',
     resources: [
       {
         title: 'Repositorio GitHub',
@@ -1776,7 +1776,7 @@ const rawProjectDossiers: ProjectDossier[] = [
       primary: '#C27A19',
       soft: 'rgba(194, 122, 25, 0.12)',
     },
-    coverImage: '/images/projects/tofu-awards.jpg',
+    coverImage: '/images/projects/tofu-awards-cover.jpg',
     githubUrl: 'https://github.com/danielgarciaN/tofu-awards',
     resources: [
       githubResource('https://github.com/danielgarciaN/tofu-awards'),

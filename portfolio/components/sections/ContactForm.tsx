@@ -1,9 +1,9 @@
 'use client';
 
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import Section from '@/components/ui/Section';
 import { AlertCircle, CheckCircle, Github, Linkedin, Loader2, Mail, Send } from 'lucide-react';
-import { validateContactForm, type ValidationError } from '@/lib/validations';
+import { CONTACT_LIMITS, validateContactForm, type ValidationError } from '@/lib/validations';
 import { personalInfo } from '@/lib/data';
 import { useI18n } from '@/lib/i18n';
 import type { ContactMessage } from '@/types';
@@ -20,6 +20,9 @@ export default function ContactForm() {
   });
   const [errors, setErrors] = useState<ValidationError[]>([]);
   const [status, setStatus] = useState<FormStatus>('idle');
+  const [website, setWebsite] = useState('');
+  const sending = useRef(false);
+  const formRef = useRef<HTMLFormElement>(null);
 
   const fieldError = (field: string) => errors.find((error) => error.field === field)?.message;
 
@@ -27,29 +30,39 @@ export default function ContactForm() {
     const { name, value } = event.target;
     setForm((previous) => ({ ...previous, [name]: value }));
     setErrors((previous) => previous.filter((error) => error.field !== name));
+    if (status === 'error') setStatus('idle');
   };
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
+    if (sending.current) return;
     const validationErrors = validateContactForm(form, messages.contact.validation);
     if (validationErrors.length > 0) {
       setErrors(validationErrors);
+      const firstInvalid = formRef.current?.elements.namedItem(validationErrors[0].field);
+      if (firstInvalid instanceof HTMLElement) firstInvalid.focus();
       return;
     }
 
+    sending.current = true;
     setStatus('sending');
     try {
       const response = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
+        body: JSON.stringify({ ...form, website }),
+        signal: AbortSignal.timeout(20_000),
       });
 
-      if (!response.ok) throw new Error('Error sending message');
+      const result = await response.json();
+      if (!response.ok || result.success !== true) throw new Error('Error sending message');
       setStatus('success');
       setForm({ name: '', email: '', subject: '', message: '' });
+      setWebsite('');
     } catch {
       setStatus('error');
+    } finally {
+      sending.current = false;
     }
   };
 
@@ -71,7 +84,7 @@ export default function ContactForm() {
       <div className="grid gap-12 lg:grid-cols-5">
         <div className="lg:col-span-3">
           {status === 'success' ? (
-            <div className="card flex flex-col items-center py-12 text-center">
+            <div role="status" aria-live="polite" className="card flex flex-col items-center py-12 text-center">
               <CheckCircle className="mb-4 h-10 w-10 text-accent-ink" />
               <h3 className="mb-2 text-lg font-bold text-ink">
                 {messages.contact.successTitle}
@@ -84,7 +97,11 @@ export default function ContactForm() {
               </button>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="space-y-5 rounded-2xl border border-line/10 bg-surface-900 p-5 sm:p-8" noValidate>
+            <form ref={formRef} onSubmit={handleSubmit} aria-busy={status === 'sending'} className="space-y-5 rounded-2xl border border-line/10 bg-surface-900 p-5 sm:p-8" noValidate>
+              <div className="hidden" aria-hidden="true">
+                <label htmlFor="website">Website</label>
+                <input id="website" name="website" type="text" tabIndex={-1} autoComplete="off" value={website} onChange={(event) => setWebsite(event.target.value)} />
+              </div>
               <div className="grid gap-5 sm:grid-cols-2">
                 <div>
                   <label htmlFor="name" className="mb-1.5 block text-xs font-semibold text-muted">
@@ -94,13 +111,20 @@ export default function ContactForm() {
                     id="name"
                     name="name"
                     type="text"
+                    required
+                    autoComplete="name"
+                    minLength={CONTACT_LIMITS.name.min}
+                    maxLength={CONTACT_LIMITS.name.max}
+                    disabled={status === 'sending'}
+                    aria-invalid={Boolean(fieldError('name'))}
+                    aria-describedby={fieldError('name') ? 'name-error' : undefined}
                     value={form.name}
                     onChange={handleChange}
                     placeholder={messages.contact.namePlaceholder}
                     className={inputClasses('name')}
                   />
                   {fieldError('name') && (
-                    <p className="mt-1 text-xs text-red-300">{fieldError('name')}</p>
+                    <p id="name-error" className="mt-1 text-xs text-red-300">{fieldError('name')}</p>
                   )}
                 </div>
                 <div>
@@ -111,13 +135,19 @@ export default function ContactForm() {
                     id="email"
                     name="email"
                     type="email"
+                    required
+                    autoComplete="email"
+                    maxLength={CONTACT_LIMITS.email.max}
+                    disabled={status === 'sending'}
+                    aria-invalid={Boolean(fieldError('email'))}
+                    aria-describedby={fieldError('email') ? 'email-error' : undefined}
                     value={form.email}
                     onChange={handleChange}
                     placeholder={messages.contact.emailPlaceholder}
                     className={inputClasses('email')}
                   />
                   {fieldError('email') && (
-                    <p className="mt-1 text-xs text-red-300">{fieldError('email')}</p>
+                    <p id="email-error" className="mt-1 text-xs text-red-300">{fieldError('email')}</p>
                   )}
                 </div>
               </div>
@@ -130,13 +160,19 @@ export default function ContactForm() {
                   id="subject"
                   name="subject"
                   type="text"
+                  required
+                  minLength={CONTACT_LIMITS.subject.min}
+                  maxLength={CONTACT_LIMITS.subject.max}
+                  disabled={status === 'sending'}
+                  aria-invalid={Boolean(fieldError('subject'))}
+                  aria-describedby={fieldError('subject') ? 'subject-error' : undefined}
                   value={form.subject}
                   onChange={handleChange}
                   placeholder={messages.contact.subjectPlaceholder}
                   className={inputClasses('subject')}
                 />
                 {fieldError('subject') && (
-                  <p className="mt-1 text-xs text-red-300">{fieldError('subject')}</p>
+                  <p id="subject-error" className="mt-1 text-xs text-red-300">{fieldError('subject')}</p>
                 )}
               </div>
 
@@ -148,18 +184,24 @@ export default function ContactForm() {
                   id="message"
                   name="message"
                   rows={5}
+                  required
+                  minLength={CONTACT_LIMITS.message.min}
+                  maxLength={CONTACT_LIMITS.message.max}
+                  disabled={status === 'sending'}
+                  aria-invalid={Boolean(fieldError('message'))}
+                  aria-describedby={fieldError('message') ? 'message-error' : undefined}
                   value={form.message}
                   onChange={handleChange}
                   placeholder={messages.contact.messagePlaceholder}
                   className={`${inputClasses('message')} resize-none`}
                 />
                 {fieldError('message') && (
-                  <p className="mt-1 text-xs text-red-300">{fieldError('message')}</p>
+                  <p id="message-error" className="mt-1 text-xs text-red-300">{fieldError('message')}</p>
                 )}
               </div>
 
               {status === 'error' && (
-                <div className="flex items-center gap-2 rounded-lg bg-red-950/40 px-4 py-3 text-sm text-red-300">
+                <div role="alert" className="flex items-center gap-2 rounded-lg bg-red-950/40 px-4 py-3 text-sm text-red-300">
                   <AlertCircle className="h-4 w-4 shrink-0" />
                   {messages.contact.error}
                 </div>

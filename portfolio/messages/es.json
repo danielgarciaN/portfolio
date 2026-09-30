@@ -42,8 +42,8 @@
     ],
     "interests": [
       {
-        "title": "Marvel",
-        "desc": "Historias, universos conectados y cultura pop como forma de desconectar y pensar en narrativa."
+        "title": "Lectura",
+        "desc": "Una forma de aprender, desconectar y descubrir nuevas ideas y perspectivas."
       },
       {
         "title": "Gym",
@@ -591,7 +591,8 @@
     "context": "Contexto del proyecto",
     "focus": "Enfoque",
     "technologies": "Tecnologías",
-    "employment": "Jornada completa · Contrato indefinido"
+    "employment": "Jornada completa · Contrato indefinido",
+    "occidentEmployment": "Media jornada · Contrato de prácticas"
   },
   "github": {
     "eyebrow": "Data portfolio",
@@ -610,7 +611,7 @@
     "eyebrow": "Contacto",
     "title": "Hablemos",
     "intro": "¿Tienes un proyecto o una idea en mente? Hablemos de datos, software y de cómo puedo aportar.",
-    "successTitle": "Mensaje enviado",
+    "successTitle": "Mensaje enviado correctamente.",
     "successBody": "Gracias por escribirme. Te responderé lo antes posible.",
     "sendAnother": "Enviar otro mensaje",
     "name": "Nombre",
@@ -621,17 +622,17 @@
     "subjectPlaceholder": "¿De qué quieres hablar?",
     "message": "Mensaje",
     "messagePlaceholder": "Tu mensaje...",
-    "error": "Error al enviar. Inténtalo de nuevo o escríbeme directamente por email.",
+    "error": "No se ha podido enviar el mensaje. Inténtalo de nuevo.",
     "sending": "Enviando...",
     "send": "Enviar mensaje",
     "also": "También puedes encontrarme en",
     "location": "Actualmente en",
     "locationSuffix": "con interés en oportunidades donde convertir datos en insights y soluciones analíticas útiles para negocio.",
     "validation": {
-      "name": "El nombre debe tener al menos 2 caracteres.",
+      "name": "El nombre debe tener entre 2 y 100 caracteres, en una sola línea.",
       "email": "Introduce un email válido.",
-      "subject": "El asunto debe tener al menos 3 caracteres.",
-      "message": "El mensaje debe tener al menos 10 caracteres."
+      "subject": "El asunto debe tener entre 3 y 160 caracteres, en una sola línea.",
+      "message": "El mensaje debe tener entre 10 y 5000 caracteres."
     }
   },
   "footer": {

@@ -14,7 +14,8 @@ export const fallbackProjects: Project[] = [
     github_url: 'https://github.com/danielgarciaN/hoteles_evolve',
     image_url: '/images/projects/hotel-booking-cancellation-ml-cover.jpg',
     status: 'terminado',
-    featured: false,
+    featured: true,
+    featuredOrder: 6,
     learnings: [
       'Validación temporal y prevención de data leakage',
       'Selección de modelo y umbral según equilibrio operativo',
@@ -57,7 +58,7 @@ export const fallbackProjects: Project[] = [
     image_url: '/images/projects/global-electronics-powerbi-cover.jpg',
     status: 'terminado',
     featured: true,
-    featuredOrder: 4,
+    featuredOrder: 1,
     learnings: [
       'Flujo completo de Business Intelligence',
       'Power Query y modelado en estrella',
@@ -77,10 +78,10 @@ export const fallbackProjects: Project[] = [
     category: 'master',
     technologies: ['SQL', 'MySQL', 'Data Modeling', 'Data Analysis', 'Business Intelligence'],
     github_url: 'https://github.com/danielgarciaN/player-match-stats-sql',
-    image_url: '/images/projects/model.jpg',
+    image_url: '/images/projects/statsbomb-sql-analytics-cover.jpg',
     status: 'terminado',
     featured: true,
-    featuredOrder: 6,
+    featuredOrder: 3,
     learnings: [
       'Modelado relacional y normalizacion',
       'SQL avanzado con CTEs, vistas y funciones ventana',
@@ -125,7 +126,7 @@ export const fallbackProjects: Project[] = [
     github_url: 'https://github.com/danielgarciaN/xG-statsbomb-master',
     status: 'terminado',
     featured: true,
-    featuredOrder: 5,
+    featuredOrder: 2,
     learnings: [
       'Modelado de Expected Goals',
       'Feature engineering futbolístico',
@@ -147,7 +148,7 @@ export const fallbackProjects: Project[] = [
     image_url: '/images/projects/tfg-agentes-conversacionales-iatech.jpg',
     status: 'terminado',
     featured: true,
-    featuredOrder: 3,
+    featuredOrder: 5,
     learnings: [
       'Diseño de arquitecturas parametrizables',
       'Validación de soluciones mediante Proof of Concept',
@@ -191,7 +192,7 @@ export const fallbackProjects: Project[] = [
     image_url: '/images/projects/lol-win-prediction.jpg',
     status: 'terminado',
     featured: true,
-    featuredOrder: 2,
+    featuredOrder: 4,
     learnings: [
       'Feature engineering aplicado a datos competitivos',
       'Prevención de data leakage',
@@ -232,7 +233,7 @@ export const fallbackProjects: Project[] = [
     categories: ['web-app'],
     technologies: ['JavaScript', 'CSS', 'HTML', 'Firebase', 'GitHub Actions'],
     github_url: 'https://github.com/danielgarciaN/tofu-awards',
-    image_url: '/images/projects/tofu-awards.jpg',
+    image_url: '/images/projects/tofu-awards-cover.jpg',
     status: 'terminado',
     featured: false,
     learnings: [
@@ -256,7 +257,7 @@ export const fallbackProjects: Project[] = [
     image_url: '/images/projects/unimate.JPG',
     status: 'terminado',
     featured: true,
-    featuredOrder: 1,
+    featuredOrder: 7,
     learnings: [
       'Trabajo con repositorio compartido',
       'Diseño centrado en comunidad universitaria',

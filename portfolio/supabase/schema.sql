@@ -50,16 +50,6 @@ CREATE TABLE experiences (
   created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
 
-CREATE TABLE contact_messages (
-  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
-  name TEXT NOT NULL,
-  email TEXT NOT NULL,
-  subject TEXT NOT NULL,
-  message TEXT NOT NULL,
-  read BOOLEAN NOT NULL DEFAULT false,
-  created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
-);
-
 CREATE TABLE links (
   id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
   platform TEXT NOT NULL,
@@ -93,10 +83,6 @@ CREATE POLICY "Public read skills" ON skills FOR SELECT USING (true);
 
 ALTER TABLE experiences ENABLE ROW LEVEL SECURITY;
 CREATE POLICY "Public read experiences" ON experiences FOR SELECT USING (true);
-
-ALTER TABLE contact_messages ENABLE ROW LEVEL SECURITY;
-CREATE POLICY "Anyone can send messages" ON contact_messages FOR INSERT WITH CHECK (true);
-CREATE POLICY "Authenticated read messages" ON contact_messages FOR SELECT USING (auth.role() = 'authenticated');
 
 ALTER TABLE links ENABLE ROW LEVEL SECURITY;
 CREATE POLICY "Public read links" ON links FOR SELECT USING (true);
