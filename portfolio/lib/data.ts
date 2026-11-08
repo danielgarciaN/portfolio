@@ -2,6 +2,51 @@ import type { Project, SkillCategory, TimelineItem } from '@/types';
 
 export const fallbackProjects: Project[] = [
   {
+    id: '14',
+    title: 'MILO — AI Nutrition Chef',
+    slug: 'milo-ai-nutrition-chef',
+    description:
+      'Agente RAG de cocina y nutrición con Gemini, ChromaDB y LangGraph: responde con sus propios documentos, calcula macros con datos USDA mediante herramientas Python y recuerda la conversación.',
+    long_description:
+      'Proyecto final del módulo de IA Generativa del máster. 3 documentos (83 fragmentos) indexados con gemini-embedding-001 en ChromaDB, un grafo LangGraph recuperar → Gemini ⇄ 8 herramientas deterministas, memoria persistente con SqliteSaver, 121 alimentos USDA, 36 recetas, web Streamlit desplegada y 98 pruebas automáticas.',
+    categories: ['master', 'data-science'],
+    technologies: ['Gemini', 'RAG', 'ChromaDB', 'LangGraph', 'Streamlit', 'Python'],
+    github_url: 'https://github.com/danielgarciaN/milo_cooking_agent',
+    demo_url: 'https://milocookingagent.streamlit.app',
+    image_url: '/images/projects/milo-ai-nutrition-chef-cover.jpg',
+    status: 'terminado',
+    featured: true,
+    featuredOrder: 3,
+    learnings: [
+      'RAG completo: chunking, embeddings, ChromaDB y citas',
+      'Orquestación de agentes con LangGraph y herramientas',
+      'Memoria persistente por conversación con SQLite',
+      'Cálculo determinista en Python en lugar del LLM',
+    ],
+    created_at: '2026-11-08',
+  },
+  {
+    id: '13',
+    title: 'Diagnóstico de Marca Empleadora con NLP',
+    slug: 'glassdoor-employer-brand-nlp',
+    description:
+      'NLP sobre 47.450 reseñas de Glassdoor para diagnosticar a Deutsche Bank como empleador frente a cuatro bancos globales, con DistilBERT, MiniLM y BERTopic.',
+    long_description:
+      'Caso práctico de NLP del máster. EDA, control de sentimiento con DistilBERT, topic modeling con BERTopic (UMAP + HDBSCAN + c-TF-IDF), categorías de RRHH y comparación con peers. La conciliación es la fortaleza más consistente (+5,62 pp); compensación (−4,15 pp) y carrera (−2,25 pp) se priorizan para investigar.',
+    categories: ['master', 'data-science'],
+    technologies: ['Python', 'Transformers', 'BERTopic', 'Sentence-Transformers', 'Pandas'],
+    image_url: '/images/projects/glassdoor-employer-brand-nlp-cover.jpg',
+    status: 'terminado',
+    featured: false,
+    learnings: [
+      'Transformers preentrenados para leer texto a escala',
+      'Topic modeling con embeddings, UMAP y HDBSCAN',
+      'Traducir topics a categorías de negocio revisables',
+      'Comparación con peers sin asumir causalidad',
+    ],
+    created_at: '2026-10-16',
+  },
+  {
     id: '12',
     title: 'Hotel Booking Cancellation Prediction',
     slug: 'hotel-booking-cancellation-ml',
@@ -80,8 +125,7 @@ export const fallbackProjects: Project[] = [
     github_url: 'https://github.com/danielgarciaN/player-match-stats-sql',
     image_url: '/images/projects/statsbomb-sql-analytics-cover.jpg',
     status: 'terminado',
-    featured: true,
-    featuredOrder: 3,
+    featured: false,
     learnings: [
       'Modelado relacional y normalizacion',
       'SQL avanzado con CTEs, vistas y funciones ventana',

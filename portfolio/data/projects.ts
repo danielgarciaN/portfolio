@@ -2,6 +2,8 @@ import { existsSync } from 'node:fs';
 import path from 'node:path';
 import type { ProjectDossier, ProjectGalleryImage, ProjectResource, ProjectVideo } from '@/types';
 import { hotelBookingCancellationDossier } from './hotel-booking-cancellation';
+import { miloAiNutritionChefDossier } from './milo-ai-nutrition-chef';
+import { glassdoorEmployerBrandNlpDossier } from './glassdoor-employer-brand-nlp';
 
 const tfgBasePath = '/projects/tfg-modulo-chatbots';
 const projectBasePath = (slug: string) => `/projects/${slug}`;
@@ -83,6 +85,8 @@ function githubResource(url: string) {
 }
 
 const rawProjectDossiers: ProjectDossier[] = [
+  miloAiNutritionChefDossier,
+  glassdoorEmployerBrandNlpDossier,
   hotelBookingCancellationDossier,
   {
     title: 'Statistical Sales Analysis',

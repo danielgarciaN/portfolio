@@ -4,7 +4,7 @@ const path = require('node:path');
 const { chromium } = require(process.env.PLAYWRIGHT_MODULE || 'playwright');
 const dictionaries = { es: require('../messages/es.json'), en: require('../messages/en.json') };
 const root = process.env.TEST_BASE_URL || 'http://127.0.0.1:3000';
-const featured = ['global-electronics-powerbi', 'expected-goals-xg-statsbomb', 'statsbomb-sql-analytics', 'lol-win-prediction', 'tfg-modulo-chatbots', 'hotel-booking-cancellation-ml', 'unimate'];
+const featured = ['global-electronics-powerbi', 'expected-goals-xg-statsbomb', 'milo-ai-nutrition-chef', 'lol-win-prediction', 'tfg-modulo-chatbots', 'hotel-booking-cancellation-ml', 'unimate'];
 
 async function main() {
   const browser = await chromium.launch({ channel: process.platform === 'win32' ? 'msedge' : undefined, headless: true });
@@ -43,9 +43,9 @@ async function main() {
       assert.equal(await more.getAttribute('aria-expanded'), 'false');
       await more.focus();
       await page.keyboard.press('Enter');
-      assert.equal(await articles.count(), 12);
+      assert.equal(await articles.count(), 14);
       assert.deepEqual((await slugs()).slice(0, 7), featured);
-      assert.equal(new Set(await slugs()).size, 12);
+      assert.equal(new Set(await slugs()).size, 14);
       assert((await slugs()).includes('statistical-sales-analysis'));
       for (const slug of ['tofu-awards', 'statsbomb-sql-analytics', 'expected-goals-xg-statsbomb']) {
         const img = articles.filter({ has: page.locator(`a[href="/projects/${slug}"]`) }).locator('img');
@@ -59,7 +59,8 @@ async function main() {
       for (const category of ['data-analytics', 'master']) {
         await projects.getByRole('button', { name: messages.projects.categories[category], exact: true }).click();
         assert((await slugs()).includes('statistical-sales-analysis'));
-        assert.equal(await projects.getByRole('button', { name: messages.projects.viewMore, exact: true }).count(), 0);
+        // Master now has 7 projects (MILO and NLP added), so it gets its own "view more" toggle.
+        assert.equal(await projects.getByRole('button', { name: messages.projects.viewMore, exact: true }).count(), category === 'master' ? 1 : 0);
       }
       await projects.getByRole('button', { name: messages.projects.categories.all, exact: true }).click();
       await projects.getByRole('textbox').fill('Statistical');

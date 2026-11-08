@@ -28,7 +28,7 @@ const { fallbackProjects: projects } = loadTypeScript('lib/data.ts');
 const { projectDossiers } = loadTypeScript('data/projects.ts');
 const { getProjectSelection } = loadTypeScript('lib/project-list.ts');
 const featuredSlugs = [
-  'global-electronics-powerbi', 'expected-goals-xg-statsbomb', 'statsbomb-sql-analytics',
+  'global-electronics-powerbi', 'expected-goals-xg-statsbomb', 'milo-ai-nutrition-chef',
   'lol-win-prediction', 'tfg-modulo-chatbots', 'hotel-booking-cancellation-ml', 'unimate',
 ];
 
@@ -90,7 +90,7 @@ const hotel = projectDossiers.find((project) => project.slug === hotelSlug);
 const hotelPublic = path.resolve(__dirname, '../public/projects', hotelSlug);
 
 test('the completed hotel project is featured sixth without losing other projects', () => {
-  assert.equal(projects.length, 12);
+  assert.equal(projects.length, 14);
   const card = projects.find((project) => project.slug === hotelSlug);
   assert(card && hotel);
   assert.equal(card.featured, true);
@@ -153,3 +153,63 @@ test('published hotel dataset and figures match the supplied executed notebook',
   const finalResults = hotel.translations.en.detailSections.find((section) => section.eyebrow === 'Final results');
   assert.deepEqual(finalResults.metrics.map((metric) => metric.value), ['0.8914', '68.2%', '89.0%', '77.3%', '52.9%', '31.8%']);
 });
+
+const newProjects = {
+  'milo-ai-nutrition-chef': { featured: true, featuredOrder: 3 },
+  'glassdoor-employer-brand-nlp': { featured: false },
+};
+
+test('MILO replaces StatsBomb SQL in the six featured cards; StatsBomb and NLP stay reachable', () => {
+  const statsbomb = projects.find((p) => p.slug === 'statsbomb-sql-analytics');
+  assert(statsbomb && statsbomb.featured === false && statsbomb.featuredOrder === undefined);
+  const initial = getProjectSelection(projects, true, false).visible.map((p) => p.slug);
+  assert.equal(initial.length, 6);
+  assert(initial.includes('milo-ai-nutrition-chef'));
+  assert(!initial.includes('statsbomb-sql-analytics') && !initial.includes('glassdoor-employer-brand-nlp'));
+  const expanded = getProjectSelection(projects, true, true).visible.map((p) => p.slug);
+  for (const slug of ['statsbomb-sql-analytics', 'glassdoor-employer-brand-nlp', 'statistical-sales-analysis']) assert(expanded.includes(slug), slug);
+  for (const category of ['master', 'data-science']) {
+    const matches = projects.filter((p) => (p.categories ?? [p.category]).includes(category));
+    const visible = getProjectSelection(matches, false, true).visible.map((p) => p.slug);
+    assert(visible.includes('glassdoor-employer-brand-nlp') && visible.includes('milo-ai-nutrition-chef'), category);
+  }
+});
+
+for (const [slug, expected] of Object.entries(newProjects)) {
+  test(slug + ' card, dossier, assets and translations are consistent', () => {
+    const card = projects.find((p) => p.slug === slug);
+    const dossier = projectDossiers.find((p) => p.slug === slug);
+    assert(card && dossier);
+    assert.equal(card.featured, expected.featured);
+    assert.equal(card.featuredOrder, expected.featuredOrder);
+    assert.equal(card.status, 'terminado');
+    assert.deepEqual(card.categories, ['master', 'data-science']);
+    assert.equal(card.image_url, dossier.coverImage);
+    assert(card.image_url.endsWith('-cover.jpg'));
+    assert(fs.existsSync(path.resolve(__dirname, '../public' + card.image_url)));
+    const en = dossier.translations.en;
+    assert.equal(dossier.detailSections.length, en.detailSections.length);
+    for (const localized of [dossier, en]) {
+      assert.equal(new Set(localized.detailSections.map((s) => s.title)).size, localized.detailSections.length);
+      for (const section of localized.detailSections) {
+        assert(section.title && (section.body?.length || section.items?.length || section.metrics?.length || section.steps?.length));
+        if (section.image) assert(fs.existsSync(path.resolve(__dirname, '../public' + section.image.src)), section.image.src);
+      }
+      assert.equal(localized.resources.length, dossier.resources.length);
+      for (const resource of localized.resources) {
+        assert(resource.title && resource.description && resource.url);
+        if (resource.url.startsWith('/')) assert(fs.existsSync(path.resolve(__dirname, '../public' + resource.url)), resource.url);
+      }
+      for (const image of localized.gallery ?? []) assert(fs.existsSync(path.resolve(__dirname, '../public' + image.src)), image.src);
+    }
+    for (const video of dossier.videos) {
+      assert(fs.existsSync(path.resolve(__dirname, '../public' + video.url)));
+      assert(fs.existsSync(path.resolve(__dirname, '../public' + video.poster)));
+    }
+    for (const locale of ['es', 'en']) {
+      const messages = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../messages', locale + '.json')));
+      assert.equal(messages.projects.items[slug].title, locale === 'es' ? dossier.title : en.title);
+      assert(messages.projects.items[slug].description.length > 30);
+    }
+  });
+}

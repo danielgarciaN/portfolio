@@ -404,6 +404,14 @@
       "details": "Explorar proyecto"
     },
     "items": {
+      "milo-ai-nutrition-chef": {
+        "title": "MILO — AI Nutrition Chef",
+        "description": "Agente RAG de cocina y nutrición con Gemini, ChromaDB y LangGraph: responde con sus propios documentos, calcula macros con datos USDA mediante herramientas Python y recuerda la conversación."
+      },
+      "glassdoor-employer-brand-nlp": {
+        "title": "Diagnóstico de Marca Empleadora con NLP",
+        "description": "NLP sobre 47.450 reseñas de Glassdoor para diagnosticar a Deutsche Bank como empleador frente a cuatro bancos globales, con DistilBERT, MiniLM y BERTopic."
+      },
       "hotel-booking-cancellation-ml": {
         "title": "Hotel Booking Cancellation Prediction",
         "description": "Predicción de cancelaciones hoteleras con Machine Learning, validación temporal, selección de umbral e interpretabilidad SHAP."

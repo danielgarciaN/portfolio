@@ -27,7 +27,10 @@ export default function ProjectDetailPage({ project }: ProjectDetailPageProps) {
           technologies: project.technologies,
           resources: project.translations.en.resources ?? project.resources,
           gallery: project.translations.en.gallery ?? project.gallery,
-          videos: project.videos,
+          // Translated titles/descriptions only; the dossier's normalized videos stay the source of truth.
+          videos: project.translations.en.videos
+            ? project.videos.map((video, index) => ({ ...video, ...project.translations?.en?.videos?.[index], url: video.url, poster: video.poster }))
+            : project.videos,
           notes: project.translations.en.notes ?? project.notes,
           detailSections: project.translations.en.detailSections ?? project.detailSections,
         }

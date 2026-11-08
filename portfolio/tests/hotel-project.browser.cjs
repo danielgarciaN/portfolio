@@ -19,9 +19,9 @@ async function main() {
     const articles = page.locator('#proyectos article');
     assert.equal(await articles.count(), 6);
     const initialTitles = await articles.locator('h3').allTextContents();
-    assert.deepEqual(initialTitles, ['Global Electronics Retail Analytics', 'Expected Goals xG - StatsBomb', 'StatsBomb SQL Analytics', 'LoL Win Prediction', 'TFG - Modulo de Chatbots', 'Hotel Booking Cancellation Prediction']);
+    assert.deepEqual(initialTitles, ['Global Electronics Retail Analytics', 'Expected Goals xG - StatsBomb', 'MILO — AI Nutrition Chef', 'LoL Win Prediction', 'TFG - Modulo de Chatbots', 'Hotel Booking Cancellation Prediction']);
     await page.getByRole('button', { name: es.projects.viewMore, exact: true }).click();
-    assert.equal(await articles.count(), 12);
+    assert.equal(await articles.count(), 14);
     const card = articles.filter({ has: page.getByRole('heading', { name: 'Hotel Booking Cancellation Prediction', exact: true }) });
     assert.equal(await card.count(), 1);
     for (const category of ['master', 'data-science']) assert((await card.innerText()).includes(es.projects.categories[category]));
